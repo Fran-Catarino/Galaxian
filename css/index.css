@@ -1,0 +1,11 @@
+body {
+    background-image: url(../media/Fondo.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 1500px;
+}
+
+h1 {
+    text-align: center;
+    
+}
