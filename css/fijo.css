@@ -1,0 +1,22 @@
+header {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 20% 50% 15%;
+    margin: 0 auto;
+    grid-template-rows: 50px;
+    justify-content: 10% 5%;
+    margin-bottom: 10px;
+    background-color: blueviolet;
+}
+
+img.logo {
+    display: block;
+    width: 100%;
+}
+
+h2.buscador {
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.795);
+}
