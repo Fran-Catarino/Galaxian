@@ -123,17 +123,3 @@ a.nombre{
 	left: 7px;
 	color: ivory;
 }
-
-footer{
-	background-color: black;
-	margin-bottom: 0;
-	display: grid;
-	grid-template-columns: 30% auto auto auto;
-	justify-content: space-between;
-	height: 80px;
-	margin-top: 15px;
-}
-footer ul li{
-	font-family: sans-serif;
-	color: ivory;
-}

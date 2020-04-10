@@ -1,5 +1,5 @@
 header {
-    width: 80%;
+    width: 100%;
     display: grid;
     grid-template-columns: 20% 50% 15%;
     margin: 0 auto;
@@ -7,6 +7,9 @@ header {
     justify-content: 10% 5%;
     margin-bottom: 10px;
     background-color: blueviolet;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 img.logo {
@@ -19,4 +22,20 @@ h2.buscador {
     text-transform: uppercase;
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.795);
+}
+
+------------------------------------------------------------------------
+
+footer{
+	background-color: black;
+	margin-bottom: 0;
+	display: grid;
+	grid-template-columns: 30% auto auto auto;
+	justify-content: space-between;
+	height: 80px;
+	margin-top: 15px;
+}
+footer ul li{
+	font-family: sans-serif;
+	color: ivory;
 }
