@@ -3,7 +3,9 @@ body{
     background-repeat: no-repeat;
     align-content:center ;
     background-position: center;
+    margin-top: 70px;
 }
+
 
 .titulo {
     display: block;
@@ -31,7 +33,7 @@ body{
 article.cancion{ 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40px;
+    grid-template-rows: 20px;
     margin-top: 5px;
 }
 
@@ -45,4 +47,10 @@ h2{
     color: gray;
     text-align: right;
     font-size: small;
+}
+h3{
+    color: greenyellow;
+    text-align: left;
+    padding-left: 10px;
+    
 }
