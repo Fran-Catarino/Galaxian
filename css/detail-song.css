@@ -1,0 +1,35 @@
+header{
+    position: relative;
+}
+body{
+    margin: 0 0;
+}
+
+.more-options ul{
+    display: none;
+}
+
+.more-options:hover ul{
+    display: block;
+}
+
+.botones{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: right;
+    gap: 10px;
+}
+
+.more-options ul li{
+    list-style: none;
+}
+
+.photo-container img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.songs{
+    display: grid;
+    grid-template-columns: 10% 70% 15%;
+}
