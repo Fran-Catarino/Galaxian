@@ -31,6 +31,7 @@ nav.main-nav {
     background-color: black;
     padding: 10px;
     margin: auto 0;
+    margin-left: 51%;
     display: block;
     height: 40%;
     width: 20px;
@@ -42,6 +43,31 @@ ul.navegacion {
 
 nav.main-nav:hover ul.navegacion {
     display: block;
+}
+
+a.toggle-nav {
+    text-align: center;
+}
+
+ul.navegacion {
+    padding-left: none;
+    position: absolute;
+    top: 45px;
+    right: 0px;
+}
+
+ul.navegacion li {
+    list-style-type: none;
+    text-align: right;
+    background-color: #59595938;
+    margin-top: 5px;
+    padding: 8px;
+    text-transform: uppercase;
+}
+
+ul.navegacion li a {
+    text-decoration: none;
+    color: hotpink;
 }
 
 ------------------------------------------------------------------------
