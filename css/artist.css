@@ -1,8 +1,8 @@
-header{
-    position: relative;
-}
 body{
     margin: 0 0;
+}
+header{
+    position: relative;
 }
 
 .more-options ul{
