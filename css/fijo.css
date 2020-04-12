@@ -31,7 +31,7 @@ nav.main-nav {
     background-color: black;
     padding: 10px;
     margin: auto 0;
-    margin-left: 51%;
+    margin-left: auto;
     display: block;
     height: 40%;
     width: 20px;
@@ -69,8 +69,6 @@ ul.navegacion li a {
     text-decoration: none;
     color: hotpink;
 }
-
-------------------------------------------------------------------------
 
 footer{
 	background-color: black;

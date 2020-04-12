@@ -1,0 +1,43 @@
+section.genders {
+    background-color: rgba(128, 128, 128, 0.400);
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+div.mase article {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    justify-content: space-between;
+    margin: auto auto;
+
+}
+
+img.generos {
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-bottom: 5px;
+}
+
+h1.generos {
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+div.todos article {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    justify-content: space-between;
+    margin: auto auto;    
+}
+li.generos:hover section.genders {
+    display: block;
+}
