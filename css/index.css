@@ -43,7 +43,8 @@ table {
 }
 
 body {
-    font-family: sans-serif;
+	font-family: sans-serif;
+	background-color: #0c0807;
 }
 
 img{
@@ -51,7 +52,7 @@ img{
 }
 
 .banner{
-	background-image: url(../media/raychan--zn4jRnnVlE-unsplash.jpg);
+	background-image: url(../media/Fondos/Bener.jpg);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-size: cover;
