@@ -1,6 +1,9 @@
 body{
     margin: 0 0;
+    background-color:  #0c0807;
+    color: ivory;
 }
+
 header{
     position: relative;
 }
@@ -18,18 +21,99 @@ header{
     grid-template-columns: auto auto;
     justify-content: right;
     gap: 10px;
+    margin-right: 10px;
 }
-
+.botones a{
+    display: block;
+    color: ivory;
+    text-decoration: none;
+    font-family: 'Spartan', sans-serif;
+}
 .more-options ul li{
     list-style: none;
 }
 
 .photo-container img{
-    width: 100%;
+    width: 60%;
     border-radius: 50%;
+    border: #2f9bc1 solid 3px;
+    display: block;
+    margin: 0 auto;
+}
+.discografia h1{
+    font-family: 'Spartan', sans-serif;
+    text-align: center;
+    font-size: 35px;
+}
+
+.boton-play{
+    background-color: #2f9bc1;
+    height: 33px;
+    width: 150px;
+    margin: 20px auto;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 15% auto;
+    margin-bottom: 60px;
+
+}
+.boton-play a{
+    text-decoration: none;
+    color: #0c0807;
+    font-family: 'Spartan', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    font-weight: bolder;
+    padding: 10px;
+    padding-left: 5px;
+}
+.boton-play i{
+    color: black;
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-left: 13px;
+}
+
+.discografia{
+    background-image: linear-gradient(black, rgb(58, 56, 56), rgb(71, 66, 66));
 }
 
 .songs{
     display: grid;
     grid-template-columns: 10% 70% 15%;
+    justify-content: space-around;
+}
+
+.top5-songs{
+    font-family: sans-serif;
+}
+.songs h3{
+    display: block;
+    margin: auto;
+    font-weight: lighter;
+    color: grey;
+}
+.songs h4{
+    display: block;
+    margin: auto;
+    font-weight: normal;
+    color: rgb(197, 197, 197);
+    height: auto;
+}
+.songs h5{
+    display: block;
+    margin: 0;
+    font-weight: lighter;
+    font-size: 12px;
+}
+.songs div{
+    height: 60px;
+}
+.songs h2{
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 4px;
 }
