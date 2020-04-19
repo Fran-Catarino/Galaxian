@@ -79,11 +79,13 @@ img{
 .rankings{
 	width: 88%;
 	margin: 0 auto;
-	margin-top: 10px;
+	margin-top: 25px;
 }
 
 .rankings h2{
 	font-size: 20px;
+	color: ivory;
+	text-transform: uppercase;
 }
 
 .rankings section{
@@ -119,7 +121,7 @@ a.nombre{
 	justify-content: space-between;
 	padding: 10px;
 	border-top: solid 0.5px gray;
-	background-color:rgba(192,192,192,0.1);
+	background-color:rgba(255, 240, 240, 0.301);
 }
 .item1{
 	border-top: none;
