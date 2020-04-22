@@ -1,6 +1,6 @@
 body{
     margin: 0 0;
-    background-color:  #0c0807;
+    background-color: #0c0807;
     color: ivory;
 }
 
@@ -12,12 +12,16 @@ header{
 .titulo{
     display: block;
     margin-left: auto;
+    margin-top: 65px;
+    margin-bottom: 30px;
     text-align: center;
     font-size: 70px;
+    font-family:'Bangers', cursive;;
 }
 .imagen{
     display: block;
     width: 100%;
+    padding-top: 0px;
 }
 
 .imagen img{
