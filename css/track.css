@@ -1,3 +1,10 @@
+body{
+    margin: 0 0;
+    background-color:  #0c0807;
+    color: ivory;
+}
+
+
 header{
     position: relative;
 }
@@ -20,13 +27,14 @@ header{
     padding-left: 15%;
 }
 
-.pausa{
+.acciones{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 40px;
     font-size: 30px;
     text-align: center;
 }
+.pausa{color: white;}
 
 .recomendadas{
     margin-top: 80px;

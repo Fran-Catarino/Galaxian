@@ -1,10 +1,10 @@
 body{
-    background-image: url(../media/FondoAzul.jpg);
-    background-repeat: no-repeat;
-    align-content:center ;
-    background-position: center;
-    margin-top: 70px;
+    margin: 0 0;
+    background-color:  #0c0807;
+    color: ivory;
 }
+.Container{margin-top: 70px;}
+
 
 
 .titulo {
