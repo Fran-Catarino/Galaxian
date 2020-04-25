@@ -1,11 +1,6 @@
 body{
     margin: 0 0;
     background-color:  #0c0807;
-    color: ivory;
-}
-
-header{
-    position: relative;
 }
 
 .more-options ul{
@@ -90,6 +85,15 @@ header{
 .top5-songs{
     font-family: sans-serif;
 }
+.songs h2{
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+
+}
 .songs h3{
     display: block;
     margin: auto;
@@ -104,10 +108,14 @@ header{
     height: auto;
 }
 .songs h5{
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     display: block;
     margin: 0;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 12px;   
 }
 .songs div{
     height: 60px;
@@ -116,4 +124,7 @@ header{
     display: block;
     margin-bottom: 4px;
     margin-top: 4px;
+}
+.container{
+    margin-top: 78px;
 }
