@@ -142,3 +142,19 @@ a.nombre{
 	left: 7px;
 	color: ivory;
 }
+.nav-bigscreen{
+	display: none;
+}
+
+@media (min-width: 1024px){
+	
+	.nav-bigscreen{
+		background-color: red;
+		display: block;
+	}
+
+	main{
+		display: grid;
+		grid-template-columns: 20% 80%;
+	}
+}
