@@ -24,6 +24,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+    width: 100%;
 	line-height: 1;
 }
 ol, ul {
@@ -37,6 +38,7 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -50,7 +52,7 @@ body {
 header{
     width: 94%;
     display: grid;
-    grid-template-columns: 15% 70% 10%;
+    grid-template-columns: 15% 65% 15%;
     margin: 0 auto;
     grid-template-rows: 50px;
     justify-content: space-around;
