@@ -2,42 +2,62 @@ body{
     margin: 0 0;
     background-color:  #0c0807;
 }
-.Container{margin-top: 70px;}
-
-.titulo {
-    display: block;
-    font: size 40px;
-    text-align: center;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 30px;
-    width: 100%;
-}
+.Container{
+    margin: 5px;
+    margin-top: 70px;}
 
 .imagen{
     display: block;
     width: 70%;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: auto;
+    padding-top: 25px;
+    margin-bottom: 20px;
 }
-
 .imagen img{
     width: 100%;
-    margin: 0 auto;
 } 
-
+a {text-decoration: none;
+color: white;}
+.tituloyagregar {
+    display: grid;
+    grid-template-columns: 80% 15%;
+    justify-content: space-between;
+    grid-template-rows: 50px;
+    margin-bottom: 40px;
+}
+.titulo {
+    display: block;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border: solid 3px white;
+}
+.agregar-cancion {
+    text-align: center;
+    color:yellow;
+    font-size: 25px;
+    border: solid 3px yellow;
+}
+.agregar-cancion i{
+    padding-top: 6px;
+}
 .cancion{ 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40px;
+    grid-template-rows: 30px 20px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px white;
 }
+
 
 .nombre{
     color: white;
     text-align: left;
+    padding-top: 0 auto;
     padding-left: 10px;
-    font-size: 30px;
+    font-size: 25px;
+    
 }
 
 .duracion{
@@ -46,7 +66,7 @@ body{
     font-size: small;
 }
 .artista{
-    color: greenyellow;
+    color: yellow;
     text-align: left;
     padding-left: 10px;
 }
@@ -58,71 +78,6 @@ p{
 }
 .album{
     display: none;
-}
-@media only screen and (min-width: 768px)
-{
-.tablet {
-    display: flex;
-    flex-direction: row-reverse;
-    
-}
-.titulo{
-    text-align: left;
-    padding-left: 20px;
-    font-size: 70px;
-}
-
-.explicacion {
-    display: grid;
-    grid-template-columns: 40% 10% 25% 25%;
-    grid-template-rows: 70px;
-    color:gray;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
-.explicacion p {
-    text-decoration: none;
-    text-align: center;
-    font-size: 40px;
-}
-.explicacion .title {
-    text-align: left;
-    padding-left: 40px;
-}
-
-.cancion{
-    display: grid;
-    grid-template-columns: 40% 10% 25% 25%;
-    grid-template-rows: 40px 40px 40px 40px40px;
-    background-color: tomato;
-    
-}
-.cancion .nombre {
-    text-align: left;
-    color: white;
-    padding-left: 40px;
-    box-sizing: border-box;
-    font-size: 12px;
-}
-.cancion p{
-    text-align: center;
-    color: white;
-    box-sizing: border-box;
-    font-size: 12px;
-}
-.album {
-    display: block;
-    text-align: center;
-    box-sizing: border-box;
-}
-    
-}
-@media only screen and (min-width: 1024px){
-.imagen img{
-    border-radius: 50%!important;
-}
-
 }
 
 
