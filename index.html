@@ -9,6 +9,13 @@
     <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/genders.css">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit-icons.min.js"></script>
 </head>
 
 <body>
@@ -47,67 +54,107 @@
                 </ul>
             </nav>
 
-            <section id="rankings">
-                <section class=" rankings tracksList">
-                    <h2>Top 5 canciones del momento</h2>
-                    <article class="item songs item1">
-                        <div class="photo-container">
-                            <a href="#"><img src="media/trackList/song-1.jpg" alt="song N°1"></a> 
-                            <i class="fas fa-play-circle"></i>
+            <section class="charts">
+
+                <h2 class="section-title">Charts</h2>
+
+                <section class="rankings">
+                    <h2>Today's top tracks</h2>
+                    <div class="rankingArg">
+                        <div class="image-container">
+                            <a href="#"><img src="media/trackList/top tracks.PNG" alt="Top 100 Argentina"></a>
+                            <div class="info-trackList">
+                                <h3>Top Argentina</h3>
+                                <p>100 tracks - 218 368 fans</p>
+                            </div>
                         </div>
-                        <div class="info">
-                            <a href="track.html" class="nombre">Nombre de la canción</a>
-                            <a href="artist.html" class="artist">de ARTISTA</a>
+                        <div class="tracks">
+                            <h4>Tracks</h4>
+                            <ul class="trackList">
+                                <li class="track-item">
+                                    <p class="track-number">01.</p>
+                                    <div class="track-info">
+                                        <a class="tNomb" href="track.html">Favorito</a>
+                                        <span>by <a href="artist.html">Camilo</a></span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </article>
-                    
-                    <article class="item songs">
-                        <div class="photo-container">
-                            <a href="#"><img src="media/trackList/song-2.jpg" alt="song N°2"></a>
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <div class="info">
-                            <a href="#" class="nombre">Nombre de la canción</a>
-                            <a href="#" class="artist">de ARTISTA</a>
-                        </div>
-                    </article>
-                    
-                    <article class="item songs">
-                        <div class="photo-container">
-                            <a href="#"><img src="media/trackList/song-3.jpg" alt="song N°3"></a>
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <div class="info">
-                            <a href="#" class="nombre">Nombre de la canción</a>
-                            <a href="#" class="artist">de ARTISTA</a>
-                        </div>
-                    </article>
-                    
-                    <article class="item songs">
-                        <div class="photo-container">
-                            <a href="#"><img src="media/trackList/song-4.jpg" alt="song N°4"></a>
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <div class="info">
-                            <a href="#" class="nombre">Nombre de la canción</a>
-                            <a href="#" class="artist">de ARTISTA</a>
-                        </div>
-                    </article>
-                    
-                    <article class="item songs">
-                        <div class="photo-container">
-                            <a href="#"><img src="media/trackList/song-5.jpg" alt="song N°5"></a>
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <div class="info">
-                            <a href="#" class="nombre">Nombre de la canción</a>
-                            <a href="#" class="artist">de ARTISTA</a>
-                        </div>
-                    </article>
+                    </div>
                 </section>
     
                 <section class="rankings albumsList">
-                    <h2>Top 5 albums del momento</h2>
+                    <h2>Most</h2>
+                    <div uk-slider="center: true">
+
+                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                    
+                            <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+                                <li>
+                                    <div class="uk-card uk-card-default">
+                                        <div class="uk-card-media-top">
+                                            <img src="media/albumList/album-8.jpg" alt="">
+                                        </div>
+                                        <div class="uk-card-body">
+                                            <h3 class="uk-card-title">Headline</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default">
+                                        <div class="uk-card-media-top">
+                                            <img src="media/albumList/album-6.jpg" alt="">
+                                        </div>
+                                        <div class="uk-card-body">
+                                            <h3 class="uk-card-title">Headline</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default">
+                                        <div class="uk-card-media-top">
+                                            <img src="media/albumList/album-3.jpg" alt="">
+                                        </div>
+                                        <div class="uk-card-body">
+                                            <h3 class="uk-card-title">Headline</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default">
+                                        <div class="uk-card-media-top">
+                                            <img src="media/albumList/album-4.jpg" alt="">
+                                        </div>
+                                        <div class="uk-card-body">
+                                            <h3 class="uk-card-title">Headline</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default">
+                                        <div class="uk-card-media-top">
+                                            <img src="media/albumList/album-5.jpg" alt="">
+                                        </div>
+                                        <div class="uk-card-body">
+                                            <h3 class="uk-card-title">Headline</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                    
+                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                    
+                        </div>
+                    
+                        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                    
+                    </div>
                     <article class="item albums item1">
                         <div class="photo-container">
                             <a href="#"><img src="media/albumList/album-1.jpg" alt="album N°1"></a>

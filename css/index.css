@@ -76,16 +76,18 @@ img{
 	text-align: right;
 	padding-right: 10px;
 }
-.rankings{
-	width: 88%;
+.charts{
+	width: 90%;
 	margin: 0 auto;
+}
+.rankings{
 	margin-top: 25px;
 }
 
 .rankings h2{
 	font-size: 20px;
 	color: ivory;
-	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .rankings section{
@@ -142,10 +144,60 @@ a.nombre{
 	left: 7px;
 	color: ivory;
 }
+
+.section-title{
+	color:ivory;
+	margin-bottom: 15px;
+	font-weight: 700;
+	font-size: 28px;
+}
+.info-trackList{
+	display: none;
+}
+
+.rankingArg{
+	display: grid;
+	grid-template-columns: 50% 45%;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.tracks h4{
+	color: rgb(141, 141, 137);
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+}
+.track-number{
+	color: rgb(197, 195, 195);
+	display: inline-block;
+	font-size: 10px;
+	text-align: left;
+	vertical-align: middle;
+	margin-left: 1px;
+}
+.track-info{
+	display: inline-block;
+}
+.track-info span, .track-info a{
+	color: rgb(197, 195, 195);
+}
+a.tNomb{
+	color: #2f9bc1;
+}
+
+.trackList div a, .trackList div span{
+	text-decoration: none;
+	font-size: 14px;
+}
+
 .nav-bigscreen{
 	display: none;
 }
 
+.uk-card-media-top img{
+	width: 100%;
+}
 @media (min-width: 1024px){
 	
 	.nav-bigscreen{
