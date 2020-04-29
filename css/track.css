@@ -1,26 +1,23 @@
 body{
     margin: 0 0;
-    background-color: #0c0807;
+    background-color:#0c0807;
     color: ivory;
 }
 
 header{
     position: relative;
 }
+.container {
+    margin-top:80px ;
+}
 
 .titulo{
     display: block;
     margin-left: auto;
-    margin-top: 65px;
     margin-bottom: 30px;
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     font-family:'Bangers', cursive;;
-}
-.imagen{
-    display: block;
-    width: 100%;
-    padding-top: 0px;
 }
 
 .imagen img{
@@ -33,22 +30,40 @@ header{
 .acciones{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    width: 85%;
+    margin: 0 auto;
     margin-top: 40px;
     font-size: 30px;
     text-align: center;
+    border-bottom: solid 3px gray;
 }
-.pausa{color: white;}
-
-.recomendadas{
-    margin-top: 80px;
+.pausa{
+    color: white;
 }
-
-.recomendadas h1{
-    text-decoration: underline;
-}
-
 .recomendadas h2{
-    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    font-size: 25px;
+}
+.recomendadas div {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 30px 30px;
+}
+.recomendadas h3{
+    font-size: 25px;
+}
+.recomendadas h4{
+    padding-right: 10px;
+    padding: auto;
+    text-align: right;
+    padding: 10px;
+    color: yellow;
+}
+.recomendadas h5{
+    color: gray;
 }
 
 
