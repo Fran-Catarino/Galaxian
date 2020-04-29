@@ -198,9 +198,6 @@ a.tNomb{
 	display: none;
 }
 
-.uk-card-media-top img{
-	width: 100%;
-}
 @media (min-width: 1024px){
 	
 	.nav-bigscreen{
