@@ -71,7 +71,8 @@ header.header a {
     display: block;
     height: 90%;
     width: auto;
-    margin: auto auto;
+    margin: auto 0;
+    margin-right: auto;
 }
 
 img.logo {
@@ -193,9 +194,8 @@ article.reprod {
     header.header {
         width: 30%;
         display: grid;
-        grid-template-columns: 20% 75%;
+        grid-template-columns: 15% 75%;
         margin: 0px auto;
-        justify-content: 1.5% 2% 1.5%;
         position: fixed;
         left: 68%;
     }
