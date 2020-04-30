@@ -1,21 +1,12 @@
-video { 
-    position: fixed;
-    top: auto;
-    left: auto;
-    overflow: hidden;
-    z-index: -100;
-    display: block;
-    width: 100%;
-    display: none;
-}
 body {
-    background-image: url(../media/Fondos/Mob_Fondo\ 1.jpg);
+    background-color: black;
     display: block;
     width: 100%;
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 section.genders {
     /* background-color: rgba(128, 128, 128, 0.400); */
     width: 100%;
@@ -66,9 +57,10 @@ div.todos article {
 li.generos:hover section.genders {
     display: block;
 } */
+
 @media (min-width: 1024px) {
     body {
-    background-image: url(../media/Fondos/PC_Fondo\ 1.jpg);
+    background-color: black;
     display: block;
     width: 100%;
     background-position: top left;
@@ -77,12 +69,36 @@ li.generos:hover section.genders {
     }
 
     h1.generos {
-        width: 350px;
+        width: fit-content;
         margin: 0px auto;
         background-color: rgba(128, 128, 128, 0.700);
         margin-bottom: 20px;
         margin-top: 10px;
         padding-top: 5px;
         padding-bottom: 5px;
+        font-size: 40px;
     }
+
+    div.mase article , div.todos article {
+        width: 75%;
+    }
+    
+    section.genders {
+        width: 78%;
+        margin-left: 22%;
+    }
+}
+
+@media (min-width: 1230px) {
+    section.genders {
+        width: 81%;
+        margin-left: 19%;
+    }
+}
+
+@media (min-width: 1300px) {
+    section.genders {
+        width: 83%;
+        margin-left: 17%;
+    }   
 }
