@@ -26,7 +26,7 @@ header{
 }
 
 
-.titulo{
+.cancion{
     display: block;
     margin-left: auto;
     margin-bottom: 30px;
@@ -103,6 +103,9 @@ header{
     color: gray;
 }
 .albumes{
+    display: none;
+}
+.album{
     display: none;
 }
 @media only screen and (min-width: 1024px) {
