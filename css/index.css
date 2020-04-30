@@ -47,10 +47,7 @@ body {
 	background-color: #0c0807;
 }
 
-img{
-    width: 100%;
-}
-
+/* CSS de Banner */
 .banner{
 	background-image: url(../media/Fondos/Bener.jpg);
 	background-position: top right;
@@ -66,7 +63,7 @@ img{
 	font-size: 50px;
 	letter-spacing: 7px;
 	text-align: right;
-	padding-top: 526px;
+	padding-top: 570px;
 	margin-bottom: 0;
 }
 
@@ -79,62 +76,25 @@ img{
 	padding-top: 0;
 	margin-top: 0;
 }
+
+/* CSS de Rankings */
 .charts{
 	width: 90%;
 	margin: 0 auto;
+	margin-top: 50px;
 }
-.rankings{
+.ranking{
 	margin-top: 25px;
 }
 
-.rankings h2{
-	font-size: 20px;
+.ranking h2{
+	font-size: 27px;
 	color: ivory;
-	font-weight: 700;
+	margin-bottom: 20px;
 }
 
-.rankings section{
+.ranking section{
 	margin-top: 30px;
-}
-
-a.nombre{
-	text-decoration: none;
-	color: black;
-	font-weight: bolder;
-	font-size: 19px;
-	display: block;
-	margin-top: 35px;
-	margin-bottom: 10px;
-}
-.artist{
-	text-decoration: none;
-	color: black;
-	font-size: 11px;
-	display: block;
-}
-.cantFol{
-	color: black;
-	font-size: 11px;
-	display: block;
-}
-.rankings img{
-	width: 100%;
-}
-.item{
-	display: grid;
-	grid-template-columns: 30% 65%;
-	justify-content: space-between;
-	padding: 10px;
-	border-top: solid 0.5px gray;
-	background-color:rgba(255, 240, 240, 0.301);
-}
-.item1{
-	border-top: none;
-	margin-top: 10px;
-}
-
-.info{
-	font-family: 'Spartan', sans-serif;
 }
 
 .photo-container{
@@ -143,16 +103,20 @@ a.nombre{
 
 .fas{
 	position: absolute;
-	bottom: 10px;
-	left: 7px;
+	bottom: 60px;
+	left: 15px;
 	color: ivory;
+	font-size: x-large;
+}
+
+img{
+	width: 100%;
 }
 
 .section-title{
 	color:ivory;
 	margin-bottom: 15px;
-	font-weight: 700;
-	font-size: 28px;
+	font-size: 35px;
 }
 .info-trackList{
 	display: none;
@@ -162,39 +126,83 @@ a.nombre{
 	display: grid;
 	grid-template-columns: 50% 45%;
 	justify-content: space-between;
-	margin-top: 20px;
+}
+.trackList{
+	list-style-type: decimal-leading-zero;
+	margin-left: 30px;
 }
 
-.tracks h4{
-	color: rgb(141, 141, 137);
-	font-weight: 500;
-	letter-spacing: 1px;
+
+.track-item{
 	margin-bottom: 10px;
 }
-.track-number{
-	color: rgb(197, 195, 195);
-	display: inline-block;
-	font-size: 10px;
-	text-align: left;
-	vertical-align: middle;
-	margin-left: 1px;
+
+.track-item a{
+	text-decoration: none;
+	font-size: 18px;
 }
-.track-info{
-	display: inline-block;
-}
-.track-info span, .track-info a{
-	color: rgb(197, 195, 195);
-}
+
 a.tNomb{
 	color: #2f9bc1;
 }
 
-.trackList div a, .trackList div span{
-	text-decoration: none;
-	font-size: 14px;
+a.aNomb{
+	color: #666666;
 }
 
+.carrousel{
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.img-artist{
+	border-radius: 50%;
+	width: 90%;
+	display: block;
+	margin: 0 auto;
+	border: #2f9bc1 solid 2px;
+}
+
+/* Modificiaciones UlKit */
+.uk-card-body{
+	padding: 0;
+	padding-top: 5px;
+}
+
+.uk-card-default{
+	background: transparent;
+}
+
+.uk-card-body a{
+	text-decoration: none;
+	color: #2f9bc1;
+}
+
+.uk-card-default .uk-card-title{
+	color: ivory;
+	font-size: 20px;
+}
+
+.uk-slider-items{
+	height: 340px;
+}
+
+
+
+
+
+/* FALTA CENTRAR LOS DATOS DEL ARTIST EN EL CARROUSEL */
+
+
+
+
+/* Display: none --> tablet/desktop */
 .nav-bigscreen{
+	display: none;
+}
+
+.rankings{
 	display: none;
 }
 
@@ -203,10 +211,5 @@ a.tNomb{
 	.nav-bigscreen{
 		background-color: red;
 		display: block;
-	}
-
-	main{
-		display: grid;
-		grid-template-columns: 20% 80%;
 	}
 }

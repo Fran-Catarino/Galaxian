@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galaxian</title>
-    
+    <!-- Font & Icons -->
     <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
     <!-- UIkit CSS -->
@@ -12,12 +12,14 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit-icons.min.js"></script>
+    <!-- Galaxian CSS -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/fijo.css">
 </head>
 
 <body>
     <div class="container">
+        <!-- header -->
         <header class="header">
             <img src="media/Footer_Header/LOGO.png" alt="Logo Galaxian" class="logo">
             <div class="buscador">
@@ -43,108 +45,460 @@
         </section>
         
         <main>
+            <!-- distintos rankings -->
             <section class="charts">
 
                 <h2 class="section-title">Charts</h2>
 
-                <section class="rankings">
+                <section class="ranking">
                     <h2>Today's top tracks</h2>
-                    <div class="rankingArg">
-                        <div class="image-container">
-                            <a href="#"><img src="media/trackList/top tracks.PNG" alt="Top 100 Argentina"></a>
-                            <div class="info-trackList">
-                                <h3>Top Argentina</h3>
-                                <p>100 tracks - 218 368 fans</p>
-                            </div>
-                        </div>
-                        <div class="tracks">
-                            <h4>Tracks</h4>
-                            <ul class="trackList">
-                                <li class="track-item">
-                                    <p class="track-number">01.</p>
-                                    <div class="track-info">
-                                        <a class="tNomb" href="track.html">Favorito</a>
-                                        <span>by <a href="artist.html">Camilo</a></span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="top-traks">
+                        <ol class="trackList">    
+                            <li class="track-item">
+                                <a class="tNomb" href="track.html">Cancion</a>
+                                <span>by <a class="aNomb" href="artist.html">Artista</a></span>
+                            </li>
+                            <li class="track-item">
+                                <a class="tNomb" href="track.html">Cancion</a>
+                                <span>by <a class="aNomb" href="artist.html">Artista</a></span>
+                            </li>
+                            <li class="track-item">
+                                <a class="tNomb" href="track.html">Cancion</a>
+                                <span>by <a class="aNomb" href="artist.html">Artista</a></span>
+                            </li>
+                            <li class="track-item">
+                                <a class="tNomb" href="track.html">Cancion</a>
+                                <span>by <a class="aNomb" href="artist.html">Artista</a></span>
+                            </li>
+                            <li class="track-item">
+                                <a class="tNomb" href="track.html">Cancion</a>
+                                <span>by <a class="aNomb" href="artist.html">Artista</a></span>
+                            </li>
+                        </ol>
                     </div>
                 </section>
     
-                <section class="rankings albumsList">
+                <section class="ranking albumsList">
                     <h2>Most-streamed albums</h2>
-                    <div uk-slider="center: true">
 
-                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                    
-                            <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
-                                <li>
-                                    <div class="uk-card uk-card-default">
-                                        <div class="uk-card-media-top">
-                                            <img src="media/albumList/album-8.jpg" alt="">
+                    <div class="carrousel">
+                        <div uk-slider="center: true">
+
+                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        
+                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-1.jpg" alt="album N°1">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                        <div class="uk-card-body">
-                                            <h3 class="uk-card-title">Headline</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-2.jpg" alt="album N°2">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-card uk-card-default">
-                                        <div class="uk-card-media-top">
-                                            <img src="media/albumList/album-6.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-3.jpg" alt="album N°3">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                        <div class="uk-card-body">
-                                            <h3 class="uk-card-title">Headline</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-4.jpg" alt="album N°4">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-card uk-card-default">
-                                        <div class="uk-card-media-top">
-                                            <img src="media/albumList/album-3.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-5.jpg" alt="album N°5">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                        <div class="uk-card-body">
-                                            <h3 class="uk-card-title">Headline</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-6.jpg" alt="album N°5">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-card uk-card-default">
-                                        <div class="uk-card-media-top">
-                                            <img src="media/albumList/album-4.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-7.jpg" alt="album N°5">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                        <div class="uk-card-body">
-                                            <h3 class="uk-card-title">Headline</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-8.jpg" alt="album N°5">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-card uk-card-default">
-                                        <div class="uk-card-media-top">
-                                            <img src="media/albumList/album-5.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-9.jpg" alt="album N°5">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                        <div class="uk-card-body">
-                                            <h3 class="uk-card-title">Headline</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/albumList/album-10.jpg" alt="album N°5">
+                                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="album.html"><h3 class="uk-card-title">Nombre Album</h3></a>
+                                                <span>by</span>
+                                                <a href="artist.html">Artista</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                    
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                    
+                                    </li>
+                                </ul>
+                        
+                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                        
+                            </div>
+                        
+                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                        
                         </div>
-                    
-                        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                    
                     </div>
 
+                    <h2>Most-streamed artist</h2>
+
+                    <div class="carrousel artirstCar">
+                        <div uk-slider="center: true">
+
+                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        
+                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-1.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-2.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-3.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-4.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-5.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-6.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-7.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-8.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-9.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img class="img-artist" src="media/artistList/artist-10.jpg" alt="artist N°1">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="artist.html"><h3 class="uk-card-title">Nombre Artista</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                        
+                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                        
+                            </div>
+                        
+                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                        
+                        </div>
+                    </div>
+
+                    <h2>Most-streamed genders</h2>
+
+                    <div class="carrousel">
+                        <div uk-slider="center: true">
+
+                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        
+                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Casa.png" alt="En Casa">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">En Casa</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Concentración.png" alt="Concentración">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Concentración</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Cumbia.png" alt="Cumbia">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Cumbia</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Ejercicio.png" alt="Ejercicio">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Ejercicio</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Gaming.png" alt="Gaming">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Gaming</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Para dormir.png" alt="Para dormir">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Para dormir</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Pop.png" alt="Pop">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Pop</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Rock.png" alt="rcok">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Rock</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-card uk-card-default">
+                                            <div class="uk-card-media-top">
+                                                <img src="media/generos/Romantico.png" alt="Romantico">
+                                            </div>
+                                            <div class="uk-card-body">
+                                                <a href="playlist.html"><h3 class="uk-card-title">Romantico</h3></a>
+                                                <span>1 458 632</span>
+                                                <a href="#">fans</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                        
+                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                        
+                            </div>
+                        
+                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                        
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="rankings">
                     <article class="item albums item1">
                         <div class="photo-container">
                             <a href="#"><img src="media/albumList/album-1.jpg" alt="album N°1"></a>
@@ -252,8 +606,6 @@
                 </section>
             </section>
             
-
-           
         </main>
 
         <footer>
