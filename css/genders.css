@@ -60,12 +60,12 @@ li.generos:hover section.genders {
 
 @media (min-width: 1024px) {
     body {
-    background-color: black;
-    display: block;
-    width: 100%;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: cover;
+        background-color: black;
+        display: block;
+        width: 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     h1.generos {
