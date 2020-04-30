@@ -89,12 +89,9 @@ p{
 
 @media only screen and (min-width: 1024px){
 
-.Container{
-    margin: auto;
-    margin-top: 100px;
-    margin-left: 280px;
-    width: 100%;
-
+main{
+    width: 78%;
+    margin-left: 22%;
 }
 .titulo{
     border: 0px;
