@@ -208,23 +208,28 @@ article.reprod {
     div.buscador h2 {
         margin-right: 20px;
     }
+    
+    footer.noPc {
+        display: none;
+    }
 
     footer {
-    width: 100%;    
-    position: relative;
-    left: 0px;
-    bottom: 0px;
+    width: 100%;
+    height: 35px;
+    margin: auto auto;
     background: rgba(0, 0, 0, 1);
-    grid-template-columns: 20% 22.5% 20% 20%;
-    justify-content: 3% 4% 4% 4% 2.5%;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: 4% 1% 1% 4%;
     }
 
     h6.nombresFooter {
+        margin-top: 5px;
         height: 100%;
         width: auto;
         font-size: 22px;
-        padding-top: 7%;
         margin-bottom: 0px;
+        text-align: center;
+
     }
 
     footer img.dezzer {
