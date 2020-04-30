@@ -25,7 +25,7 @@ color: white;}
     grid-template-rows: 50px;
     margin-bottom: 40px;
 }
-.titulo {
+.favoritas {
     display: block;
     font-size: 30px;
     text-align: center;
@@ -90,25 +90,25 @@ p{
 @media only screen and (min-width: 1024px){
 
 main{
-    width: 78%;
-    margin-left: 22%;
+    width: 77%;
+    margin-left: 21%;
+    margin-top: 85px;
 }
-.titulo{
-    border: 0px;
+.Container{
+    margin: 0px;
 }
 
 .presentacion{
     display: grid;
-    grid-template-columns: 350px 600px;
-    grid-template-rows: 350px;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 260px;
     padding-left: 35px;
     
 }
 .presentacion .tituloyagregar{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 60px 245px 45px;
-    
+    grid-template-rows: 50px 160px 45px;
     margin: 0px;
 }
 
@@ -121,13 +121,13 @@ main{
 .tituloyagregar h1{
     border: 0px;
     text-align: left;
-    margin-left: 10px;
-    font-size: 50px;
+    margin-left:10px;
+    font-size: 40px;
 }
 .tituloyagregar .agregar-cancion {
     border: 0px;
     text-align: left;
-    margin-left: 25px;
+    margin-left: 20px;
 }
 
 .agregar-cancion h3{
@@ -151,13 +151,14 @@ main{
     grid-template-rows: 40px;
     margin: auto;
     margin-top: 60px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     width: 95%;
 }
 .explicacion p{
     color: gray;
     text-align: center;
     font-size: 30px;
+    margin-left: 40px;
 }
 .explicacion .title {
     text-align: left;
@@ -169,6 +170,7 @@ main{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 75px;
     margin: auto;
+    margin-left: 40px;
     width: 95%;
     border-top: solid 3px ghostwhite ;
 }

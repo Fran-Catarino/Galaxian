@@ -105,6 +105,9 @@ header{
 .albumes{
     display: none;
 }
+.album{
+    display: none;
+}
 @media only screen and (min-width: 1024px) {
 .container{
     margin-left: 250px;
