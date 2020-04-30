@@ -49,7 +49,7 @@ body {
 
 /* CSS de Banner */
 .banner{
-	background-image: url(../media/Fondos/Bener.jpg);
+	background-image: url(../media/Fondos/banner-mobile.jpg);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -127,9 +127,10 @@ img{
 	grid-template-columns: 50% 45%;
 	justify-content: space-between;
 }
+
 .trackList{
 	list-style-type: decimal-leading-zero;
-	margin-left: 30px;
+	margin-left: 50px;
 }
 
 
@@ -187,25 +188,80 @@ a.aNomb{
 .uk-slider-items{
 	height: 340px;
 }
+/* Centrado de info en artistas */
 
+.artist-body-card{
+	width: 45%;
+	margin: 0 auto;
+}
 
-
-
-
-/* FALTA CENTRAR LOS DATOS DEL ARTIST EN EL CARROUSEL */
-
-
-
+.artist-body-card h3{
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.artist-body-card span{
+	margin-left: 13px;
+}
 
 /* Display: none --> tablet/desktop */
 .nav-bigscreen{
 	display: none;
 }
 
-.rankings{
-	display: none;
+@media (min-width: 1024px){
+	main{
+		width: 78%;
+		margin-left: 22%;
+	}
+	.banner{
+		background-image: url(../media/Fondos/banner-bigscreen.jpg);
+	}
+	.uk-slider-items{
+		height: 185px;
+	}
+
+	.banner h1{
+		padding-top: 670px;
+	}
+
+	/* Centrado de info en artistas */
+	.artist-body-card{
+		width: 96%;
+	}
+
+}
+@media (min-width: 1230px){
+	main{
+		width: 81%;
+		margin-left: 19%;
+	}
+
+	.uk-slider-items{
+		height: 225px;
+	}
+
+	.banner h1{
+		padding-top: 620px;
+	}
 }
 
+@media (min-width: 1300px){
+	main{
+		width: 83%;
+		margin-left: 17%;
+	}
+
+	.banner h1{
+		padding-top: 670px;
+	}
+}
+@media (min-width: 1440px){
+	.uk-slider-items{
+		height: 260px;
+	}
+
+<<<<<<< HEAD
 @media (min-width: 1024px){
 
 	.banner{
@@ -215,5 +271,9 @@ a.aNomb{
 	.nav-bigscreen{
 		background-color: red;
 		display: block;
+=======
+	.banner h1{
+		padding-top: 795px;
+>>>>>>> 0649a2bba2b718bcc10b2c1dcffea6e2de796b7f
 	}
 }
