@@ -67,11 +67,17 @@ header{
     z-index: 1;
 }
 
-img.logo {
+header.header a {
     display: block;
     height: 90%;
-    margin: auto;
-    margin-left: 1px;
+    width: auto;
+    margin: auto auto;
+}
+
+img.logo {
+    display: block;
+    height: 100%;
+    margin: auto auto;
     width: auto;
 }
 
@@ -167,6 +173,7 @@ H6.nombresFooter {
 footer img.dezzer {
     display: block;
     width: 100%;
+    max-height: 100%;
     margin-top: auto;
     margin-right: auto;
 }
@@ -186,15 +193,14 @@ article.reprod {
     header.header {
         width: 30%;
         display: grid;
-        grid-template-columns: 20% 70%;
+        grid-template-columns: 20% 75%;
         margin: 0px auto;
-        justify-content: space-between;
+        justify-content: 1.5% 2% 1.5%;
         position: fixed;
         left: 68%;
     }
 
     img.logo {
-        margin-left: 10px;
         width: auto;
         height: 95%;
     }
