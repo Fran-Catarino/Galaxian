@@ -261,7 +261,19 @@ a.aNomb{
 		height: 260px;
 	}
 
+<<<<<<< HEAD
+@media (min-width: 1024px){
+
+	.banner{
+		background-image: url(../media/Fondos/PC_Fondo\ 2.jpg);
+	}
+
+	.nav-bigscreen{
+		background-color: red;
+		display: block;
+=======
 	.banner h1{
 		padding-top: 795px;
+>>>>>>> 0649a2bba2b718bcc10b2c1dcffea6e2de796b7f
 	}
 }
