@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/menuPC.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <script src="carousel.js"></script>
 </head>
 <body>
     <!-- HEADER INICIO -->
@@ -161,14 +162,35 @@
 
     <!-- GENEROS INICIO -->
     <section class="genders">
-        <div class="mase">
+        
             <h1 class="generos">Los géneros que más escuchas</h1>
-            <article>
-                <img src="media/generos/Ejercicio.png" alt="Ejercicio" class="generos">
-                <img src="media/generos/Gaming.png" alt="Gaming" class="generos">
-                <img src="media/generos/Concentración.png" alt="Concentración" class="generos">
-                <img src="media/generos/Pop.png" alt="Pop" class="generos">
-            </article>
+            <div class="mase">
+            <div class="slideshow-container">
+                <div class="slides fade" style="display: block;">
+                    <img src="../Galaxian/media/generos/electronica.gif" style="width:100%">
+                    <div class="text">Electronica</div>
+                </div>
+                <div class="slides fade" style="display: none;">
+                    <img src="../Galaxian/media/generos/rock.gif" style="width:100%">
+                    <div class="text">Rock</div>
+                </div>
+                <div class="slides fade" style="display: none;">
+                    <img src="../Galaxian/media/generos/trap 2.gif" style="width:100%">
+                    <div class="text">Trap</div>
+                </div>  
+                <div class="slides fade" style="display: none;">
+                    <img src="../Galaxian/media/generos/regeaton.gif" style="width:100%">
+                    <div class="text">Regeaton</div>
+                </div> 
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+            <div style="text-align:center">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
         </div>
         <div class="todos">
             <h1 class="generos">Todos los géneros musicales</h1>
