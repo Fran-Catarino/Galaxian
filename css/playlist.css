@@ -47,7 +47,7 @@ color: white;}
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 30px 20px;
     margin-bottom: 10px;
-    border-bottom: solid 1px white;
+    border-bottom: solid 0.5px white;
 }
 
 
@@ -172,12 +172,12 @@ main{
     margin: auto;
     margin-left: 40px;
     width: 95%;
-    border-top: solid 3px ghostwhite ;
+    border-top: solid 0.5px ghostwhite ;
 }
 .cancion p{
     margin: auto;
     color: white;
-    font-size: 24px;
+    font-size: 23px;
 
 }
 .cancion .nombre{

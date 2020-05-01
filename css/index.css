@@ -47,9 +47,6 @@ body {
 	background-color: #0c0807;
 }
 
-main{
-	margin-bottom: 60px;
-}
 /* CSS de Banner */
 .banner{
 	background-image: url(../media/Fondos/banner-mobile.jpg);
@@ -104,7 +101,7 @@ main{
     position: relative;
 }
 
-.fas{
+.fa-play-circle{
 	position: absolute;
 	bottom: 60px;
 	left: 15px;

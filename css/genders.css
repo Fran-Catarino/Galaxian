@@ -1,4 +1,4 @@
-body {
+  body {
     background-color: black;
     display: block;
     width: 100%;
@@ -8,7 +8,7 @@ body {
 }
 /* Carousel de w3schools*/
 
-.slideshow-container {
+  .slideshow-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
@@ -42,7 +42,10 @@ body {
   .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
   }
-  
+  .slides img{
+    width: 100%;
+    margin: 0 auto;
+  }
   .text {
     color:white;
     background-color: rgba(34,34,34,0.5);
