@@ -240,8 +240,11 @@ h3.nombAlbum{
     color: rgb(147, 145, 145);
 }
 
+.similar-artist-info{
+    margin: auto 5px;
+}
+
 .similar-artist-info h3{
-    margin-top: 10px;
     color: ivory;
 }
 
@@ -336,75 +339,104 @@ h3.nombAlbum{
 }
 
 
-
-
-
-
-
-.biografia{
-    display: none;
-}
-.explicacion{
-    display: none;
-}
 @media only screen and (min-width: 1024px){
     main{
-        width: 77%;
-        margin-left: 21%;
-        margin-top: 85px;
+		width: 77%;
+        margin-left: 22%;
+        margin-bottom: 50px;
     }
+
+    .text-container{
+        margin: auto 0;
+    }
+
     .infoArtist{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-bottom: 45px;
+        grid-template-columns: 50% 40%;
+        margin: 0 auto;
     }
-    
-    .biografia {
-        display: block;
-        color: white;
+
+    .infoArtist .photo-container img{
+        margin-left: 25%;
     }
-    .biografia {
-    padding-top: 65px;
-    padding-left: 0px;
-    font-size: 25px;
-    list-style: none;
+
+    .infoArtist h2{
+        font-size: 70px;
     }
+
     .albums{
-        margin-bottom: 45px;
+        margin-top: 30px;
     }
-    .grillaAlbums{
+
+    .botones{
+        grid-template-columns: 15% 70% 15%;
+    }
+    .boton-play{
+        width: 170px;
+    }
+
+    .boton-play a{
+        font-size: 19px;
+    }
+
+    .info-secundaria-artista{
         display: grid;
-        grid-template-columns: 24% 24% 24% 24%;
-        justify-content: space-between;
+        grid-template-columns: 55% 45%;
+        margin-top: 30px;
     }
-    .similarArtist ul li{
-        height: 140px;
+
+    .top5-songs{
+        width: 85%;
+        margin: 0 auto;
     }
-    
+
+    .list-of-songs{
+        box-shadow: 0 4px 8px 0 rgba(224, 224, 224, 0.19), 0 6px 20px 0 rgba(224, 224, 224, 0.19);
+        border-radius: 20px;
+        width: 95%;
+        margin: 0 auto;
+    }
+
     .photo-container .img-artist{
         width: 90%;
+        margin: auto;
     }
-    .similar-artist-info{
-        font-size: 23px;
-        margin-top: 15px;
-    
+}
+
+@media only screen and (min-width: 1440px){
+    main{
+        width: 83%;
+        margin-left: 17%;
     }
-    .top5-songs{
-        display: grid;
-        grid-template-rows: 55px 70px 70px 70px 70px 70px;
-        margin-bottom: 45px;
+
+    .artist-item{
+        height: 90px;
     }
-    .songs h2{
-        font-size: 30px;
+
+    .bio-container{
+        height: 340px;
     }
-    .songs h3{
+
+    .botones{
+        grid-template-columns: 25% 50% 25%;
+    }
+
+    .cant-fans{
+        margin-top: 150px;
+        grid-template-columns: 28% 57% 9% 10%;
+        margin-bottom: 10px;
+    }
+
+    .cant-fans h5{
         font-size: 25px;
-        border-radius: solid 1px gray;
     }
-    .songs h4{
-        font-size: 20px;
+
+    .cant-fans h6{
+        font-size: 18px;
     }
-    .songs h5{
-        font-size: 20px;
+
+    .cant-fans i{
+        font-size: 18px;
     }
+
 }
