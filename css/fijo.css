@@ -181,6 +181,10 @@ footer img.dezzer {
 
 /* REPRODUCTOR */
 
+section#repDes {
+    display: none;
+}
+
 article.reprod {
     display: none;
 }
@@ -237,15 +241,37 @@ article.reprod {
         width: auto;
         margin: auto auto;
     }
+    
+    section#repDes {
+        display: block;
+        width: 100%;
+        height: 25px;
+        position: fixed;
+        left: 0px;
+        bottom: -3px;
+        background-color: rgba(53, 50, 50, 0.822);
+    }
+
+    div#resIcono {
+        display: block;
+        width: auto;
+        height: 100%;
+        text-align: center;
+        font-size: 23px;
+    }
 
     article.reprod {
-        display: block;
         position: fixed;
         bottom: -3px;
         left: 0px;
         width: 100%;
         background-color: black;
         z-index: 50;
+    }
+    
+    #repDes:hover article.reprod {
+        display: block;
+        transition: block 3.5s;
     }
     
     iframe.reprod {
