@@ -1,9 +1,14 @@
 body{
     margin: 0 0;
-    background-color:#000000
+    background-color:#000000;
+    font-family: 'Spartan', sans-serif;
 }
 .container{
     color: white;
+}
+main{
+    width: 85%;
+    margin: 0 auto;
 }
 
 header{
@@ -76,6 +81,7 @@ header{
     padding: auto;
     padding-top: 5px;
 }
+
 .recomendadas h2{
     margin-top: 40px;
     margin-bottom: 30px;
@@ -112,8 +118,13 @@ header{
 .container{
     margin-left: 250px;
     display: grid;
-
 }
+
+main{
+    width: 95%;
+    margin: 0 auto;
+}
+
 .adicionales{
     display: grid;
     grid-template-columns: 1fr;
