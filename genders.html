@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galaxian - Géneros</title>
     <link rel="shortcut icon" href="media/icon/favicon-32x32.png">
-    <link rel="stylesheet" href="css/genders.css">
-    <link rel="stylesheet" href="css/fijo.css">
-    <link rel="stylesheet" href="css/menuPC.css">
+    <!-- Font & Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
-    <script src="carousel.js"></script>
+    <!-- Galaxian CSS -->
+    <link rel="stylesheet" href="css/genders.css">
+    <link rel="stylesheet" href="css/fijo.css">
+    <link rel="stylesheet" href="css/menuPC.css">
+    <!-- carrousel -->
+    <script src="js.importado/carousel.js"></script>
 </head>
 <body>
     <!-- HEADER INICIO -->
@@ -161,39 +164,42 @@
     </nav>
     <!-- NAV PC FINAL -->
 
-    <!-- GENEROS INICIO -->
     <main>
-        <section class="genders">
         
-            <h1 class="generos">Los géneros que más escuchas</h1>
-            <div class="mase">
-            <div class="slideshow-container">
-                <div class="slides fade" style="display: block;">
-                    <img src="../Galaxian/media/generos/electronica.gif">
-                    <div class="text">Electronica</div>
-                </div>
-                <div class="slides fade" style="display: none;">
-                    <img src="../Galaxian/media/generos/rock.gif">
-                    <div class="text">Rock</div>
-                </div>
-                <div class="slides fade" style="display: none;">
-                    <img src="../Galaxian/media/generos/trap 2.gif">
-                    <div class="text">Trap</div>
-                </div>  
-                <div class="slides fade" style="display: none;">
-                    <img src="../Galaxian/media/generos/regeaton.gif">
-                    <div class="text">Regeaton</div>
-                </div> 
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
+        <!-- slide de generos mas escuhados-->
+
+        <h1 class="generos">Los géneros que más escuchas</h1>
+
+        <div class="slideshow-container">
+            <div class="slides fade" style="display: block;">
+                <img src="../Galaxian/media/generos/electronica.gif">
+                <div class="text">Electronica</div>
             </div>
-            <div style="text-align:center">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
+            <div class="slides fade" style="display: none;">
+                <img src="../Galaxian/media/generos/rock.gif">
+                <div class="text">Rock</div>
             </div>
+            <div class="slides fade" style="display: none;">
+                <img src="../Galaxian/media/generos/trap 2.gif">
+                <div class="text">Trap</div>
+            </div>  
+            <div class="slides fade" style="display: none;">
+                <img src="../Galaxian/media/generos/regeaton.gif">
+                <div class="text">Regeaton</div>
+            </div> 
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
         </div>
+
+        <div style="text-align:center">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+        
+
+        <!-- todos los generos -->
         <div class="todos">
             <h1 class="generos">Todos los géneros musicales</h1>
             <article>
@@ -223,9 +229,8 @@
                 <img src="media/generos/Rock.png" alt="Rock" class="generos">
             </article>
         </div>
-    </section>
+        
     </main>
-    <!-- GENEROS FINAL -->
 
     <!-- REPRODUCTOR INICIO -->
     <section id="repDes">
@@ -246,7 +251,7 @@
 
     <!-- FOOTER INICIO -->
     <footer class="noPc">
-        <img src="media/Footer_Header/logo-deezer.jpg" alt="logo deezer" class="dezzer">
+        <img src="media/Footer_Header/deezer-logo.png" alt="logo deezer" class="dezzer">
         <h6 class="nombresFooter">Gastón Loza Montaña</h6>
         <h6 class="nombresFooter">Francisco Catarino</h6>
         <h6 class="nombresFooter">Benjamin Echague</h6>

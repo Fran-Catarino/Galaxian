@@ -1,11 +1,13 @@
 body{
     margin: 0 0;
-    background-color:#000000;
+    background-color:#0c0807;
     font-family: 'Spartan', sans-serif;
 }
+
 .container{
     color: white;
 }
+
 main{
     width: 85%;
     margin: 0 auto;
@@ -14,22 +16,24 @@ main{
 header{
     position: relative;
 }
+
 .container {
     margin-top:80px ;
 }
+
 .add{
     display: block;
     padding-left:87% ;
     width: 40px;
     height: 40px;
 }
+
  .add p{
     display: block;
     font-size: 25px;
     color: #2f9bc1;
 
 }
-
 
 .cancion{
     display: block;
@@ -58,9 +62,11 @@ header{
     text-align: center;
     border-bottom: solid 3px gray;
 }
+
 .pausa{
     color: white;
 }
+
 .adicionales{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -68,6 +74,7 @@ header{
     width: 70%;
     margin: auto;
 }
+
 .adicionales .art{
     color: gray;
     font-size: 20px;
@@ -75,6 +82,7 @@ header{
     text-align: end;
     padding-top: 5px;
 }
+
 .adicionales .rep{
     color: gray;
     font-size: 15px;
@@ -89,15 +97,18 @@ header{
     font-size: 25px;
     color: white;
 }
+
 .recomendadas div {
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: 30px 30px;
 }
+
 .recomendadas h3{
     font-size: 25px;
     color: white;
 }
+
 .recomendadas h4{
     padding-right: 10px;
     padding: auto;
@@ -105,81 +116,94 @@ header{
     padding: 10px;
     color: #2f9bc1;
 }
+
 .recomendadas h5{
     color: gray;
 }
+
 .albumes{
     display: none;
 }
+
 .album{
     display: none;
 }
+
 @media only screen and (min-width: 1024px) {
-.container{
-    margin-left: 250px;
-    display: grid;
-}
+    .container{
+        margin-left: 250px;
+        display: grid;
+    }
 
-main{
-    width: 95%;
-    margin: 0 auto;
-}
+    main{
+        width: 95%;
+        margin: 0 auto;
+    }
 
-.adicionales{
-    display: grid;
-    grid-template-columns: 1fr;
+    .adicionales{
+        display: grid;
+        grid-template-columns: 1fr;
 
-}
-.adicionales .art{
-    text-align: start;
-    margin-left: 80px;
-    color: white;
-    font-size: 25px;
-}
-.adicionales .rep{
-    text-align: start;
-    margin-left: 80px;
-    color: white;
-    font-size: 25px;
-}
-.imagen img{
-    width: 50%;
-    margin: auto; 
-    padding: 0px;
-}
-.album{
-    display: block;
-    margin-top: 50px;
-    font-size: 25px;
-    color: white;
-}
-.albumes{
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    width: 90%;
-    justify-content: space-between;
-    margin-left: 37px;
-    margin-top: 20px;
-}
-.albumes img{
-    display: block;
-    width: 100%;
-}
-.recomendadas div h3 {
-    margin-bottom:2px ;
-}
-.recomendadas{
-    background-color: rgb(0, 0, 0);
-}
-.add{
-    padding-left: 80%;
-    width: 50px;
-    height: 50px;
-}
-.add p{
-    font-size: 30px;
-}
+    }
 
+    .adicionales .art{
+        text-align: start;
+        margin-left: 80px;
+        color: white;
+        font-size: 25px;
+    }
+
+    .adicionales .rep{
+        text-align: start;
+        margin-left: 80px;
+        color: white;
+        font-size: 25px;
+    }
+
+    .imagen img{
+        width: 50%;
+        margin: auto; 
+        padding: 0px;
+    }
+
+    .album{
+        display: block;
+        margin-top: 50px;
+        font-size: 25px;
+        color: white;
+    }
+
+    .albumes{
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        width: 90%;
+        justify-content: space-between;
+        margin-left: 37px;
+        margin-top: 20px;
+    }
+
+    .albumes img{
+        display: block;
+        width: 100%;
+    }
+
+    .recomendadas div h3 {
+        margin-bottom:2px ;
+    }
+
+    .recomendadas{
+        background-color: rgb(0, 0, 0);
+    }
+    
+    .add{
+        padding-left: 80%;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .add p{
+        font-size: 30px;
+    }
 }
 
 

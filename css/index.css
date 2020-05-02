@@ -55,16 +55,20 @@ body {
 	background-size: cover;
     width: 100%;
 	height: 100vh;
+	position: relative;
 }
 
+.banner .nombre{
+	position: absolute;
+	bottom: 15px;
+	right: 0.2%;
+}
 .banner h1{
 	color: ivory;
 	font-family: 'Spartan', sans-serif;
 	font-size: 50px;
 	letter-spacing: 7px;
 	text-align: right;
-	padding-top: 570px;
-	margin-bottom: 0;
 }
 
 .banner h2{

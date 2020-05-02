@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galaxian - Album</title>
     <link rel="shortcut icon" href="media/icon/favicon-32x32.png">
-    <link rel="stylesheet" href="css/playlist.css">
-    <link rel="stylesheet" href="css/fijo.css">
+    <!-- Font & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <!-- Galaxian CSS -->
+    <link rel="stylesheet" href="css/album.css">
+    <link rel="stylesheet" href="css/fijo.css">
     <link rel="stylesheet" href="css/menuPC.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="Container">
+    <div class="container">
         <!-- HEADER INICIO -->
         <header class="header">
-            <img src="media/Footer_Header/LOGO.png" alt="Logo Galaxian" class="logo">
+            <a href="index.html"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
             <div class="buscador">
                 <h2>Buscar...</h2>
             </div>
@@ -215,22 +217,25 @@
         </main>
 
         <!-- REPRODUCTOR INICIO -->
-        <article class="reprod">
-                <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=146eff&layout=dark&size=medium&type=tracks&id=398055752&app_id=1" width="700" height="350"></iframe>
-                
-        <!-- FOOTER PC INICIO -->
-        <footer class="pc">
-            <h6 class="nombresFooter">Gastón Loza Montaña</h6>
-            <h6 class="nombresFooter">Francisco Catarino</h6>
-            <h6 class="nombresFooter">Benjamin Echague</h6>
-        </footer>
-        <!-- FOOTER PC FINAL -->
-        </article>
+        <section id="repDes">
+            <div id="resIcono"><i class="fas fa-chevron-up"></i></div>
+            <article class="reprod">
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=146eff&layout=dark&size=medium&type=tracks&id=398055752&app_id=1" width="700" height="350"></iframe>
+                    
+                    <!-- FOOTER PC INICIO -->
+                    <footer class="pc">
+                        <h6 class="nombresFooter">Gastón Loza Montaña</h6>
+                        <h6 class="nombresFooter">Francisco Catarino</h6>
+                        <h6 class="nombresFooter">Benjamin Echague</h6>
+                    </footer>
+                    <!-- FOOTER PC FINAL -->
+            </article>
+        </section>
         <!-- REPRODUCTOR FINAL -->
-        
+    
         <!-- FOOTER INICIO -->
-        <footer>
-            <img src="media/Footer_Header/logo-deezer.jpg" alt="logo deezer" class="dezzer">
+        <footer class="noPc">
+            <img src="media/Footer_Header/deezer-logo.png" alt="logo deezer" class="dezzer">
             <h6 class="nombresFooter">Gastón Loza Montaña</h6>
             <h6 class="nombresFooter">Francisco Catarino</h6>
             <h6 class="nombresFooter">Benjamin Echague</h6>
