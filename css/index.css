@@ -201,6 +201,7 @@ a.aNomb{
 
 .artist-body-card h3{
 	font-size: 20px;
+	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -254,17 +255,6 @@ a.aNomb{
 		padding-top: 620px;
 	}
 }
-
-@media (min-width: 1300px){
-	main{
-		width: 83%;
-		margin-left: 17%;
-	}
-
-	.banner h1{
-		padding-top: 670px;
-	}
-}
 @media (min-width: 1440px){
 	main{
 		width: 80%;
@@ -277,5 +267,13 @@ a.aNomb{
 
 	.track-item a{
 		font-size: 23px;
+	}
+
+	/* Centrado de info en artistas */
+	.artist-body-card{
+		width: 100%;
+	}
+	.artist-body-card span{
+		margin-left: 52px;
 	}
 }
