@@ -29,6 +29,16 @@ window.addEventListener("load", function() {
             
             console.log(albumList);
 
+            function truncateString(str, num, add) {
+                // If the length of str is less than or equal to num
+                // just return str--don't truncate it.
+                if (str.length <= num) {
+                  return str
+                }
+                // Return str truncated with '...' concatenated to the end of str.
+                return str.slice(0, add) + '...'
+            }
+
             for (let i = 0; i < albumList.length; i++) {
                                
                 let albumTitle = albumList[i].title;
@@ -37,9 +47,40 @@ window.addEventListener("load", function() {
 
                 let albumCover = albumList[i].cover_xl;
 
-                let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + albumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
+                console.log(albumTitle);
 
-                document.querySelector(".albumList").innerHTML += albumItem;
+                if (window.matchMedia("(min-width: 1440px)").matches) {
+                    
+                    let shortAlbumTitle = truncateString(albumTitle, 20, 19);
+
+                    console.log(shortAlbumTitle);
+
+                    let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + shortAlbumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
+
+                    document.querySelector(".albumList").innerHTML += albumItem;
+
+                } else if (window.matchMedia("(min-width: 1024px)").matches) {
+
+                    let shortAlbumTitle = truncateString(albumTitle, 13, 12);
+
+                    console.log(shortAlbumTitle);
+
+                    let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + shortAlbumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
+
+                    document.querySelector(".albumList").innerHTML += albumItem;
+
+                } else {
+
+                    let shortAlbumTitle = truncateString(albumTitle, 30, 29);
+
+                    console.log(shortAlbumTitle);
+
+                    let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + shortAlbumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
+
+                    document.querySelector(".albumList").innerHTML += albumItem;
+
+                }
+
             }
 
             let artistList = information.artists.data;
@@ -47,8 +88,7 @@ window.addEventListener("load", function() {
             console.log(artistList);
 
             for (let i = 0; i < artistList.length; i++) {
-                const element = artistList[i];
-                
+                                
                 let artistName = artistList[i].name; 
 
                 let artistPic = artistList[i].picture_xl;
@@ -59,4 +99,25 @@ window.addEventListener("load", function() {
             }
         }
     )
+
+    function noScroll() {
+        window.scrollTo(0, 0);
+    }
+      
+    // add listener to disable scroll
+    window.addEventListener('scroll', noScroll);
+
+    document.querySelectorAll(".music").forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Remove listener to re-enable scroll
+            window.removeEventListener('scroll', noScroll);
+        });
+    });  
+
 })
