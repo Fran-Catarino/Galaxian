@@ -51,7 +51,7 @@ window.addEventListener("load", function() {
 
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
-                    let shortAlbumTitle = truncateString(albumTitle, 20, 19);
+                    let shortAlbumTitle = truncateString(albumTitle, 19, 18);
 
                     console.log(shortAlbumTitle);
 
@@ -61,7 +61,7 @@ window.addEventListener("load", function() {
 
                 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 
-                    let shortAlbumTitle = truncateString(albumTitle, 13, 12);
+                    let shortAlbumTitle = truncateString(albumTitle, 11, 10);
 
                     console.log(shortAlbumTitle);
 
