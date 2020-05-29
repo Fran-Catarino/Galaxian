@@ -211,8 +211,8 @@ a.aNomb{
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-.artist-body-card span{
-	margin-left: 13px;
+.artist-body-card p{
+	text-align: center;
 }
 
 /* Display: none --> tablet/desktop */

@@ -1,104 +1,4 @@
 window.addEventListener("load", function() { 
-    fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
-    .then(
-        function(response) {
-            return response.json();
-        }
-    )
-    .then(
-        function(information) {
-
-            let trackList = information.tracks.data;
-
-            console.log(trackList)
-
-            for (let i = 0; i < 5; i++) {
-                                
-                let trackTitle = trackList[i].title;
-
-                let trackArtist = trackList[i].artist.name;
-
-                let trackItem = "<li class='track-item'><a class='tNomb' href='track.html'>" + trackTitle + "</a><span> by <a class='aNomb' href='artist.html'>" + trackArtist + "</a></span></li>";
-
-                document.querySelector(".trackList").innerHTML += trackItem;
-
-                console.log(trackArtist)
-            }
-
-            let albumList = information.albums.data;
-            
-            console.log(albumList);
-
-            function truncateString(str, num, add) {
-                // If the length of str is less than or equal to num
-                // just return str--don't truncate it.
-                if (str.length <= num) {
-                  return str
-                }
-                // Return str truncated with '...' concatenated to the end of str.
-                return str.slice(0, add) + '...'
-            }
-
-            for (let i = 0; i < albumList.length; i++) {
-                               
-                let albumTitle = albumList[i].title;
-
-                let albumArtist = albumList[i].artist.name;
-
-                let albumCover = albumList[i].cover_xl;
-
-                console.log(albumTitle);
-
-                if (window.matchMedia("(min-width: 1440px)").matches) {
-                    
-                    let shortAlbumTitle = truncateString(albumTitle, 19, 18);
-
-                    console.log(shortAlbumTitle);
-
-                    let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + shortAlbumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
-
-                    document.querySelector(".albumList").innerHTML += albumItem;
-
-                } else if (window.matchMedia("(min-width: 1024px)").matches) {
-
-                    let shortAlbumTitle = truncateString(albumTitle, 11, 10);
-
-                    console.log(shortAlbumTitle);
-
-                    let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + shortAlbumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
-
-                    document.querySelector(".albumList").innerHTML += albumItem;
-
-                } else {
-
-                    let shortAlbumTitle = truncateString(albumTitle, 30, 29);
-
-                    console.log(shortAlbumTitle);
-
-                    let albumItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img src="' + albumCover + '" alt="album N°' + i + '"><a href="#"><i class="fas fa-play-circle"></i></a></div><div class="uk-card-body"><a href="album.html"><h3 class="uk-card-title">' + shortAlbumTitle + '</h3></a><span>by </span><a href="artist.html">' + albumArtist + '</a></div></div></li>';
-
-                    document.querySelector(".albumList").innerHTML += albumItem;
-
-                }
-
-            }
-
-            let artistList = information.artists.data;
-
-            console.log(artistList);
-
-            for (let i = 0; i < artistList.length; i++) {
-                                
-                let artistName = artistList[i].name; 
-
-                let artistPic = artistList[i].picture_xl;
-
-                let artistItem = '<li><div class="uk-card uk-card-default"><div class="uk-card-media-top"><img class="img-artist" src="' + artistPic + '" alt="artist N°' + i + '"></div><div class="uk-card-body artist-body-card"><a href="artist.html"><h3>' + artistName + '</h3></a><span>1 458 632</span><a href="#"> fans</a></div></div></li>';
-
-                document.querySelector(".artistList").innerHTML += artistItem;
-            }
-        }
-    )
 
     function noScroll() {
         window.scrollTo(0, 0);
@@ -118,6 +18,205 @@ window.addEventListener("load", function() {
             // Remove listener to re-enable scroll
             window.removeEventListener('scroll', noScroll);
         });
-    });  
+    }); 
+
+    fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
+    .then(
+        function(response) {
+            return response.json();
+        }
+    )
+    .then(
+        function(information) {
+
+            let trackList = information.tracks.data;
+
+            console.log(information)
+
+            for (let i = 0; i < 5; i++) {
+                                
+                let trackTitle = trackList[i].title;
+
+                let trackArtist = trackList[i].artist.name;
+
+                let trackItem = `
+                <li class='track-item'>
+                    <a class='tNomb' href='track.html'>` + trackTitle + `</a>
+                    <span> by <a class='aNomb' href='artist.html'>` + trackArtist + `</a></span>
+                </li>
+                `;
+
+                document.querySelector(".trackList").innerHTML += trackItem;
+
+                console.log(trackArtist)
+            }
+
+            let albumList = information.albums.data;
+            
+            console.log(albumList);
+
+            function truncateString(str, num, add) {
+                // If the length of str is less than or equal to num
+                // just return str--don't truncate it.
+                if (str.length <= num) {
+                  return str
+                }
+                // Return str truncated with '...' concatenated to the end of str.
+                return str.slice(0, add) + '..'
+            }
+
+            for (let i = 0; i < albumList.length; i++) {
+                               
+                let albumTitle = albumList[i].title;
+
+                let albumArtist = albumList[i].artist.name;
+
+                let albumCover = albumList[i].cover_xl;
+
+                console.log(albumTitle);
+
+                if (window.matchMedia("(min-width: 1440px)").matches) {
+                    
+                    albumTitle = truncateString(albumTitle, 17, 16);
+
+                    console.log(albumTitle);
+
+                } else if (window.matchMedia("(min-width: 1024px)").matches) {
+
+                    albumTitle = truncateString(albumTitle, 11, 10);
+
+                    console.log(albumTitle);
+
+                } else {
+
+                    albumTitle = truncateString(albumTitle, 30, 29);
+
+                    console.log(albumTitle);
+
+                }
+
+                let albumItem = `
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="` + albumCover + `" alt="album N°` + i + `">
+                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                            </div>
+                            <div class="uk-card-body">
+                                <a href="album.html"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
+                                <span>by </span><a href="artist.html">` + albumArtist + `</a></div>
+                            </div>
+                        </li>
+                    `;
+
+                    document.querySelector(".albumList").innerHTML += albumItem;
+            }
+
+            let artistList = information.artists.data;
+
+            console.log(artistList);
+
+            for (let i = 0; i < artistList.length; i++) {
+                                
+                let artistId = artistList[i].id;
+
+                let artistName = artistList[i].name; 
+
+                let artistPic = artistList[i].picture_xl;
+            
+                let artistItem = `
+                <li>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <img class="img-artist" src="` + artistPic + `" alt="artist N°` + i + `">
+                        </div>
+                        <div class="uk-card-body artist-body-card">
+                            <a href="artist.html"><h3>` + artistName + `</h3></a>
+                        </div>
+                    </div>
+                </li>
+                `;
+
+                document.querySelector(".artistList").innerHTML += artistItem;
+
+                fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' + artistId)
+                .then(
+                    function(response) {
+                        return response.json();
+                    }
+                )
+                .then(
+                    function(info) {
+
+                        let cantFans = info.nb_fan;
+
+                        console.log(cantFans)
+
+                        // crea un nuevo span
+                        var newSpan = document.createElement("p");
+                        // y añade contenido 
+                        var newContent = document.createTextNode(cantFans + ' fans'); 
+                        newSpan.appendChild(newContent); //añade texto al span creado. 
+                        // añade el elemento creado y su contenido al DOM 
+                        document.querySelectorAll(".artist-body-card")[i].appendChild(newSpan);
+
+                    }
+                )
+            }
+
+            let playlistArray = information.playlists.data;
+
+            console.log(playlistArray)
+
+            for (let i = 0; i < playlistArray.length; i++) {
+                
+                let playlistName = playlistArray[i].title;
+
+                let playlistPic = playlistArray[i].picture_xl;
+
+                let playlistNumTracks = playlistArray[i].nb_tracks;
+
+                if (window.matchMedia("(min-width: 1440px)").matches) {
+                    
+                    playlistName = truncateString(playlistName, 19, 18);
+
+                    console.log(playlistName);
+
+                } else if (window.matchMedia("(min-width: 1024px)").matches) {
+
+                    playlistName = truncateString(playlistName, 11, 10);
+
+                    console.log(playlistName);
+
+                } else {
+
+                    playlistName = truncateString(playlistName, 30, 29);
+
+                    console.log(playlistName);
+
+                }
+
+                let playlistItem = `
+                <li>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <img src="` + playlistPic + `" alt="` + playlistName + `">
+                            <a href="#"><i class="fas fa-play-circle"></i></a>
+                        </div> 
+                        <div class="uk-card-body">
+                            <a href="playlist.html"><h3 class="uk-card-title">` + playlistName + `</h3></a>
+                            <span>` + playlistNumTracks + ` tracks</span>
+                        </div>
+                    </div>
+                </li>
+                `;
+
+                document.querySelector(".playlistList").innerHTML += playlistItem;
+
+            }
+        }
+    )
+
+     
 
 })
