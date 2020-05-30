@@ -1,6 +1,10 @@
 window.addEventListener("load", function() {
 
-    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/302127')
+    let queryString = new URLSearchParams(location.search);
+
+    let albumId = queryString.get("albumID");
+
+    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/' + albumId)
     .then(
         function(response) {
             return response.json();
@@ -16,7 +20,7 @@ window.addEventListener("load", function() {
             let artistName = informacion.artist.name
             document.querySelector('.Cantante').innerHTML = artistName;
 
-            let albumPicture = informacion.artist.picture_xl
+            let albumPicture = informacion.cover_xl;
             document.querySelector('.imagen').src = albumPicture;
 
             let cantidadDeCanciones = informacion.nb_tracks
@@ -49,20 +53,20 @@ window.addEventListener("load", function() {
                     seconds = '0' + seconds
                 }
 
-                let songItem = '<article class="cancion"><p class="nombre"><a href="track.html">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista">' + songArtist + '</p></article>'
+                let songItem = `
+                <article class="cancion">
+                    <p class="nombre"><a href="track.html">` + songTitle + `</a></p>
+                    <p class="duracion">` + minutes + ':' + seconds + `</p>
+                    <p class="artista">` + songArtist + `</p>
+                </article>
+                `;
 
                 document.querySelector(".canciones").innerHTML += songItem
                 
                 
             }
-
-
-
-
-
-
-            
-            
+ 
         }
     )
+
 })

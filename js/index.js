@@ -33,7 +33,11 @@ window.addEventListener("load", function() {
 
             console.log(information)
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < trackList.length; i++) {
+
+                let trackId = trackList[i].id;
+
+                console.log(trackId)
                                 
                 let trackTitle = trackList[i].title;
 
@@ -49,6 +53,18 @@ window.addEventListener("load", function() {
                 document.querySelector(".trackList").innerHTML += trackItem;
 
                 console.log(trackArtist)
+
+                /*
+                document.querySelectorAll(".tNomb").forEach(item => {
+                    item.addEventListener('click', event => {
+
+                        event.preventDefault();
+            
+                        document.querySelector(".reprod").innerHTML = `<iframe scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>`
+                    })
+                })
+
+                */
             }
 
             let albumList = information.albums.data;
@@ -73,7 +89,9 @@ window.addEventListener("load", function() {
 
                 let albumCover = albumList[i].cover_xl;
 
-                console.log(albumTitle);
+                let albumId = albumList[i].id;
+
+                console.log(albumId);
 
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
@@ -103,7 +121,7 @@ window.addEventListener("load", function() {
                                 <a href="#"><i class="fas fa-play-circle"></i></a>
                             </div>
                             <div class="uk-card-body">
-                                <a href="album.html"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
+                                <a href="album.html?albumID=` + albumId + `"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
                                 <span>by </span><a href="artist.html">` + albumArtist + `</a></div>
                             </div>
                         </li>
@@ -131,7 +149,7 @@ window.addEventListener("load", function() {
                             <img class="img-artist" src="` + artistPic + `" alt="artist N°` + i + `">
                         </div>
                         <div class="uk-card-body artist-body-card">
-                            <a href="artist.html"><h3>` + artistName + `</h3></a>
+                            <a href="artist.html?artistID=` + artistId + `"><h3>` + artistName + `</h3></a>
                         </div>
                     </div>
                 </li>
@@ -217,6 +235,5 @@ window.addEventListener("load", function() {
         }
     )
 
-     
-
+    
 })
