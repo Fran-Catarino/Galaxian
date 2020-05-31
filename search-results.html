@@ -3,29 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxian</title>
-    <link rel="shortcut icon" href="media/icon/favicon-32x32.png">
-    <!-- Font & Icons -->
-    <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/css/uikit.min.css" />
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit-icons.min.js"></script>
-    <!-- Galaxian CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
     <link rel="stylesheet" href="css/fijo.css">
     <link rel="stylesheet" href="css/menuPC.css">
-    <!-- Galaxian JS -->
-    <script src="js/index.js"></script>
-    <script src="js/fijo.js"></script>
 </head>
-
 <body>
     <div class="container">
-        
         <!-- HEADER INICIO -->
         <header class="header">
             <a class="1" href="#charts"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
@@ -48,14 +31,6 @@
             </nav>
         </header>
         <!-- HEADER FINAL -->
-
-        <!-- banner -->
-		<section class="banner">
-            <div class="nombre">
-                <a href="#charts" class="music"><h1>GALAXIAN</h1></a>
-                <a href="#charts" class="music"><h2>music</h2></a>
-            </div>
-        </section>
 
         <!-- nav pc -->
         <nav class="bigscreen">
@@ -182,121 +157,9 @@
             </ul>
         </nav>
 
-        <main>
-            <!-- distintos rankings -->
-            <section class="charts">
 
-                <!-- ranking de tracks -->
-                <h2 class="section-title" id="charts">Charts</h2>
-
-                <section class="ranking">
-                    <h2>Today's top tracks</h2>
-                    <div class="top-traks">
-                        <ol class="trackList">    
-                            
-                        </ol>
-                    </div>
-                </section>
-
-                <!-- ranking de albums -->
-
-                <section class="ranking">
-
-                    <h2>Most-streamed albums</h2>
-
-                    <div class="carrousel">
-                        <div uk-slider="center: true">
-
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                        
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid albumList">
-                        
-                                </ul>
-                        
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                            </div>
-                        
-                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
         
-                        </div>
-                    </div>
-                </section>
 
-                <!-- ranking de artistas -->
-
-                <section class="ranking">
-                    <h2>Most-streamed artist</h2>
-
-                    <div class="carrousel artirstCar">
-                        <div uk-slider="center: true">
-
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                        
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid artistList">
-                                    
-                                </ul>
-                        
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                        
-                            </div>
-                        
-                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                        
-                        </div>
-                    </div>
-
-                </section>
-
-                <!-- ranking de generos -->
-                <section class="ranking">
-
-                    <h2>Most-streamed playlists</h2>
-                    <div class="carrousel">
-                        <div uk-slider="center: true">
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid playlistList">
-                                    
-                                </ul>
-                        
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                        
-                            </div>
-                        
-                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </main>
-
-        <!-- REPRODUCTOR INICIO -->
-        <section id="repDes">
-            <div id="resIcono"><i class="fas fa-chevron-up"></i></div>
-            <article class="reprod">
-                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=146eff&layout=dark&size=medium&type=tracks&id=398055752&app_id=1" width="700" height="350"></iframe>
-                    
-                    <!-- FOOTER PC INICIO -->
-                    <footer class="pc">
-                        <h6 class="nombresFooter">Gastón Loza Montaña</h6>
-                        <h6 class="nombresFooter">Francisco Catarino</h6>
-                        <h6 class="nombresFooter">Benjamin Echague</h6>
-                    </footer>
-                    <!-- FOOTER PC FINAL -->
-            </article>
-        </section>
-        <!-- REPRODUCTOR FINAL -->
-    
-        <!-- FOOTER INICIO -->
-        <footer class="noPc">
-            <img src="media/Footer_Header/deezer-logo.png" alt="logo deezer" class="dezzer">
-            <h6 class="nombresFooter">Gastón Loza Montaña</h6>
-            <h6 class="nombresFooter">Francisco Catarino</h6>
-            <h6 class="nombresFooter">Benjamin Echague</h6>
-        </footer>
-        <!-- FOOTER FINAL -->
     </div>
 </body>
 </html>

@@ -39,14 +39,16 @@ window.addEventListener("load", function() {
 
                 console.log(trackId)
                                 
-                let trackTitle = trackList[i].title;
+                let trackTitle = trackList[i].title_short;
 
                 let trackArtist = trackList[i].artist.name;
 
+                let trackArtistId = trackList[i].artist.id;
+
                 let trackItem = `
                 <li class='track-item'>
-                    <a class='tNomb' href='track.html'>` + trackTitle + `</a>
-                    <span> by <a class='aNomb' href='artist.html'>` + trackArtist + `</a></span>
+                    <a class='tNomb' href='track.html?'>` + trackTitle + `</a>
+                    <span> by <a class='aNomb' href='artist.html?artistID=` + trackArtistId + `'>` + trackArtist + `</a></span>
                 </li>
                 `;
 
@@ -87,6 +89,8 @@ window.addEventListener("load", function() {
 
                 let albumArtist = albumList[i].artist.name;
 
+                let albumArtistId = albumList[i].artist.id;
+
                 let albumCover = albumList[i].cover_xl;
 
                 let albumId = albumList[i].id;
@@ -122,7 +126,7 @@ window.addEventListener("load", function() {
                             </div>
                             <div class="uk-card-body">
                                 <a href="album.html?albumID=` + albumId + `"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
-                                <span>by </span><a href="artist.html">` + albumArtist + `</a></div>
+                                <span>by </span><a href="artist.html?artistID=` + albumArtistId +`">` + albumArtist + `</a></div>
                             </div>
                         </li>
                     `;

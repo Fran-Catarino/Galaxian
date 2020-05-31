@@ -86,13 +86,28 @@ img.logo {
     margin: auto auto;
     background-color: transparent;
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
-.buscador h2 {
-    border-bottom: thin gray solid;
+form {
+
+	width: 100%;
 }
+
+.searcher {
+    border: none;
+    width: 80%;
+    height: 15px;
+    font-size: 100%;
+    outline:none;
+}
+
+.buscador button {
+    color: gray;
+    background-color: transparent;
+    border: none;
+    outline:none;
+}
+
 .main-nav {
     background-color: transparent;
     margin: auto 0;
