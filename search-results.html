@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/fijo.css">
     <link rel="stylesheet" href="css/menuPC.css">
+    <link rel="stylesheet" href="css/search-results.css">
+    <script src="js/search-results.js"></script>
 </head>
 <body>
     <div class="container">
         <!-- HEADER INICIO -->
         <header class="header">
-            <a class="1" href="#charts"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
+            <a class="1" href="index.html"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
             <div class="buscador">
-                <form action="resultados.html" method="GET">
+                <form action="search-results.html" method="GET">
                     <button type="submit" class="btn"><i class="fas fa-search"></i></button>
-                    <input class="searcher" type="text" placeholder="Search" name="search" id="">
+                    <input class="searcher" type="text" placeholder="Search" name="searcher" id="">
                   </form>
             </div>
             <nav class="main-nav">
@@ -35,7 +38,7 @@
         <!-- nav pc -->
         <nav class="bigscreen">
             <ul class= "bigscreen">
-                <li class="titulo"><a href="#charts"><h4 class="titulo">Home</h4></a></li>
+                <li class="titulo"><a href="index.html"><h4 class="titulo">Home</h4></a></li>
                 <li class="titulo"><a href="https://giphy.com/gifs/XIqCQx02E1U9W/fullscreen"><h4 class="titulo">Mi cuenta</h4></a></li>
                 <li class="titulo"><a href="playlist.html"><h4 class="titulo">Playlist</h4></a></li>
                 <li class="titulo"><a href="genders.html"><h4 class="titulo">Géneros</h4></a></li>
@@ -158,6 +161,63 @@
         </nav>
 
 
+        <main>
+            <h2>245 tracks</h2>
+            <ul class="ul">
+                <li class="headings">
+                    <p></p>
+                    <h3>TRACK</h3>
+                    <h3>ARTIST</h3>
+                    <h3>ALBUM</h3>
+                    <h3 class="dur"><i class="fab fa-algolia"></i></h3>
+                </li>
+                <li class="track-item">
+                    <div class="img-container">
+                        <img class="track-img" src="media/trackList/song-2.jpg" alt="track-image">
+                    </div>
+                    <a href="" class="fav"><i class="far fa-heart"></i></a>
+                    <a href="" class="track-title">Name of the song searched</a>
+                    <div class="info-mobile">
+                        <a href="" class="track">Name of the song searched</a>
+                        <a href="" class="artist">Name of Artist</a>
+                    </div>
+                    <p class="explicit">E</p>
+                    <a href="" class="track-artist">Name of Artist</a>
+                    <a href="" class="track-album">Album of the track</a>
+                    <p class="duration">3:45</p>
+                </li>
+                <li class="track-item">
+                    <div class="img-container">
+                        <img class="track-img" src="media/trackList/song-2.jpg" alt="track-image">
+                    </div>
+                    <a href="" class="fav"><i class="far fa-heart"></i></a>
+                    <a href="" class="track-title">Name of the song searched</a>
+                    <div class="info-mobile">
+                        <a href="" class="track">Name of the song searched</a>
+                        <a href="" class="artist">Name of Artist</a>
+                    </div>
+                    <p class="explicit">E</p>
+                    <a href="" class="track-artist">Name of Artist</a>
+                    <a href="" class="track-album">Album of the track</a>
+                    <p class="duration">3:45</p>
+                </li>
+                <li class="track-item">
+                    <div class="img-container">
+                        <img class="track-img" src="media/trackList/song-2.jpg" alt="track-image">
+                    </div>
+                    <a href="" class="fav"><i class="far fa-heart"></i></a>
+                    <a href="" class="track-title">Name of the song searched</a>
+                    <div class="info-mobile">
+                        <a href="" class="track">Name of the song searched</a>
+                        <a href="" class="artist">Name of Artist</a>
+                    </div>
+                    <p class="explicit">E</p>
+                    <a href="" class="track-artist">Name of Artist</a>
+                    <a href="" class="track-album">Album of the track</a>
+                    <p class="duration">3:45</p>
+                </li>
+            </ul>
+        </main>
         
 
     </div>
