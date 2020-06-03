@@ -16,6 +16,10 @@ window.addEventListener('load', function() {
 
             console.log(informacion)
 
+            let numberTracks = informacion.total;
+
+            document.querySelector(".number-tracks").innerHTML = numberTracks + " tracks";
+
             arrayTracks = informacion.data;
 
             for (let i = 0; i < arrayTracks.length; i++) {
@@ -76,42 +80,43 @@ window.addEventListener('load', function() {
 
                 }
 
+                let trackItems = document.querySelectorAll(".track-item")
+
+                console.log(trackItems)
+
+                let container = document.querySelectorAll(".img-container");
+                
+                for (i = 0; i < trackItems.length; i++) {
+                    console.log(container[i])
+                    trackItems[i].addEventListener('mouseover', function() {
+                        this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
+                        container[i].innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
+                    })
+                    trackItems[i].addEventListener('mouseout', function() {
+                        this.style.backgroundColor = "";
+                        container[i].innerHTML = '<img class="track-img" src="' + trackImg + '" alt="track-image">'
+                    })
+                }
+                
+
+                for (i = 0; i < container.length; i++) {
+                    
+                    container[i].addEventListener('mouseover', function() {
+                        console.log("anda")
+                        this.innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
+                    })
+                    container[i].addEventListener('mouseout', function() {
+                        console.log("anda")
+                        this.innerHTML = '<img class="track-img" src="' + trackImg + '" alt="track-image">'
+                    })
+                    
+                }
             }
         }
     )
 
 
 
-    let trackItems = document.querySelectorAll(".track-item")
-
-    console.log(trackItems)
     
-    for (i = 0; i < trackItems.length; i++) {
-        trackItems[i].addEventListener('mouseover', function() {
-            this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
-        })
-        trackItems[i].addEventListener('mouseout', function() {
-            this.style.backgroundColor = "";
-        })
-    }
 
-    let container = document.querySelectorAll(".img-container");
-        
-    console.log(container)
-    
-    for (i = 0; i < container.length; i++) {
-        
-        console.log(container[i])
-        container[i].addEventListener('mouseover', function() {
-            console.log("anda")
-            this.innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
-        })
-        container[i].addEventListener('mouseout', function() {
-            console.log("anda")
-            this.innerHTML = '<img class="track-img" src="media/trackList/song-2.jpg" alt="track-image">'
-        })
-        
-    }
-
-    fetch
 })
