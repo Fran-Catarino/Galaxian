@@ -10,6 +10,9 @@ window.addEventListener("load", function() {
         function(informacion){
             console.log(informacion);
 
+            let coverAlbum = informacion.picture_xl
+            document.querySelector('.imagen').src = coverAlbum;
+
             let playlistName = informacion.title
             document.querySelector('.favoritas').innerHTML = playlistName
 
@@ -20,7 +23,7 @@ window.addEventListener("load", function() {
             document.querySelector('.minutos').innerHTML = duracion + ' minutos' ;
 
             let seguidores = informacion.fans
-            document.querySelector('.fans').innerHTML = seguidores + 'seguidores'
+            document.querySelector('.fans').innerHTML = seguidores + ' ' +'seguidores'
 
             let allSongs = informacion.tracks.data
             console.log(allSongs);
