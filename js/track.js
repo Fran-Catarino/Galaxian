@@ -1,8 +1,9 @@
-let queryString = new URLSearchParams(location.search);
+window.addEventListener("load", function() {
+    let queryString = new URLSearchParams(location.search);
 
-    let artistId = queryString.get("artistID");
+    let trackId = queryString.get("trackID");
 
-    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/3135556')
+    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/' + trackId)
     .then(
         function(response) {
             return response.json();
@@ -13,16 +14,14 @@ let queryString = new URLSearchParams(location.search);
             console.log(informacion);
             
             let titulo = informacion.title
-            document.querySelector('.cancion' ).innerHTML = titulo ;
+            document.querySelector('.favoritas' ).innerHTML = titulo ;
 
             let coverTrack = informacion.album.cover_xl
-            document.querySelector('.image').src = coverTrack;
+            document.querySelector('.imagen').src = coverTrack;
 
             let cantante = informacion.artist.name
             document.querySelector('.art').innerHTML = cantante;
 
-            let albumes = informacion.album.cover
-            document.querySelector('.album1').src = albumes;
             
 
             
@@ -31,3 +30,4 @@ let queryString = new URLSearchParams(location.search);
             
         
     )
+})
