@@ -244,6 +244,8 @@ window.addEventListener("load", function() {
 
                 let playlistNumTracks = playlistArray[i].nb_tracks;
 
+                let playlistId = playlistArray[i].id
+
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
                     playlistName = truncateString(playlistName, 19, 18);
@@ -272,7 +274,7 @@ window.addEventListener("load", function() {
                             <a href="#"><i class="fas fa-play-circle"></i></a>
                         </div> 
                         <div class="uk-card-body">
-                            <a href="playlist.html"><h3 class="uk-card-title">` + playlistName + `</h3></a>
+                            <a href="playlist.html?playlistID=` + playlistId + `"><h3 class="uk-card-title">` + playlistName + `</h3></a>
                             <span>` + playlistNumTracks + ` tracks</span>
                         </div>
                     </div>
