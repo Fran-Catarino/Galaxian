@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/menuPC.css">
     <!-- Galaxian JS -->
     <script src="js/index.js"></script>
+    <script src="js/fijo.js"></script>
 </head>
 
 <body>
@@ -27,9 +28,12 @@
         
         <!-- HEADER INICIO -->
         <header class="header">
-            <a href="#charts"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
+            <a class="1" href="#charts"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
             <div class="buscador">
-                <h2>Buscar...</h2>
+                <form action="search-results.html" method="GET">
+                    <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                    <input class="searcher" type="text" placeholder="Search" name="searcher" id="">
+                  </form>
             </div>
             <nav class="main-nav">
                 <a href="#" class="toggle-nav">
@@ -248,128 +252,12 @@
                 <!-- ranking de generos -->
                 <section class="ranking">
 
-                    <h2>Most-streamed genders</h2>
+                    <h2>Most-streamed playlists</h2>
                     <div class="carrousel">
                         <div uk-slider="center: true">
                             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Casa.png" alt="En Casa">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div> 
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">En Casa</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Concentración.png" alt="Concentración">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div> 
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Concentración</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Cumbia.png" alt="Cumbia">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Cumbia</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Ejercicio.png" alt="Ejercicio">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Ejercicio</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Gaming.png" alt="Gaming">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Gaming</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Para dormir.png" alt="Para dormir">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Para dormir</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Pop.png" alt="Pop">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Pop</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Rock.png" alt="rock">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Rock</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-card uk-card-default">
-                                            <div class="uk-card-media-top">
-                                                <img src="media/generos/Romantico.png" alt="Romantico">
-                                                <a href="#"><i class="fas fa-play-circle"></i></a>
-                                            </div>
-                                            <div class="uk-card-body">
-                                                <a href="playlist.html"><h3 class="uk-card-title">Romantico</h3></a>
-                                                <span>1 458 632</span>
-                                                <a href="#">fans</a>
-                                            </div>
-                                        </div>
-                                    </li>
+                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid playlistList">
+                                    
                                 </ul>
                         
                                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
