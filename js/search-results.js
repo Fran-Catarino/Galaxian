@@ -107,9 +107,9 @@ window.addEventListener('load', function() {
                             <img class="track-img" src="` + trackImg + `" alt="track-image">
                         </div>
                         <a href="" class="fav"><i class="far fa-heart"></i></a>
-                        <a href="tracl.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
+                        <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                         <div class="info-mobile">
-                            <a href="tracl.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
+                            <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
                             <a href="artist.html?artistID=` + artistId + `" class="artist">` + trackArtist + `</a>
                         </div>
                         <p class="explicit">E</p>
@@ -127,9 +127,9 @@ window.addEventListener('load', function() {
                             <img class="track-img" src="` + trackImg + `" alt="track-image">
                         </div>
                         <a href="" class="fav"><i class="far fa-heart"></i></a>
-                        <a href="tracl.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
+                        <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                         <div class="info-mobile">
-                            <a href="tracl.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
+                            <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
                             <a href="artist.html?artistID=` + artistId + `" class="artist">` + trackArtist + `</a>
                         </div>
                         <p></p>
@@ -151,36 +151,25 @@ window.addEventListener('load', function() {
                 let trackItems = document.querySelectorAll(".track-item")
 
                 console.log(trackItems)
-
-                let container = document.querySelectorAll(".img-container");
                 
-                for (i = 0; i < trackItems.length; i++) {
-                    
-                    trackItems[i].addEventListener('mouseover', function() {
+                trackItems.forEach (function(cancion) {
+
+                    let fotoAnterior;
+                    cancion.addEventListener('mouseover', function() {
                         this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
-                        /* PREGUNTAR */
-                        container[i].innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
+                        
+                        console.log(this.children[0])
+                        fotoAnterior = this.children[0].innerHTML;
+                        this.children[0].innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
                     })
-                    trackItems[i].addEventListener('mouseout', function() {
+
+                    cancion.addEventListener('mouseout', function() {
                         this.style.backgroundColor = "";
-                        /* PREGUNTAR */
-                        container[i].innerHTML = '<img class="track-img" src="' + trackImg + '" alt="track-image">'
+                        
+                        this.children[0].innerHTML =  fotoAnterior;
                     })
-                }
-                /*
-                for (i = 0; i < container.length; i++) {
-                    
-                    container[i].addEventListener('mouseover', function() {
-                        console.log("anda")
-                        this.innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
-                    })
-                    container[i].addEventListener('mouseout', function() {
-                        console.log("anda")
-                        this.innerHTML = '<img class="track-img" src="' + trackImg + '" alt="track-image">'
-                    })
-                    
-                }
-                */
+                })
+            
             }
         }
     )

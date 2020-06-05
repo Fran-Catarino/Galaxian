@@ -125,7 +125,7 @@ window.addEventListener("load", function() {
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-media-top">
                                 <img src="` + albumCover + `" alt="album N°` + i + `">
-                                <a href="#"><i class="fas fa-play-circle"></i></a>
+                                <i class="fas fa-play-circle" data-albumId=` + albumId + `></i>
                             </div>
                             <div class="uk-card-body">
                                 <a href="album.html?albumID=` + albumId + `"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
@@ -137,10 +137,22 @@ window.addEventListener("load", function() {
 
                 document.querySelector(".albumList").innerHTML += albumItem;
 
-                let botonPlay = document.querySelector(".fa-play-circle");
+                
 
+                /*
                 console.log(botonPlay)
 
+                botonPlay.addEventListener('click', function() {
+                    console.log("hola")
+                    document.querySelector('.reprod-container').innerHTML = `
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + albumId + `&app_id=1" width="700" height="350"></iframe>
+                    `
+                    document.querySelector(".reprod").style.display = "block";
+                })
+                
+
+                */
+                /*
                 for (let m = 0; m < botonesPlay.length; m++) {
                 
                     console.log(this)
@@ -153,8 +165,26 @@ window.addEventListener("load", function() {
                     })
                 }
 
-               
+               */
             }
+
+            let botonesPlay = document.querySelectorAll(".fa-play-circle");
+
+                botonesPlay.forEach(function(boton) {
+                    boton.addEventListener("click", function(e){
+
+                        console.log(this)
+                        document.querySelector('.reprod-container').innerHTML = `
+                    
+                        <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
+                        `
+                        document.querySelector(".reprod").style.display = "block";
+
+                        console.log(this.dataset.albumid)
+                    })
+
+                })
+
 
             let artistList = information.artists.data;
 
