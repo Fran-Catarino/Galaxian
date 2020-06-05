@@ -43,7 +43,7 @@ window.addEventListener("load", function() {
 
                 let trackItem = `
                 <li class='track-item'>
-                    <a class='tNomb' href='track.html?'>` + trackTitle + `</a>
+                    <a class='tNomb' href='track.html?track=` + trackId +`'>` + trackTitle + `</a>
                     <span> by <a class='aNomb' href='artist.html?artistID=` + trackArtistId + `'>` + trackArtist + `</a></span>
                 </li>
                 `;
@@ -129,12 +129,19 @@ window.addEventListener("load", function() {
                             </div>
                             <div class="uk-card-body">
                                 <a href="album.html?albumID=` + albumId + `"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
-                                <span>by </span><a href="artist.html?artistID=` + albumArtistId +`">` + albumArtist + `</a></div>
+                                <span>by </span><a href="artist.html?artistID=` + albumArtistId +`">` + albumArtist + `</a>
                             </div>
-                        </li>
-                    `;
+                        </div>
+                    </li>
+                `;
 
-                    document.querySelector(".albumList").innerHTML += albumItem;
+                document.querySelector(".albumList").innerHTML += albumItem;
+
+                let botonPlay = document.querySelector(".fa-play-circle");
+
+                console.log(botonPlay)
+
+               
             }
 
             let artistList = information.artists.data;
