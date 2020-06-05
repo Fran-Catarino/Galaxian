@@ -7,6 +7,7 @@ main {
     width: 90%;
     margin: 0 auto;
     margin-top: 80px;
+    margin-bottom: 10px;
 }
 
 a {
@@ -56,6 +57,10 @@ ul {
     border-bottom: grey 0.3px solid;
 }
 
+.el-ultimo {
+    border-bottom: none;
+}
+
 .track-item-mouseover {
     background-color: rgba(53, 47, 68, 0.692);
 }
@@ -66,12 +71,13 @@ ul {
 }
 
 .fav {
-    margin: auto 0;
+    margin: auto 8px;
 }
 
 .track {
     font-size: 18px;
     color: ivory;
+    display: block;
 }
 
 .artist {
@@ -100,6 +106,7 @@ ul {
     main{
 		width: 77%;
         margin-right: 0;
+        margin-bottom: 30px;
     }
 
     .play {
@@ -151,17 +158,20 @@ ul {
 
     a {
         margin: auto 0;
+        text-decoration: none;
     }
     .track-title {
         display: block;
         color: ivory;
         font-size: 18px;
+        text-decoration: none;
     }
 
     .track-artist {
         display: block;
         color: ivory;
         font-size: 15px;
+        text-decoration: none;
     }
 
     .track-album {

@@ -227,12 +227,12 @@ article.reprod {
     }
 
     footer {
-    width: 100%;
-    height: 35px;
-    margin: auto auto;
-    background: rgba(0, 0, 0, 1);
-    grid-template-columns: 30% 30% 30%;
-    justify-content: 4% 1% 1% 4%;
+        width: 100%;
+        height: 35px;
+        margin: auto auto;
+        background: rgba(0, 0, 0, 1);
+        grid-template-columns: 30% 30% 30%;
+        justify-content: 4% 1% 1% 4%;
     }
 
     h6.nombresFooter {

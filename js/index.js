@@ -31,13 +31,9 @@ window.addEventListener("load", function() {
 
             let trackList = information.tracks.data;
 
-            console.log(information)
-
             for (let i = 0; i < trackList.length; i++) {
 
                 let trackId = trackList[i].id;
-
-                console.log(trackId)
                                 
                 let trackTitle = trackList[i].title_short;
 
@@ -54,7 +50,7 @@ window.addEventListener("load", function() {
 
                 document.querySelector(".trackList").innerHTML += trackItem;
 
-                console.log(trackArtist)
+                /* PREGUNTAR */
 
                 /*
                 document.querySelectorAll(".tNomb").forEach(item => {
@@ -62,7 +58,9 @@ window.addEventListener("load", function() {
 
                         event.preventDefault();
             
-                        document.querySelector(".reprod").innerHTML = `<iframe scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>`
+                        document.querySelector(".reprod").innerHTML = `
+                        <iframe scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>
+                        `
                     })
                 })
 
@@ -70,8 +68,6 @@ window.addEventListener("load", function() {
             }
 
             let albumList = information.albums.data;
-            
-            console.log(albumList);
 
             function truncateString(str, num, add) {
                 // If the length of str is less than or equal to num
@@ -80,7 +76,7 @@ window.addEventListener("load", function() {
                   return str
                 }
                 // Return str truncated with '...' concatenated to the end of str.
-                return str.slice(0, add) + '..'
+                return str.slice(0, add) + '...'
             }
 
             for (let i = 0; i < albumList.length; i++) {
@@ -95,26 +91,33 @@ window.addEventListener("load", function() {
 
                 let albumId = albumList[i].id;
 
-                console.log(albumId);
-
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
-                    albumTitle = truncateString(albumTitle, 17, 16);
+                    if (albumTitle != albumTitle.toUpperCase()){
+                        console.log("es minis");
+                        albumTitle = truncateString(albumTitle, 18, 17);
+                    } else if (albumTitle == albumTitle.toUpperCase()) {
+                        console.log("es mayus")
+                        albumTitle = truncateString(albumTitle, 16, 15);
+                    }                    
 
                     console.log(albumTitle);
 
                 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 
-                    albumTitle = truncateString(albumTitle, 11, 10);
+                    if (albumTitle != albumTitle.toUpperCase()){
+                        console.log("es minis");
+                        albumTitle = truncateString(albumTitle, 14, 13);
+                    } else if (albumTitle == albumTitle.toUpperCase()) {
+                        console.log("es mayus")
+                        albumTitle = truncateString(albumTitle, 15, 14);
+                    } 
 
                     console.log(albumTitle);
 
                 } else {
 
-                    albumTitle = truncateString(albumTitle, 30, 29);
-
-                    console.log(albumTitle);
-
+                    albumTitle = truncateString(albumTitle, 25, 24);
                 }
 
                 let albumItem = `
@@ -135,8 +138,6 @@ window.addEventListener("load", function() {
             }
 
             let artistList = information.artists.data;
-
-            console.log(artistList);
 
             for (let i = 0; i < artistList.length; i++) {
                                 
@@ -172,8 +173,6 @@ window.addEventListener("load", function() {
 
                         let cantFans = info.nb_fan;
 
-                        console.log(cantFans)
-
                         // crea un nuevo span
                         var newSpan = document.createElement("p");
                         // y añade contenido 
@@ -187,8 +186,6 @@ window.addEventListener("load", function() {
             }
 
             let playlistArray = information.playlists.data;
-
-            console.log(playlistArray)
 
             for (let i = 0; i < playlistArray.length; i++) {
                 

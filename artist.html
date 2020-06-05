@@ -21,16 +21,19 @@
         
         <!-- HEADER INICIO -->
         <header class="header">
-            <a href="index.html"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
+            <a class="1" href="index.html"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
             <div class="buscador">
-                <h2>Buscar...</h2>
+                <form action="search-results.html" method="GET">
+                    <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                    <input class="searcher" type="text" placeholder="Search" name="searcher" id="">
+                </form>
             </div>
             <nav class="main-nav">
                 <a href="#" class="toggle-nav">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul class="navegacion">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#charts">Home</a></li>
                     <li><a href="playlist.html">Playlist</a></li>
                     <li class="genero"><a href="genders.html">Géneros</a></li>
                     <li><a href="#">Mi cuenta</a></li>
@@ -180,7 +183,7 @@
                         </div>
                         <div class="boton-play">
                             <i class="fas fa-play"></i>
-                            <a href="#">Artist Mix</a>
+                            <a class="play-artist" href="#">Artist Mix</a>
                         </div>
                         <div class="boton-share boton-extra">
                             <i class="fas fa-share"></i>
@@ -370,27 +373,31 @@
         <section id="repDes">
             <div id="resIcono"><i class="fas fa-chevron-up"></i></div>
             <article class="reprod">
-                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=146eff&layout=dark&size=medium&type=tracks&id=398055752&app_id=1" width="700" height="350"></iframe>
+
+                <div class="reprod-container">
                     
-                    <!-- FOOTER PC INICIO -->
-                    <footer class="pc">
-                        <h6 class="nombresFooter">Gastón Loza Montaña</h6>
-                        <h6 class="nombresFooter">Francisco Catarino</h6>
-                        <h6 class="nombresFooter">Benjamin Echague</h6>
-                    </footer>
-                    <!-- FOOTER PC FINAL -->
+                </div>
+                
+                <!-- FOOTER PC INICIO -->
+                <footer class="pc">
+                    <h6 class="nombresFooter">Gastón Loza Montaña</h6>
+                    <h6 class="nombresFooter">Francisco Catarino</h6>
+                    <h6 class="nombresFooter">Benjamin Echague</h6>
+                </footer>
+                <!-- FOOTER PC FINAL -->
+
             </article>
         </section>
         <!-- REPRODUCTOR FINAL -->
 
-    <!-- FOOTER INICIO -->
-    <footer class="noPc">
-        <img src="media/Footer_Header/deezer-logo.png" alt="logo deezer" class="dezzer">
-        <h6 class="nombresFooter">Gastón Loza Montaña</h6>
-        <h6 class="nombresFooter">Francisco Catarino</h6>
-        <h6 class="nombresFooter">Benjamin Echague</h6>
-    </footer>
-    <!-- FOOTER FINAL -->
+        <!-- FOOTER INICIO -->
+        <footer class="noPc">
+            <img src="media/Footer_Header/deezer-logo.png" alt="logo deezer" class="dezzer">
+            <h6 class="nombresFooter">Gastón Loza Montaña</h6>
+            <h6 class="nombresFooter">Francisco Catarino</h6>
+            <h6 class="nombresFooter">Benjamin Echague</h6>
+        </footer>
+        <!-- FOOTER FINAL -->
     </div>
 </body>
 </html>
