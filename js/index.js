@@ -43,7 +43,7 @@ window.addEventListener("load", function() {
 
                 let trackItem = `
                 <li class='track-item'>
-                    <a class='tNomb' href='track.html?track=` + trackId +`'>` + trackTitle + `</a>
+                    <a class='tNomb' href='track.html?trackID=` + trackId +`'>` + trackTitle + `</a>
                     <span> by <a class='aNomb' href='artist.html?artistID=` + trackArtistId + `'>` + trackArtist + `</a></span>
                 </li>
                 `;
@@ -140,6 +140,18 @@ window.addEventListener("load", function() {
                 let botonPlay = document.querySelector(".fa-play-circle");
 
                 console.log(botonPlay)
+
+                for (let m = 0; m < botonesPlay.length; m++) {
+                
+                    console.log(this)
+                    this.addEventListener('click', function() {
+                        console.log("hola")
+                        document.querySelector('.reprod-container').innerHTML = `
+                        <iframe scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + albumId + `&app_id=1" width="700" height="350"></iframe>
+                        `
+                        document.querySelector(".reprod").style.display = "block";
+                    })
+                }
 
                
             }
