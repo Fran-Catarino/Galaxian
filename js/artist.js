@@ -127,6 +127,8 @@ window.addEventListener("load", function() {
 
                         let trackDuration = topTracksArray[i].duration;
 
+                        let trackId = topTracksArray[i].id;
+
                         let minutes = trackDuration/60
                         minutes = Math.floor(minutes)
                         let seconds = trackDuration %60
@@ -138,7 +140,7 @@ window.addEventListener("load", function() {
                         <article class="songs">
                             <h3>` + (i+1) + `</h3>
                             <div>
-                                <a href="track.html"><h2>` + trackTitle + `</h2></a>
+                                <a href="track.html?trackID=` + trackId +`"><h2>` + trackTitle + `</h2></a>
                                 <a href="album.html?albumID=` + trackAlbumId + `"><h5>` + trackAlbum + `</h5></a>
                             </div>
                             <h4>` + minutes + `:` + seconds + `</h4>   

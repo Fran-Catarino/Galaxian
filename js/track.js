@@ -3,6 +3,9 @@ window.addEventListener("load", function() {
 
     let trackId = queryString.get("trackID");
 
+    document.querySelector(`.reprod-container`).innerHTML = `<iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>`
+    document.querySelector('.reprod').style.display = "block"
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/' + trackId)
     .then(
         function(response) {
@@ -38,8 +41,10 @@ window.addEventListener("load", function() {
                 seconds = '0' + seconds
             }
             let albumDeCancion = informacion.album.title
+            let artistId = informacion.artist.id
+            let albumId = informacion.album.id
 
-            let songItem = '<article class="cancion"><p class="nombre"><a href="track.html">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista">' + songArtist + '</p> <p class="album">' + albumDeCancion + '</p></article>';
+            let songItem = '<article class="cancion"><a href="track.html?trackID='+ trackId +'">' + songTitle + '</a><a class="duracion">' + minutes + ':' + seconds + '</p><a class="artista" href="artist.html?artistID='+ artistId +'" >' + songArtist + '</a> <a class="album" href="album.html?albumID=' + albumId +'">' + albumDeCancion + '</a></article>';
 
             document.querySelector(".canciones").innerHTML = songItem;
             

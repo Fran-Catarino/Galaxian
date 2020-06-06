@@ -76,7 +76,7 @@ a {
     font-size: small;
 }
     
-.artista a{
+.artista {
     color: #2f9bc1;
     text-align: left;
     padding-left: 10px;
@@ -188,7 +188,7 @@ p{
         width: 95%;
         border-top: solid 0.5px ghostwhite ;
     }
-    .cancion p{
+    .cancion a{
         margin: auto;
         color: white;
         font-size: 23px;

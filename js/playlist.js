@@ -1,6 +1,9 @@
 window.addEventListener("load", function() {
+    let queryString = new URLSearchParams(location.search);
 
-    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/908622995')
+    let playlistId = queryString.get("playlistID");
+
+    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/'+ playlistId)
     .then(
         function(response) {
             return response.json();
@@ -15,6 +18,8 @@ window.addEventListener("load", function() {
 
             let playlistName = informacion.title
             document.querySelector('.favoritas').innerHTML = playlistName
+            let creator = informacion.creator.name
+            document.querySelector('.creador').innerHTML = creator
 
             let cantidadDeCanciones = informacion.nb_tracks
             document.querySelector('.ndc').innerHTML = cantidadDeCanciones + ' canciones';
@@ -32,19 +37,15 @@ window.addEventListener("load", function() {
 
                 let songTitle = allSongs[i].title;
 
-                console.log(songTitle);
-                
-
                 let songArtist = allSongs[i].artist.name;
 
                 let songLength = allSongs[i].duration;
                 let minutes = songLength/60
                 minutes = Math.floor(minutes)
                 let seconds = songLength %60
-                if(seconds<10){
-                    seconds = '0' + seconds
-                }
-                let albumDeCancion = informacion.tracks.data.album
+                if(seconds<10){ seconds = '0' + seconds }
+
+                let albumDeCancion = allSongs[i].album.title
 
                 let songItem = '<article class="cancion"><p class="nombre"><a href="track.html">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista">' + songArtist + '</p> <p class="album">' + albumDeCancion + '</p></article>'
 
