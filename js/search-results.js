@@ -157,7 +157,6 @@ window.addEventListener('load', function() {
                     let fotoAnterior;
                     cancion.addEventListener('mouseover', function() {
                         this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
-                        
                         console.log(this.children[0])
                         fotoAnterior = this.children[0].innerHTML;
                         this.children[0].innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
@@ -165,7 +164,6 @@ window.addEventListener('load', function() {
 
                     cancion.addEventListener('mouseout', function() {
                         this.style.backgroundColor = "";
-                        
                         this.children[0].innerHTML =  fotoAnterior;
                     })
                 })
