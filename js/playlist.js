@@ -37,18 +37,14 @@ window.addEventListener("load", function() {
 
                 let songTitle = allSongs[i].title;
 
-                console.log(songTitle);
-                
-
                 let songArtist = allSongs[i].artist.name;
 
                 let songLength = allSongs[i].duration;
                 let minutes = songLength/60
                 minutes = Math.floor(minutes)
                 let seconds = songLength %60
-                if(seconds<10){
-                    seconds = '0' + seconds
-                }
+                if(seconds<10){ seconds = '0' + seconds }
+
                 let albumDeCancion = allSongs[i].album.title
 
                 let songItem = '<article class="cancion"><p class="nombre"><a href="track.html">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista">' + songArtist + '</p> <p class="album">' + albumDeCancion + '</p></article>'

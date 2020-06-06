@@ -41,8 +41,10 @@ window.addEventListener("load", function() {
                 seconds = '0' + seconds
             }
             let albumDeCancion = informacion.album.title
+            let artistId = informacion.artist.id
+            let albumId = informacion.album.id
 
-            let songItem = '<article class="cancion"><p class="nombre"><a href="track.html">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista">' + songArtist + '</p> <p class="album">' + albumDeCancion + '</p></article>';
+            let songItem = '<article class="cancion"><a href="track.html?trackID='+ trackId +'">' + songTitle + '</a><a class="duracion">' + minutes + ':' + seconds + '</p><a class="artista" href="artist.html?artistID='+ artistId +'" >' + songArtist + '</a> <a class="album" href="album.html?albumID=' + albumId +'">' + albumDeCancion + '</a></article>';
 
             document.querySelector(".canciones").innerHTML = songItem;
             
