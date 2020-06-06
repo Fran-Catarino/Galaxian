@@ -3,7 +3,7 @@ window.addEventListener("load", function() {
 
     let trackId = queryString.get("trackID");
 
-    document.querySelector(`.reprod-container`).innerHTML = `<iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>`
+    document.querySelector(`.reprod-container`).innerHTML = `<iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>`
     document.querySelector('.reprod').style.display = "block"
 
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/' + trackId)

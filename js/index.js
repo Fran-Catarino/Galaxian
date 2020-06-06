@@ -107,10 +107,18 @@ window.addEventListener("load", function() {
 
                     if (albumTitle != albumTitle.toUpperCase()){
                         console.log("es minis");
-                        albumTitle = truncateString(albumTitle, 14, 13);
+                        albumTitle = truncateString(albumTitle, 14, 11);
                     } else if (albumTitle == albumTitle.toUpperCase()) {
                         console.log("es mayus")
-                        albumTitle = truncateString(albumTitle, 15, 14);
+                        albumTitle = truncateString(albumTitle, 11, 10);
+                    } 
+
+                    if (albumArtist != albumArtist.toUpperCase()){
+                        console.log("es minis");
+                        albumArtist = truncateString(albumArtist, 14, 12);
+                    } else if (albumArtist == albumArtist.toUpperCase()) {
+                        console.log("es mayus")
+                        albumArtist = truncateString(albumArtist, 11, 10);
                     } 
 
                     console.log(albumTitle);
@@ -174,7 +182,7 @@ window.addEventListener("load", function() {
 
                     console.log(this.dataset)
                     document.querySelector('.reprod-container').innerHTML = `
-                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
                     `
                     document.querySelector(".reprod").style.display = "block";
 
@@ -268,7 +276,7 @@ window.addEventListener("load", function() {
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
                             <img src="` + playlistPic + `" alt="` + playlistName + `">
-                            <a href="#"><i class="fas fa-play-circle"></i></a>
+                            <i class="fas fa-play-circle play-playlist" data-playlistid=` + playlistId + `></i>
                         </div> 
                         <div class="uk-card-body">
                             <a href="playlist.html?playlistID=` + playlistId + `"><h3 class="uk-card-title">` + playlistName + `</h3></a>
@@ -281,6 +289,23 @@ window.addEventListener("load", function() {
                 document.querySelector(".playlistList").innerHTML += playlistItem;
 
             }
+
+            let botonesPlayPlaylist = document.querySelectorAll(".play-playlist");
+
+            botonesPlayPlaylist.forEach(function(boton) {
+
+                boton.addEventListener("click", function(e){
+
+                    console.log(this.dataset)
+                    document.querySelector('.reprod-container').innerHTML = `
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=playlist&id=` + this.dataset.playlistid + `&app_id=1" width="700" height="350"></iframe>
+                    `
+                    document.querySelector(".reprod").style.display = "block";
+
+                    console.log(this.dataset.playlistid)
+                })
+
+            })
         }
     )
 

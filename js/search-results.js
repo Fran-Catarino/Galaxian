@@ -23,7 +23,7 @@ window.addEventListener('load', function() {
             function truncateString(str, num, add) {
                 // If the length of str is less than or equal to num
                 // just return str--don't truncate it.
-                if (str.length <= num) {
+                if (str.length <= num) { 
                   return str
                 }
                 // Return str truncated with '...' concatenated to the end of str.
@@ -103,10 +103,10 @@ window.addEventListener('load', function() {
                     let trackItem =
                     `
                     <li class="track-item">
-                        <div class="img-container">
+                        <div class="img-container" data-trackid="` + trackId +`">
                             <img class="track-img" src="` + trackImg + `" alt="track-image">
                         </div>
-                        <a href="" class="fav"><i class="far fa-heart"></i></a>
+                        <i class="far fa-heart fav"></i>
                         <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                         <div class="info-mobile">
                             <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
@@ -123,10 +123,10 @@ window.addEventListener('load', function() {
                     let trackItem =
                     `
                     <li class="track-item">
-                        <div class="img-container">
+                        <div class="img-container" data-trackid="` + trackId +`">
                             <img class="track-img" src="` + trackImg + `" alt="track-image">
                         </div>
-                        <a href="" class="fav"><i class="far fa-heart"></i></a>
+                        <i class="far fa-heart fav""></i>
                         <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                         <div class="info-mobile">
                             <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
@@ -145,7 +145,7 @@ window.addEventListener('load', function() {
                 /* PREGUNTAR */
                 if (i == 24) {
                     console.log("EL ULTIMO")
-                    document.querySelector(".track-item").classList.toggle('.el-ultimo');
+                    document.querySelector(".track-item").classList.toggle('el-ultimo');
                 }
 
                 let trackItems = document.querySelectorAll(".track-item")
@@ -155,20 +155,49 @@ window.addEventListener('load', function() {
                 trackItems.forEach (function(cancion) {
 
                     let fotoAnterior;
+
                     cancion.addEventListener('mouseover', function() {
                         this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
-                        console.log(this.children[0])
                         fotoAnterior = this.children[0].innerHTML;
-                        this.children[0].innerHTML = '<a href="index.html" class="play"><i class="fas fa-play-circle"></i></a>'
-                    })
+                        this.children[0].innerHTML = '<i class="fas fa-play-circle play"></i>';                      
 
+                    })
                     cancion.addEventListener('mouseout', function() {
                         this.style.backgroundColor = "";
                         this.children[0].innerHTML =  fotoAnterior;
                     })
+
+
                 })
             
             }
+
+            container = document.querySelectorAll(".img-container");
+
+            console.log(container)
+
+            for (let i = 0; i < container.length; i++) {
+                console.log(container[i].children[0])  
+                           
+            }
+
+            
+
+            /*
+            botonPlayTrack.forEach(function(boton) {
+
+                boton.addEventListener("click", function(e){
+
+                    console.log(this.dataset)
+                    document.querySelector('.reprod-container').innerHTML = `
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + this.dataset.trackid + `&app_id=1" width="700" height="350"></iframe>
+                    `
+                    document.querySelector(".reprod").style.display = "block";
+                })
+
+            })
+            
+            */
         }
     )
 
