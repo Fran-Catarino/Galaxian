@@ -16,10 +16,13 @@ window.addEventListener("load", function() {
 
             let arrayGeneros = informacion.data
 
-            for (let i = 0; i < arrayGeneros.length; i++) {
+            for (let i = 1; i < arrayGeneros.length; i++) {
                 
                 let imagen = arrayGeneros[i].picture_xl
                 let nombre = arrayGeneros[i].name
+                let idGenero = arrayGeneros[i].id
+
+                console.log(idGenero)
                 let generoIndividual = '<a href="genero.html"><p class="imagen"><img src="' + imagen + '" alt="Concentración" class="generos"></img></p><p class="nombre1">' + nombre + '</p></a>'
 
                 document.querySelector(".todosLosGeneros").innerHTML += generoIndividual

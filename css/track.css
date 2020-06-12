@@ -59,6 +59,21 @@ a {
     font-weight: 600;
 }
 
+.remove-track {
+    background-color: gray;
+    height: 33px;
+    width: 106px;
+    margin: 20px auto;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 20% auto;
+    box-sizing: border-box;
+    padding: 9px;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+
 .explicacion {
     display: none;
 }
@@ -157,6 +172,16 @@ a {
         margin: 0;
         height: 38px;
         width: 94px;
+        font-size: 20px;
+    }
+
+    .remove-track {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        margin: 0;
+        height: 38px;
+        width: 120px;
         font-size: 20px;
     }
 

@@ -5,6 +5,8 @@ window.addEventListener('load', function() {
 
     let loBuscado = queryString.get("searcher");
 
+    console.log(loBuscado)
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=' + loBuscado)
     .then(
         function(respuesta) {
@@ -62,34 +64,24 @@ window.addEventListener('load', function() {
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
                     if (trackAlbum != trackAlbum.toUpperCase()){
-                        console.log("es minis");
                         trackAlbum = truncateString(trackAlbum, 20, 19);
                     } else if (trackAlbum == trackAlbum.toUpperCase()) {
-                        console.log("es mayus")
                         trackAlbum = truncateString(trackAlbum, 16, 15);
-                    }                    
-
-                    console.log(trackAlbum);
+                    }  
 
                 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 
                     if (trackAlbum != trackAlbum.toUpperCase()){
-                        console.log("es minis");
                         trackAlbum = truncateString(trackAlbum, 18, 17);
                     } else if (trackAlbum == trackAlbum.toUpperCase()) {
-                        console.log("es mayus")
                         trackAlbum = truncateString(trackAlbum, 15, 14);
                     }   
 
                     if (trackTitle != trackTitle.toUpperCase()){
-                        console.log("es minis");
                         trackTitle = truncateString(trackTitle, 23, 22);
                     } else if (trackTitle == trackTitle.toUpperCase()) {
-                        console.log("es mayus")
                         trackTitle = truncateString(trackTitle, 20, 19);
                     } 
-
-                    console.log(trackAlbum);
 
                 } else {
 
@@ -106,7 +98,7 @@ window.addEventListener('load', function() {
                         <div class="img-container" data-trackid="` + trackId +`">
                             <img class="track-img" src="` + trackImg + `" alt="track-image">
                         </div>
-                        <i class="far fa-heart fav"></i>
+                        <i class="far fa-heart fav" data-trackid="` + trackId +`></i>
                         <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                         <div class="info-mobile">
                             <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
@@ -149,8 +141,6 @@ window.addEventListener('load', function() {
                 }
 
                 let trackItems = document.querySelectorAll(".track-item")
-
-                console.log(trackItems)
                 
                 trackItems.forEach (function(cancion) {
 
@@ -161,6 +151,7 @@ window.addEventListener('load', function() {
                         fotoAnterior = this.children[0].innerHTML;
                         this.children[0].innerHTML = '<i class="fas fa-play-circle play"></i>';                      
 
+                        //* 
                     })
                     cancion.addEventListener('mouseout', function() {
                         this.style.backgroundColor = "";
@@ -172,14 +163,18 @@ window.addEventListener('load', function() {
             
             }
 
+            corazone
+
             container = document.querySelectorAll(".img-container");
 
             console.log(container)
 
             for (let i = 0; i < container.length; i++) {
-                console.log(container[i].children[0])  
-                           
+                //*console.log(container[i].children[0])  
+                  //*onclick y adentro obtener el id "this.getAtri"         
             }
+
+
 
             
 
@@ -198,6 +193,32 @@ window.addEventListener('load', function() {
             })
             
             */
+
+           let botonesContainer = document.querySelector('.botones'); 
+            
+           let next = informacion.hasOwnProperty('next');
+
+           let prev = informacion.hasOwnProperty('prev');
+
+           let link = informacion.next;
+           
+           
+        
+           
+           if (next == true) {
+            botonesContainer.innerHTML += '<a class="more" href="search-results.html?searcher=' + dataM + '">More</a>'
+           }
+
+           
+           l
+           let botonMore = document.querySelector('.more');
+
+           
+
+           botonMore.addEventListener('click', function(e) {
+               
+           })
+           
         }
     )
 

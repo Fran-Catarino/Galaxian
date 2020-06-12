@@ -31,6 +31,40 @@ window.addEventListener("load", function() {
 
             let trackId = informacion.id;
 
+            let estado = true;
+
+            let arrayFavorites;
+            
+            if (sessionStorage.getItem("likeTracks") != null) {
+                arrayFavorites = sessionStorage.getItem("likeTracks").split(",");
+                if (arrayFavorites.includes("" + trackId) == true) {
+
+                    document.querySelector('.derecha').innerHTML += `
+                    <a href="" class="remove-track">
+                        <i class="far fa-heart"></i>
+                        <p>Remove</p>
+                    </a>
+                    `
+                    estado = false;
+                } else {
+                    document.querySelector('.derecha').innerHTML += `
+                    <a href="" class="add-track">
+                        <i class="far fa-heart"></i>
+                        <p>Add</p>
+                    </a>
+                    `
+                    estado = true;
+                }
+            } else {
+                document.querySelector('.derecha').innerHTML += `
+                <a href="" class="add-track">
+                    <i class="far fa-heart"></i>
+                    <p>Add</p>
+                </a>
+                `
+                estado = true;
+            }             
+
             let release = informacion.release_date;
             let year = release.slice(0, 4);
 
@@ -39,8 +73,8 @@ window.addEventListener("load", function() {
             let infoTrack =
             `
             <h1 class="title">` + titulo +`</h1>
-            <h2 class="artistDk">by <a href"artist.html?artistID=` + artistId + `" class="artist-link">` + cantante + `</a></h2>
-            <h2 class="details">by <a href"artist.html?artistID=` + artistId + `" class="artist-link2">` + cantante + `</a> • <span class="year">` + year + `</span></h2>
+            <h2 class="artistDk">by <a href="artist.html?artistID=` + artistId + `" class="artist-link">` + cantante + `</a></h2>
+            <h2 class="details">by <a href="artist.html?artistID=` + artistId + `" class="artist-link2">` + cantante + `</a> • <span class="year">` + year + `</span></h2>
             `
 
             document.querySelector(".track-info").innerHTML = infoTrack;
@@ -89,39 +123,67 @@ window.addEventListener("load", function() {
             }
 
             document.querySelector("main").innerHTML += songItem;
-            
 
-            document.querySelector(".add-track").addEventListener("click", function(e) {
+            if (estado == true) {
+                document.querySelector(".add-track").addEventListener("click", function(e) {
 
-                e.preventDefault();
+                    e.preventDefault();
+    
+                    document.querySelector('.add-track p').innerHTML = "Added";
+    
+                    let boton = document.querySelector('.add-track');
+    
+                    boton.style.backgroundColor = "#2f9ac17e";
+    
+                    if (window.matchMedia("(max-width: 375px)").matches) {
+                        boton.style.width = "96px"
+                    } else {
+                        boton.style.width = "120px"
+                    }
+                                   
+                    // Me fijo si hay cosas en storage
+                    if (sessionStorage.getItem("likeTracks") != null) {
+                        //arrayDeGifsFavoritos y le voy a agregar el código el GIF
+                        arrayFavorites = sessionStorage.getItem("likeTracks").split(",")
+                        if (arrayFavorites.includes("" + trackId) != true) {
+                            arrayFavorites.push(trackId)
+                        }
+    
+                    } else {
+                        //TENGO QUE CREAR UN ARRAY NUEVO CON EL CODIGO DEL GIF
+                        arrayFavorites = []
+                        arrayFavorites.push(trackId)
+                    }
+                    
+                    sessionStorage.setItem("likeTracks", arrayFavorites);
+                })
+            } else {
 
-                document.querySelector('.add-track p').innerHTML = "Added";
+                console.log(arrayFavorites)
 
-                let boton = document.querySelector('.add-track');
+                let remove = document.querySelector('.remove-track');
 
-                boton.style.backgroundColor = "#2f9ac17e";
+                remove.addEventListener('click', function(e) {
+                        
+                    e.preventDefault();
 
-                if (window.matchMedia("(max-width: 375px)").matches) {
-                    boton.style.width = "96px"
-                } else {
-                    boton.style.width = "120px"
-                }
-                
-                let arrayFavorites;
-                
-                // Me fijo si hay cosas en storage
-                if (sessionStorage.getItem("likeTracks") != null) {
-                    //arrayDeGifsFavoritos y le voy a agregar el código el GIF
-                    arrayFavorites = sessionStorage.getItem("likeTracks").split(",")
-                    arrayFavorites.push(trackId)
-                } else {
-                    //TENGO QUE CREAR UN ARRAY NUEVO CON EL CODIGO DEL GIF
-                    arrayFavorites = []
-                    arrayFavorites.push(trackId)
-                }
-                
-                sessionStorage.setItem("likeTracks", arrayFavorites);
-            })
+                    for (let i = 0; i < arrayFavorites.length; i++) {
+                        if(arrayFavorites[i] == trackId) {
+                            arrayFavorites.splice(i, 1);
+                        }
+                    }
+
+                    document.querySelector('.remove-track p').innerHTML = "Removed";
+    
+                    let boton = document.querySelector('.remove-track');
+    
+                    boton.style.backgroundColor = "#2f9ac17e";
+
+                    console.log(arrayFavorites);
+                    sessionStorage.setItem("likeTracks", arrayFavorites);
+                })
+            }
+
         }
     )
     
