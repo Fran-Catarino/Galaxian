@@ -15,22 +15,35 @@ window.addEventListener("load", function() {
     .then(
         function(informacion) {
             console.log(informacion);
-            
-            let titulo = informacion.title
-            document.querySelector('.favoritas' ).innerHTML = titulo ;
 
-            let coverTrack = informacion.album.cover_xl
-            document.querySelector('.imagen').src = coverTrack;
+            let coverTrack = informacion.album.cover_xl;
+            document.querySelector('.track-cover').src = coverTrack;
 
             let cantante = informacion.artist.name
-            document.querySelector('.artista').innerHTML = cantante;
 
-            let date = informacion.release_date
-            document.querySelector('.date').innerHTML = date;
-            
-            let songTitle = informacion.title;
+            let titulo = informacion.title;
 
-            let songArtist = informacion.artist.name;
+            let albumDeCancion = informacion.album.title;
+
+            let artistId = informacion.artist.id
+
+            let albumId = informacion.album.id
+
+            let trackId = informacion.id;
+
+            let release = informacion.release_date;
+            let year = release.slice(0, 4);
+
+            document.querySelector(".released h3").innerHTML = release;
+
+            let infoTrack =
+            `
+            <h1 class="title">` + titulo +`</h1>
+            <h2 class="artistDk">by <a href"artist.html?artistID=` + artistId + `" class="artist-link">` + cantante + `</a></h2>
+            <h2 class="details">by <a href"artist.html?artistID=` + artistId + `" class="artist-link2">` + cantante + `</a> • <span class="year">` + year + `</span></h2>
+            `
+
+            document.querySelector(".track-info").innerHTML = infoTrack;
 
             let songLength = informacion.duration;
 
@@ -40,14 +53,75 @@ window.addEventListener("load", function() {
             if(seconds<10){
                 seconds = '0' + seconds
             }
-            let albumDeCancion = informacion.album.title
-            let artistId = informacion.artist.id
-            let albumId = informacion.album.id
 
-            let songItem = '<article class="cancion"><a href="track.html?trackID='+ trackId +'">' + songTitle + '</a><a class="duracion">' + minutes + ':' + seconds + '</p><a class="artista" href="artist.html?artistID='+ artistId +'" >' + songArtist + '</a> <a class="album" href="album.html?albumID=' + albumId +'">' + albumDeCancion + '</a></article>';
+            let explicit = informacion.explicit_lyrics;
 
-            document.querySelector(".canciones").innerHTML = songItem;
+            let songItem;
+
+            if (explicit == true) {
+                songItem = 
+                `
+                <div class="track-item">
+                    <a href="track.html?trackID=` + trackId + `" class="track-title">` + titulo + `</a>
+                    <div class="info-mobile">
+                    <a href="track.html?trackID=` + trackId + `" class="track">` + titulo + `</a>
+                        <a href="album.html?albumID=` + albumId + `" class="album">` + albumDeCancion + `</a>
+                    </div>
+                    <p class="explicit">E</p>
+                    <a href="album.html?albumID=` + albumId + `" class="track-album">` + albumDeCancion + `</a>
+                    <p class="duration">` + minutes + `:` + seconds + `</p>
+                </div>
+                `;
+            } else {
+                songItem = 
+                `
+                <div class="track-item">
+                    <a href="track.html?trackID=` + trackId + `" class="track-title">` + titulo + `</a>
+                    <div class="info-mobile">
+                    <a href="track.html?trackID=` + trackId + `" class="track">` + titulo + `</a>
+                        <a href="album.html?albumID=` + albumId + `" class="album">` + albumDeCancion + `</a>
+                    </div>
+                    <p></p>
+                    <a href="album.html?albumID=` + albumId + `" class="track-album">` + albumDeCancion + `</a>
+                    <p class="duration">` + minutes + `:` + seconds + `</p>
+                </div>
+                `;
+            }
+
+            document.querySelector("main").innerHTML += songItem;
             
+
+            document.querySelector(".add-track").addEventListener("click", function(e) {
+
+                e.preventDefault();
+
+                document.querySelector('.add-track p').innerHTML = "Added";
+
+                let boton = document.querySelector('.add-track');
+
+                boton.style.backgroundColor = "#2f9ac17e";
+
+                if (window.matchMedia("(max-width: 375px)").matches) {
+                    boton.style.width = "96px"
+                } else {
+                    boton.style.width = "120px"
+                }
+                
+                let arrayFavorites;
+                
+                // Me fijo si hay cosas en storage
+                if (localStorage.getItem("likeTracks") != null) {
+                    //arrayDeGifsFavoritos y le voy a agregar el código el GIF
+                    arrayFavorites = localStorage.getItem("likeTracks").split(",")
+                    arrayFavorites.push(trackId)
+                } else {
+                    //TENGO QUE CREAR UN ARRAY NUEVO CON EL CODIGO DEL GIF
+                    arrayFavorites = []
+                    arrayFavorites.push(trackId)
+                }
+                
+                localStorage.setItem("likeTracks", arrayFavorites);
+            })
         }
     )
     
