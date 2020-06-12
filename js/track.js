@@ -110,9 +110,9 @@ window.addEventListener("load", function() {
                 let arrayFavorites;
                 
                 // Me fijo si hay cosas en storage
-                if (localStorage.getItem("likeTracks") != null) {
+                if (sessionStorage.getItem("likeTracks") != null) {
                     //arrayDeGifsFavoritos y le voy a agregar el código el GIF
-                    arrayFavorites = localStorage.getItem("likeTracks").split(",")
+                    arrayFavorites = sessionStorage.getItem("likeTracks").split(",")
                     arrayFavorites.push(trackId)
                 } else {
                     //TENGO QUE CREAR UN ARRAY NUEVO CON EL CODIGO DEL GIF
@@ -120,7 +120,7 @@ window.addEventListener("load", function() {
                     arrayFavorites.push(trackId)
                 }
                 
-                localStorage.setItem("likeTracks", arrayFavorites);
+                sessionStorage.setItem("likeTracks", arrayFavorites);
             })
         }
     )

@@ -12,11 +12,11 @@ window.addEventListener("load", function() {
 
     // Paso 1: Chequeo si hay tracks favoritos
 
-    if(localStorage.getItem("likeTracks") != null) {
+    if(sessionStorage.getItem("likeTracks") != null) {
 
         // Paso 2: Leemos los favoritos
 
-        let arrayTracks = localStorage.getItem("likeTracks").split(",")
+        let arrayTracks = sessionStorage.getItem("likeTracks").split(",")
 
         // Paso 3: Recorremos el array de favoritos
         for (let i = 0; i < arrayTracks.length; i++) {
