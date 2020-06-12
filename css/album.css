@@ -208,8 +208,8 @@ p{
         display: block;
     }
 }
-@media only screen and (min-width: 1024px){
-    .imagen{
+@media only screen and (min-width: 1440px){
+    .presentacion .imagen{
         display: block;
         width: 73%;
     }
