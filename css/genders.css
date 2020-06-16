@@ -117,6 +117,12 @@ div.todos article {
   justify-content: space-between;
   margin: auto auto;    
 }
+.nombre1{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
 
 @media (min-width: 1024px) {
 
