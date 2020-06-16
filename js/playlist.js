@@ -3,6 +3,15 @@ window.addEventListener("load", function() {
 
     let playlistId = queryString.get("playlistID");
 
+    function truncateString(str, num, add) {
+                    
+        if (str.length <= num) {
+          return str
+        }
+        
+        return str.slice(0, add) + '...'
+    }
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/'+ playlistId)
     .then(
         function(response) {
@@ -47,14 +56,82 @@ window.addEventListener("load", function() {
 
                 let albumDeCancion = allSongs[i].album.title
 
-                let songItem = '<article class="cancion"><p class="nombre"><a href="track.html">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista">' + songArtist + '</p> <p class="album">' + albumDeCancion + '</p></article>'
+                let trackId = allSongs[i].id
+                
+                let artistId = allSongs[i].artist.id
+                
+                let albumId = allSongs[i].album.id
+
+
+                if (window.matchMedia("(min-width: 1440px)").matches) {
+
+                    if (songArtist != songArtist.toUpperCase()){
+                        console.log("es minis");
+                        songArtist = truncateString(songArtist, 21, 20);
+                    } else if (songArtist == songArtist.toUpperCase()) {
+                        console.log("es mayus")
+                        songArtist = truncateString(songArtist, 20,19);
+                    }
+
+                    if (albumDeCancion != albumDeCancion.toUpperCase()){
+                        console.log("es minis");
+                        albumDeCancion = truncateString(albumDeCancion, 21, 20);
+                    } else if (albumDeCancion == albumDeCancion.toUpperCase()) {
+                        console.log("es mayus")
+                        albumDeCancion = truncateString(albumDeCancion, 20,19);
+                    }
+
+                    if (songTitle != songTitle.toUpperCase()){
+                        console.log("es minis");
+                        songTitle = truncateString(songTitle, 21, 20);
+                    } else if (songTitle == songTitle.toUpperCase()) {
+                        console.log("es mayus")
+                        songTitle = truncateString(songTitle, 20,19);
+                    }
+                } else if (window.matchMedia("(min-width: 1024px)").matches) {
+
+                    if (albumDeCancion != albumDeCancion.toUpperCase()){
+                        console.log("es minis");
+                        albumDeCancion = truncateString(albumDeCancion, 14, 13);
+                    } else if (albumDeCancion == albumDeCancion.toUpperCase()) {
+                        console.log("es mayus")
+                        albumDeCancion = truncateString(albumDeCancion, 13, 12);
+                    } 
+
+                    if (songTitle != songTitle.toUpperCase()){
+                        console.log("es minis");
+                        songTitle = truncateString(songTitle, 12, 11);
+                    } else if (songTitle == songTitle.toUpperCase()) {
+                        console.log("es mayus")
+                        songTitle = truncateString(songTitle, 11, 10);
+                    } 
+
+                    if (songArtist != songArtist.toUpperCase()){
+                        console.log("es minis");
+                        songArtist = truncateString(songArtist, 12, 11);
+                    } else if (songArtist == songArtist.toUpperCase()) {
+                        console.log("es mayus")
+                        songArtist = truncateString(songArtist, 11, 10);
+                    } 
+                } else if (window.matchMedia("(min-width: 320px)").matches) {
+
+                    if (songTitle != songTitle.toUpperCase()){
+                        console.log("es minis");
+                        songTitle = truncateString(songTitle, 16, 15);
+                    } else if (songTitle == songTitle.toUpperCase()) {
+                        console.log("es mayus")
+                        songTitle = truncateString(songTitle, 14, 13);
+                    } 
+                }
+
+                let songItem = '<article class="cancion"><p class="nombre"> <a href="track.html?trackID=' + trackId +'">' + songTitle + '</a></p><p class="duracion">' + minutes + ':' + seconds + '</p><p class="artista"><a href="artist.html?artistID=' + artistId +'">' + songArtist + '</a></p> <p class="album"> <a href="album.html?albumID=' + albumId +'">' + albumDeCancion + '</a></p></article>'
 
                 document.querySelector(".canciones").innerHTML += songItem
 
             }
 
-
+            
         }
-    
     )
+
 })
