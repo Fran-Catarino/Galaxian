@@ -1,13 +1,13 @@
 body {
     font-family: sans-serif;
-	background-color: #0c0807;
+    background-color: #0c0807;
+    margin-bottom: 0;
 }
 
 main {
     width: 90%;
     margin: 0 auto;
-    margin-top: 80px;
-    margin-bottom: 10px;
+    height: 100%;
 }
 
 a {
@@ -16,7 +16,7 @@ a {
 
 main h2 {
     color: ivory;
-    font-size: 35px;
+    font-size: 28px;
     margin-bottom: 18px;
 }
 
@@ -66,12 +66,12 @@ ul {
 }
 
 .fa-heart {
-    margin: auto 0;
     color: rgb(197, 197, 197);
 }
 
 .fav {
     margin: auto 8px;
+    margin-top: 10px;
 }
 
 .track {
@@ -111,9 +111,7 @@ ul {
     color: rgb(211, 211, 211);
     background-color: rgba(128, 128, 128, 0.61);
     font-size: 15px;
-    padding: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    padding: 7px;
 }
 
 .more {
@@ -126,29 +124,115 @@ ul {
     left: 0;
 }
 
+.pri {
+    padding-top: 73px;
+    font-size: 32px;
+}
+
+/* copia de index.css para carrousel */
+
+.playCar{
+	position: absolute;
+	bottom: 65px;
+	left: 15px;
+	color: ivory;
+	font-size: x-large;
+}
+
+img{
+	width: 100%;
+}
+
+.carrousel{
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.img-artist{
+	border-radius: 50%;
+	width: 90%;
+	display: block;
+	margin: 0 auto;
+	border: #2f9bc1 solid 2px;
+}
+
+/* Modificiaciones UlKit */
+.uk-card-body{
+	padding: 0;
+	padding-top: 5px;
+}
+
+.uk-card-default{
+	background: transparent;
+}
+
+.uk-card-body a{
+	text-decoration: none;
+	color: #2f9bc1;
+}
+
+.uk-card-default .uk-card-title{
+	color: ivory;
+	font-size: 20px;
+}
+
+.uk-slider-items{
+	height: 340px;
+}
+
+.uk-grid {
+    margin-left: -16px;
+}
+
+.uk-margin {
+    margin-top: 0px!important;
+}
+
+/* Centrado de info en artistas */
+
+.artist-body-card{
+	width: 45%;
+	margin: 0 auto;
+}
+
+.artist-body-card h3{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.artist-body-card p{
+	text-align: center;
+}
+
 @media only screen and (min-width: 1024px) {
     main{
 		width: 77%;
         margin-right: 0;
-        margin-bottom: 30px;
     }
 
     .play {
-        margin: auto auto;
+        display: none;
         text-decoration: none;
         font-size: 22px;
-        width: 100%;
+        width: 31.96px;
+        height: 31.96;
         color: #2f9bc1;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
     main h2 {
-        margin-bottom: 30px;
-        font-size: 40px;
+        margin-bottom: 18px;
+        font-size: 30px;
         margin-left: 20px;
     }
 
     ul {
         width: 95%;
         margin: 0 auto;
+        margin-bottom: 10px;
     }
 
     .headings {
@@ -170,6 +254,7 @@ ul {
 
     .img-container {
         display: block;
+        position: relative;
     }
 
     .img-container img {
@@ -214,14 +299,37 @@ ul {
     }
 
     .fav {
-        margin: auto auto;
+        margin-top: 4px;
     }
 
     .botones {
         width: 95%;
         margin: 0 auto;
+        padding-bottom: 87px;
     }
 
+    /* copia de index.css para carrousel */
+
+    .uk-slider-items{
+		height: 185px;
+    }
+    
+    .uk-grid {
+        margin-left: -30px;
+    }
+
+    .playCar {
+		bottom: 60px;
+		left: 11px;
+    }
+    
+    .uk-margin {
+        margin-top: 20px!important;
+    }
+	/* Centrado de info en artistas */
+	.artist-body-card{
+		width: 96%;
+	}
 }
 
 @media only screen and (min-width: 1440px){
@@ -277,4 +385,15 @@ ul {
     .botones {
         width: 90%;
     }
+
+    .fav {
+        font-size: 22px;
+        margin-left: 13px;
+    }
+
+    .uk-margin {
+        margin-top: 100px!important;
+    }
+
+
 }
