@@ -3,6 +3,15 @@ window.addEventListener("load", function() {
 
     let playlistId = queryString.get("playlistID");
 
+    function truncateString(str, num, add) {
+                    
+        if (str.length <= num) {
+          return str
+        }
+        
+        return str.slice(0, add) + '...'
+    }
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre')
     .then(
         function(response) {
@@ -22,8 +31,41 @@ window.addEventListener("load", function() {
                 let nombre = arrayGeneros[i].name
                 let idGenero = arrayGeneros[i].id
 
+                if (window.matchMedia("(min-width: 1440px)").matches) {
+
+                    if (nombre != nombre.toUpperCase()){
+                        console.log("es minis");
+                        nombre = truncateString(nombre, 21, 20);
+                    } else if (nombre == nombre.toUpperCase()) {
+                        console.log("es mayus")
+                        nombre = truncateString(nombre, 20,19);
+                    }
+
+                } else if (window.matchMedia("(min-width: 1024px)").matches) {
+
+                    if (nombre != nombre.toUpperCase()){
+                        console.log("es minis");
+                        nombre = truncateString(nombre, 14, 13);
+                    } else if (nombre == albumDeCancion.toUpperCase()) {
+                        console.log("es mayus")
+                        albumDeCancion = truncateString(albumDeCancion, 13, 12);
+                    } 
+
+                } else if (window.matchMedia("(min-width: 320px)").matches) {
+
+                    if (nombre != nombre.toUpperCase()){
+                        console.log("es minis");
+                        nombre = truncateString(nombre, 13, 12);
+                    } else if (nombre == nombre.toUpperCase()) {
+                        console.log("es mayus")
+                        nombre = truncateString(nombre, 12, 11);
+                    } 
+                }
+
                 console.log(idGenero)
-                let generoIndividual = '<a href="genero.html"><p class="imagen"><img src="' + imagen + '" alt="Concentración" class="generos"></img></p><p class="nombre1">' + nombre + '</p></a>'
+                let generoIndividual = '<a href="genero.html?generoID='+ idGenero +'><p class="imagen"><img src="' + imagen + '" alt="Concentración" class="generos"></img></p><p class="nombre1">' + nombre + '</p></a>'
+                
+                
 
                 document.querySelector(".todosLosGeneros").innerHTML += generoIndividual
                 

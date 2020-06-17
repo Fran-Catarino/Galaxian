@@ -28,7 +28,7 @@ a {
 
 .tituloyagregar {
     display: grid;
-    grid-template-rows: 75px 150px 25px;
+    grid-template-rows: 75px;
     grid-template-columns: 80% 15%;
     justify-content: space-between;
     margin-bottom: 40px;
@@ -39,7 +39,7 @@ a {
     font-size: 30px;
     text-align: center;
     color: white;
-    padding: 5px;
+    padding: 17px;
     border: solid 3px white;
 }
 
@@ -51,12 +51,12 @@ a {
 }
 
 .agregar-cancion i{
-    padding-top: 6px;
+    padding-top: 20px;
 }
 
 .cancion{ 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 85% 15%;
     grid-template-rows: 30px 20px;
     margin-bottom: 10px;
     border-bottom: solid 0.5px white;
@@ -200,5 +200,8 @@ p{
     }
     .album{
         display: block;
+    }
+    .artista a{
+        color: white;
     }
 }

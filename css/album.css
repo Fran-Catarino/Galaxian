@@ -55,7 +55,7 @@ a{
 
 .cancion{ 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 85% 15%;
     grid-template-rows: 30px 20px;
     margin-bottom: 10px;
     border-bottom: solid 0.5px white;
