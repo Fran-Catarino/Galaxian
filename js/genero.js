@@ -76,4 +76,28 @@ window.addEventListener("load", function() {
             return response.json();
         }
     )
+    .then(
+        function(informacion) {
+            console.log(informacion); 
+
+            let arrayGeneros = informacion.data
+            let idGenero = datos.get('generoID');
+
+            for (let i = 1; i < arrayGeneros.length; i++) {
+                
+                let generoid = arrayGeneros[i].id
+                let titulo = arrayGeneros[i].name
+
+                console.log(idGenero);
+                document.querySelector('.titule').innerHTML = titulo
+                
+
+                if(generoid == idGenero){
+
+                    document.querySelector('.titule').innerHTML = titulo
+
+                }
+            }
+        }
+    )
 })
