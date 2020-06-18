@@ -19,6 +19,7 @@ window.addEventListener('load', function() {
         return str.slice(0, add) + '...'
     }
 
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=' + loBuscado)
     .then(
         function(respuesta) {
@@ -29,6 +30,23 @@ window.addEventListener('load', function() {
         function (informacion) {
 
             let arrayArtist = informacion.data;
+
+            if (arrayArtist.length == 0) {
+                console.log('no hay artistas')
+                document.querySelector('.artirstCar').style.display = 'none';
+                let texto = document.querySelector('.title-artist')
+                texto.innerHTML = "No results founded for artists";
+                texto.style.fontSixe = '26';
+                texto.style.color = 'gray'
+                sessionStorage.setItem('resultadosArtistas', false);
+            }
+
+            if (arrayArtist.length == 0) {
+                alert('no')
+                document.querySelector('.artirstCar').style.display = 'none';
+                document.querySelector('.title-artist').innerHTML = "No results founded for artists";
+                sessionStorage.setItem('resultadosArtistas', false)
+            }
 
             for (let i = 0; i < arrayArtist.length; i++) {
 
@@ -70,6 +88,16 @@ window.addEventListener('load', function() {
 
             let arrayAlbum = informacion.data;
 
+            if (arrayAlbum.length == 0) {
+                console.log('no hay albums')
+                document.querySelector('.albumsCar').style.display = 'none';
+                let texto = document.querySelector('.title-albums')
+                texto.innerHTML = "No results founded for artists";
+                texto.style.fontSixe = '26';
+                texto.style.color = 'gray'
+                sessionStorage.setItem('resultadosAlbums', false);
+            }
+
             for (let i = 0; i < arrayAlbum.length; i++) {
 
                 let albumName = arrayAlbum[i].title;
@@ -105,12 +133,12 @@ window.addEventListener('load', function() {
                     } 
 
                     //*ver si es minuscula o mayuscula
-                    if (albumName != albumName.toUpperCase()){
+                    if (artistAlbum != artistAlbum.toUpperCase()){
                         //*minuscula
-                        albumName = truncateString(albumName, 14, 12);
-                    } else if (albumName == albumName.toUpperCase()) {
+                        artistAlbum = truncateString(artistAlbum, 13, 11);
+                    } else if (artistAlbum == artistAlbum.toUpperCase()) {
                         //*mayuscula
-                        albumName = truncateString(albumName, 11, 10);
+                        artistAlbum = truncateString(artistAlbum, 11, 10);
                     }
 
                 } else {
@@ -148,6 +176,7 @@ window.addEventListener('load', function() {
                     <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
                     `
                     document.querySelector(".reprod").style.display = "block";
+                    document.querySelector('footer').style.paddingBottom = "85px";x
                 })
 
             })
@@ -168,6 +197,16 @@ window.addEventListener('load', function() {
             document.querySelector(".number-tracks").innerHTML = numberTracks + " tracks";
 
             arrayTracks = informacion.data;
+
+            if (arrayTracks.length == 0) {
+                console.log('no hay tracks')
+                document.querySelector('.ul').style.display = 'none';
+                let texto = document.querySelector('.number-tracks')
+                texto.innerHTML = "No results founded for artists";
+                texto.style.fontSixe = '26';
+                texto.style.color = 'gray'
+                sessionStorage.setItem('resultadosTracks', false);
+            }
 
             for (let i = 0; i < arrayTracks.length; i++) {
 
@@ -194,27 +233,39 @@ window.addEventListener('load', function() {
 
                 if(seconds<10){
                     seconds = '0' + seconds
-                }
+                }              
 
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
                     if (trackAlbum != trackAlbum.toUpperCase()){
-                        trackAlbum = truncateString(trackAlbum, 20, 19);
-                    } else if (trackAlbum == trackAlbum.toUpperCase()) {
-                        trackAlbum = truncateString(trackAlbum, 16, 15);
+                        trackAlbum = truncateString(trackAlbum, 19, 17);
+                    } else {
+                        trackAlbum = truncateString(trackAlbum, 13, 11);
                     }  
+
+                    if (trackTitle != trackTitle.toUpperCase()){
+                        trackTitle = truncateString(trackTitle, 32, 30);
+                    } else {
+                        trackTitle = truncateString(trackTitle, 25, 23);
+                    } 
+
+                    if (trackArtist != trackArtist.toUpperCase()){
+                        trackArtist = truncateString(trackArtist, 19, 17);
+                    } else {
+                        trackArtist = truncateString(trackArtist, 16, 15);
+                    } 
 
                 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 
                     if (trackAlbum != trackAlbum.toUpperCase()){
                         trackAlbum = truncateString(trackAlbum, 16, 15);
-                    } else if (trackAlbum == trackAlbum.toUpperCase()) {
+                    } else {
                         trackAlbum = truncateString(trackAlbum, 15, 14);
                     }   
 
                     if (trackTitle != trackTitle.toUpperCase()){
                         trackTitle = truncateString(trackTitle, 23, 22);
-                    } else if (trackTitle == trackTitle.toUpperCase()) {
+                    } else {
                         trackTitle = truncateString(trackTitle, 20, 19);
                     } 
 
@@ -238,7 +289,7 @@ window.addEventListener('load', function() {
                         <a href="track.html?trackID=` + trackId + `" class="track-title track-info">` + trackTitle + `</a>
                         <div class="info-mobile">
                             <a href="track.html?trackID=` + trackId + `" class="track track-info">` + trackTitle + `</a>
-                            <a href="artist.html?artistID=` + artistId + `" class="artist track-info">` + trackArtist + `</a>
+                            <a href="artist.html?artistID=` + artistId + `" class="artist track-info artist-name">` + trackArtist + `</a>
                         </div>
                         <p class="explicit">E</p>
                         <a href="artist.html?artistID=` + artistId + `" class="track-artist track-info">` + trackArtist + `</a>
@@ -259,7 +310,7 @@ window.addEventListener('load', function() {
                         <a href="track.html?trackID=` + trackId + `" class="track-title track-info">` + trackTitle + `</a>
                         <div class="info-mobile">
                             <a href="track.html?trackID=` + trackId + `" class="track track-info">` + trackTitle + `</a>
-                            <a href="artist.html?artistID=` + artistId + `" class="artist track-info">` + trackArtist + `</a>
+                            <a href="artist.html?artistID=` + artistId + `" class="artist track-info artist-name">` + trackArtist + `</a>
                         </div>
                         <p></p>
                         <a href="artist.html?artistID=` + artistId + `" class="track-artist track-info">` + trackArtist + `</a>
@@ -271,7 +322,7 @@ window.addEventListener('load', function() {
 
                 }
 
-                let trackItems = document.querySelectorAll(".track-item")
+                let trackItems = document.querySelectorAll(".track-item");
                 
                 trackItems.forEach (function(cancion) {
 
@@ -301,6 +352,7 @@ window.addEventListener('load', function() {
                         <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + this.dataset.trackid +`&app_id=1" width="700" height="350"></iframe>
                         `
                         document.querySelector(".reprod").style.display = "block";
+                        document.querySelector('footer').style.paddingBottom = "85px"
                     })
                 })
 
@@ -373,35 +425,33 @@ window.addEventListener('load', function() {
 
             let infoTracks = document.querySelectorAll('.track-info');
 
-            if (window.matchMedia("(min-width: 1024px)").matches) {
+            let aristsInfo = document.querySelectorAll('.artist-name');
 
-                for (let i = 0; i < infoTracks.length; i++) {
+            for (let i = 0; i < infoTracks.length; i++) {
                 
-                    infoTracks[i].addEventListener('mouseover', function (e) {
-                        this.style.color = '#2f9bc1'
-                        this.style.textDecoration = 'none'
-                    })
-    
-                    infoTracks[i].addEventListener('mouseout', function (e) {
-                        this.style.color = 'ivory'
-                    })
-                    
-                }
-            } else {
-                for (let i = 0; i < infoTracks.length; i++) {
+                infoTracks[i].addEventListener('mouseover', function (e) {
+                    this.style.color = '#2f9bc1'
+                    this.style.textDecoration = 'none'
+                })
+
+                infoTracks[i].addEventListener('mouseout', function (e) {
+                    this.style.color = 'ivory'
+                })
                 
-                    infoTracks[i].addEventListener('mouseover', function (e) {
-                        this.style.color = 'ivory'
-                        this.style.textDecoration = 'none'
-                    })
-    
-                    infoTracks[i].addEventListener('mouseout', function (e) {
-                        this.style.color = '#2f9bc1'
-                    })
-                    
-                }
             }
             
+            for (let i = 0; i < aristsInfo.length; i++) {
+                
+                aristsInfo[i].addEventListener('mouseover', function (e) {
+                    this.style.color = 'gray'
+                    this.style.textDecoration = 'none'
+                })
+
+                aristsInfo[i].addEventListener('mouseout', function (e) {
+                    this.style.color = '#2f9bc1'
+                })
+                
+            }
     
             let next = informacion.hasOwnProperty('next');
 
@@ -461,12 +511,24 @@ window.addEventListener('load', function() {
                                     }
                     
                                     if (window.matchMedia("(min-width: 1440px)").matches) {
-                                        
+                    
                                         if (trackAlbum != trackAlbum.toUpperCase()){
-                                            trackAlbum = truncateString(trackAlbum, 18, 16);
+                                            trackAlbum = truncateString(trackAlbum, 20, 19);
                                         } else if (trackAlbum == trackAlbum.toUpperCase()) {
                                             trackAlbum = truncateString(trackAlbum, 16, 15);
                                         }  
+                    
+                                        if (trackTitle != trackTitle.toUpperCase()){
+                                            trackTitle = truncateString(trackTitle, 32, 30);
+                                        } else if (trackTitle == trackTitle.toUpperCase()) {
+                                            trackTitle = truncateString(trackTitle, 25, 22);
+                                        } 
+                    
+                                        if (trackArtist != trackArtist.toUpperCase()){
+                                            trackArtist = truncateString(trackArtist, 19, 17);
+                                        } else if (trackArtist == trackArtist.toUpperCase()) {
+                                            trackArtist = truncateString(trackArtist, 16, 15);
+                                        } 
                     
                                     } else if (window.matchMedia("(min-width: 1024px)").matches) {
                     
@@ -502,7 +564,7 @@ window.addEventListener('load', function() {
                                             <a href="track.html?trackID=` + trackId + `" class="track-title track-info">` + trackTitle + `</a>
                                             <div class="info-mobile">
                                                 <a href="track.html?trackID=` + trackId + `" class="track track-info">` + trackTitle + `</a>
-                                                <a href="artist.html?artistID=` + artistId + `" class="artist track-info">` + trackArtist + `</a>
+                                                <a href="artist.html?artistID=` + artistId + `" class="artist track-info artist-name">` + trackArtist + `</a>
                                             </div>
                                             <p class="explicit">E</p>
                                             <a href="artist.html?artistID=` + artistId + `" class="track-artist track-info">` + trackArtist + `</a>
@@ -523,7 +585,7 @@ window.addEventListener('load', function() {
                                             <a href="track.html?trackID=` + trackId + `" class="track-title track-info">` + trackTitle + `</a>
                                             <div class="info-mobile">
                                                 <a href="track.html?trackID=` + trackId + `" class="track track-info">` + trackTitle + `</a>
-                                                <a href="artist.html?artistID=` + artistId + `" class="artist track-info">` + trackArtist + `</a>
+                                                <a href="artist.html?artistID=` + artistId + `" class="artist track-info artist-name">` + trackArtist + `</a>
                                             </div>
                                             <p></p>
                                             <a href="artist.html?artistID=` + artistId + `" class="track-artist track-info">` + trackArtist + `</a>
@@ -619,35 +681,34 @@ window.addEventListener('load', function() {
 
                             let infoTracks = document.querySelectorAll('.track-info');
 
-                            if (window.matchMedia("(min-width: 1024px)").matches) {
-                        
-                                for (let i = 0; i < infoTracks.length; i++) {
-                                
-                                    infoTracks[i].addEventListener('mouseover', function (e) {
+                            let aristsInfo = document.querySelectorAll('.artist-name');
 
-                                        this.style.color = '#2f9bc1'
-                                        this.style.textDecoration = 'none'
-                                    })
-                    
-                                    infoTracks[i].addEventListener('mouseout', function (e) {
-                                        this.style.color = 'ivory'
-                                    })
-                                    
-                                }
-                            } else {
-                                for (let i = 0; i < infoTracks.length; i++) {
+                            for (let i = 0; i < infoTracks.length; i++) {
                                 
-                                    infoTracks[i].addEventListener('mouseover', function (e) {
-                                        this.style.color = 'ivory'
-                                        this.style.textDecoration = 'none'
-                                    })
-                    
-                                    infoTracks[i].addEventListener('mouseout', function (e) {
-                                        this.style.color = '#2f9bc1'
-                                    })
-                                    
-                                }
+                                infoTracks[i].addEventListener('mouseover', function (e) {
+                                    this.style.color = '#2f9bc1'
+                                    this.style.textDecoration = 'none'
+                                })
+
+                                infoTracks[i].addEventListener('mouseout', function (e) {
+                                    this.style.color = 'ivory'
+                                })
+                                
                             }
+                            
+                            for (let i = 0; i < aristsInfo.length; i++) {
+                                
+                                aristsInfo[i].addEventListener('mouseover', function (e) {
+                                    this.style.color = 'gray'
+                                    this.style.textDecoration = 'none'
+                                })
+
+                                aristsInfo[i].addEventListener('mouseout', function (e) {
+                                    this.style.color = '#2f9bc1'
+                                })
+                                
+                            }
+
                         }
                     
                     )
@@ -658,5 +719,7 @@ window.addEventListener('load', function() {
            
         }
     )
+
+    
 
 })

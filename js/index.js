@@ -185,8 +185,7 @@ window.addEventListener("load", function() {
                     <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
                     `
                     document.querySelector(".reprod").style.display = "block";
-
-                    console.log(this.dataset.albumid)
+                    document.querySelector('footer').style.paddingBottom = "85px"
                 })
 
             })
@@ -301,8 +300,7 @@ window.addEventListener("load", function() {
                     <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=playlist&id=` + this.dataset.playlistid + `&app_id=1" width="700" height="350"></iframe>
                     `
                     document.querySelector(".reprod").style.display = "block";
-
-                    console.log(this.dataset.playlistid)
+                    document.querySelector('footer').style.paddingBottom = "85px";
                 })
 
             })

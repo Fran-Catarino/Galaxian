@@ -225,7 +225,6 @@ a.aNomb{
 	main{
 		width: 78%;
 		margin-left: 22%;
-		padding-bottom: 85px;
 	}
 	.banner{
 		background-image: url(../media/Fondos/banner-bigscreen.jpg);
@@ -243,7 +242,7 @@ a.aNomb{
 	}
 
 	.section-title{
-		padding-top: 20px;
+		padding-top: 77px;
 	}
 
 	.fa-play-circle {
