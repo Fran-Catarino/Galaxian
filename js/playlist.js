@@ -33,7 +33,12 @@ window.addEventListener("load", function() {
             let cantidadDeCanciones = informacion.nb_tracks
             document.querySelector('.ndc').innerHTML = cantidadDeCanciones + ' canciones';
 
-            let duracion = informacion.duration
+            let segundos = informacion.duration
+            let duracion = segundos/60
+            duracion = Math.floor(duracion)
+
+                    
+                                
             document.querySelector('.minutos').innerHTML = duracion + ' minutos' ;
 
             let seguidores = informacion.fans
@@ -129,9 +134,24 @@ window.addEventListener("load", function() {
                 document.querySelector(".canciones").innerHTML += songItem
 
             }
+            let cadaCancion = document.querySelectorAll('.cancion')
+
+            cadaCancion.forEach(function (cancion) {
+
+                cancion.addEventListener('mouseover', function() {
+                    this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
+                })
+
+                cancion.addEventListener('mouseout', function () {
+                    this.syle.backgroundColor = "rgb(12, 8, 7)" ;
+                    
+                })
+                
+            })
 
             
         }
+        
     )
-
+ 
 })
