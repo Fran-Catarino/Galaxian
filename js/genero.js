@@ -12,6 +12,7 @@ window.addEventListener("load", function() {
     let queryString = location.search;
     let datos = new URLSearchParams(queryString);
     let idGenero = datos.get('generoID');
+    console.log(idGenero)
 
     let proxy = 'https://cors-anywhere.herokuapp.com/';
     let url = proxy + "https://api.deezer.com/genre/" + idGenero + "/artists"
@@ -85,17 +86,16 @@ window.addEventListener("load", function() {
 
             for (let i = 1; i < arrayGeneros.length; i++) {
                 
-                let generoid = arrayGeneros[i].id
+                let generoId = arrayGeneros[i].id.toString()
+                console.log(generoId);
                 let titulo = arrayGeneros[i].name
 
                 console.log(idGenero);
-                document.querySelector('.titule').innerHTML = titulo
                 
-
-                if(generoid == idGenero){
-
-                    document.querySelector('.titule').innerHTML = titulo
-
+                if(generoId == idGenero){
+                    console.log('funca')
+                    document.querySelector('.titule').innerHTML = titulo;
+                    document.querySelector('title').innerHTML += titulo;
                 }
             }
         }
