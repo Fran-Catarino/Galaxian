@@ -35,7 +35,10 @@ window.addEventListener("load", function() {
             let cantidadDeCanciones = informacion.nb_tracks
             document.querySelector('.ndc').innerHTML = cantidadDeCanciones + ' canciones';
 
-            let duracion = informacion.duration
+            let segundos = informacion.duration
+            let duracion = segundos/60
+            duracion = Math.floor(duracion)
+            
             document.querySelector('.minutos').innerHTML = duracion + ' minutos' ;
 
             let fecha = informacion.release_date
@@ -69,20 +72,20 @@ window.addEventListener("load", function() {
 
                     if (songArtist != songArtist.toUpperCase()){
                         console.log("es minis");
-                        songArtist = truncateString(songArtist, 21, 20);
+                        songArtist = truncateString(songArtist, 15, 14);
                     } else if (songArtist == songArtist.toUpperCase()) {
                         console.log("es mayus")
-                        songArtist = truncateString(songArtist, 20,19);
+                        songArtist = truncateString(songArtist, 14,13);
                     }
 
                 }else if (window.matchMedia("(min-width: 1024px)").matches) {
 
                     if (songArtist != songArtist.toUpperCase()){
                     console.log("es minis");
-                    songArtist = truncateString(songArtist, 12, 11);
+                    songArtist = truncateString(songArtist, 10, 9);
                     } else if (songArtist == songArtist.toUpperCase()) {
                     console.log("es mayus")
-                    songArtist = truncateString(songArtist, 11, 10);}
+                    songArtist = truncateString(songArtist, 10, 9);}
                 
                     }else if (window.matchMedia("(min-width: 375px)").matches) {
 
@@ -110,8 +113,22 @@ window.addEventListener("load", function() {
                 
                 
             }
-            
+            let cadaCancion = document.querySelectorAll('.cancion')
+
+            cadaCancion.forEach(function (cancion) {
+
+                cancion.addEventListener('mouseover', function() {
+                    this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
+                })
+
+                cancion.addEventListener('mouseout', function() {
+                    this.style.backgroundColor = "rgb(12, 8, 7)" ;
+                    
+                })
+                
+            })  
         }
+        
     )
 
 })

@@ -208,9 +208,16 @@ p{
         display: block;
     }
 }
-@media only screen and (min-width: 1440px){
+@media only screen and (min-width: 1200px){
     .presentacion .imagen{
         display: block;
-        width: 73%;
+        width: 80%;
     }
 }
+@media only screen and (min-width: 1490px){
+    .presentacion .imagen{
+        display: block;
+        width: 70%;
+    }
+}
+
