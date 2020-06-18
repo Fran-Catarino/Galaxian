@@ -150,8 +150,8 @@ window.addEventListener('load', function() {
                 <li>
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
-                            <img src="` + pictureAlbum + `" alt="album N°` + (i+1) + `">
-                            <i class="fas fa-play-circle playCar" data-albumid=` + idAlbum + `"></i>
+                            <img src="` + pictureAlbum + `" alt="album N°` + i + `">
+                            <i class="fas fa-play-circle playCar" data-albumid=` + idAlbum + `></i>
                         </div>
                         <div class="uk-card-body">
                             <a href="album.html?albumID=` + idAlbum + `"><h3 class="uk-card-title">` + albumName + `</h3></a>
