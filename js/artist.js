@@ -33,19 +33,14 @@ window.addEventListener("load", function() {
 
             document.querySelector(".infoArtist img").src = res.picture_xl;
 
-            console.log(res.tracklist)
-
             document.querySelector('.play-artist').addEventListener('click', function() {
 
                 console.log("hola")
                 document.querySelector('.reprod-container').innerHTML = `
-                <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=radio&id=artist-` + artistId + `&app_id=1" width="700" height="350"></iframe>
+                <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=radio&id=artist-` + artistId + `&app_id=1" width="700" height="350"></iframe>
                 `
                 document.querySelector(".reprod").style.display = "block";
-            })
-
-            document.querySelector('.reprod-container').addEventListener('mouseover', function() {
-                document.querySelector(".reprod").style.display = "none";
+                document.querySelector('footer').style.paddingBottom = "85px";
             })
 
             fetch('https://cors-anywhere.herokuapp.com/' + res.tracklist)
@@ -151,6 +146,140 @@ window.addEventListener("load", function() {
                     }
                 }
             )
+        }
+    )
+
+    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' + artistId + '/albums')
+    .then(
+        function(response) {
+            return response.json();
+        }
+    )
+    .then(
+        function(informacion) {
+        
+            let arrayAlbums = informacion.data;
+
+            for (let i = 0; i < 12; i++) {
+                
+                let albumTitle = arrayAlbums[i].title;
+
+                let lanzamiento = arrayAlbums[i].release_date;
+
+                let albumPic = arrayAlbums[i].cover_xl;
+
+                let albumId = arrayAlbums[i].id;
+
+                let albumItem =`
+                <article class="album-item">
+                    <div class="photo-container">
+                        <img src="` + albumPic + `" alt="album N°` + i +`">
+                        <i class="fas fa-play-circle playAlbum" data-albumid=` + albumId + `></i>
+                    </div>
+                    <div class="info-album-body">
+                        <a href="album.html?albumID=` + albumId + `"><h3 class="nombAlbum">` + albumTitle + `</h3></a>
+                        <span>by</span>
+                        <a class="name" href="artist.html?artistID=` + artistId + `"></a>
+                        <p>Realesed on ` + lanzamiento + `</p>
+                    </div>
+                </article>
+                `
+
+                document.querySelector('.grillaAlbums').innerHTML += albumItem;
+                
+            }
+
+            let botonesPlay = document.querySelectorAll(".playAlbum");
+
+            botonesPlay.forEach(function(boton) {
+
+                boton.addEventListener("click", function(e){
+
+                    console.log(this.dataset)
+                    document.querySelector('.reprod-container').innerHTML = `
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
+                    `
+                    document.querySelector(".reprod").style.display = "block";
+                    document.querySelector('footer').style.paddingBottom = "85px";
+                })
+
+            })
+
+            fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' + artistId)
+            .then(
+                function(response) {
+                    return response.json();
+                }
+            )
+            .then(
+                function(informacion) {
+
+                    let nombreArtista = informacion.name;
+
+                    let name = document.querySelectorAll('.name');
+
+                    for (let i = 0; i < name.length; i++) {
+                        name[i].innerHTML = nombreArtista;
+                    }
+                }
+            )
+
+        }
+    )
+
+    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' + artistId + '/related')
+    .then(
+        function(response) {
+            return response.json();
+        }
+    )
+    .then(
+        function(info) {
+
+            let relatedArtists = info.data;
+
+            for (let i = 0; i < 5; i++) {
+
+                let artistName = relatedArtists[i].name;
+                let rId = relatedArtists[i].id;
+                let aristsImg = relatedArtists[i].picture_xl;
+                let artistFans = relatedArtists[i].nb_fan;
+
+                let reletedArt =`
+                <li class="artist-item">
+                    <div class="photo-container">
+                        <img class="img-artist" src="` + aristsImg + `" alt="artist N°` + i +`">
+                    </div>
+                    <div class="similar-artist-info">
+                        <a href="artist.html?artistID=` + rId + `"><h3>` + artistName + `</h3></a>
+                        <span>` + artistFans + `</span>
+                        <a href="">fans</a>
+                    </div>
+                    <div class="boton-follow-similar-artist">
+                        <i class="far fa-play-circle playAritst" data-artistid=` + rId + `></i>
+                    </div>
+                </li>
+                `
+                document.querySelector('.list-related').innerHTML += reletedArt;
+            }
+
+            let botonPlayArtist = document.querySelectorAll(".playAritst");
+
+            console.log(botonPlayArtist)
+
+            botonPlayArtist.forEach(function(boton) {
+
+                boton.addEventListener("click", function(e){
+
+                    document.querySelector('.reprod-container').innerHTML = `
+                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=radio&id=artist-` + this.dataset.artistid + `&app_id=1" width="700" height="350"></iframe>
+                    `
+                    document.querySelector(".reprod").style.display = "block";
+                    document.querySelector('footer').style.paddingBottom = "85px";
+                })
+
+            })
+            
         }
     )
 
