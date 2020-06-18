@@ -1,7 +1,11 @@
 body{
     background-color: black;
 }
-
+.container{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 75px;
+  }
 
 h1{
     font-family: "Oswald", sans-serif;
@@ -43,8 +47,10 @@ h2{
         font-size: 50px;
         margin-top: 40px;
     }
-
-
+    .container {
+        width: 76%;
+        margin-left: 23%;
+      }
     .contenido{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
