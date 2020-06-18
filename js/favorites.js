@@ -21,7 +21,7 @@ window.addEventListener("load", function() {
         // Paso 3: Recorremos el array de favoritos
         for (let i = 0; i < arrayTracks.length; i++) {
 
-            // Paso 4: Traigo de Giphy el detalle del gif
+            // Paso 4: Traigo de deezer la info de ese track
             fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/' + arrayTracks[i])
             .then(
                 function(respuesta) {
@@ -30,8 +30,6 @@ window.addEventListener("load", function() {
             )
             .then(
                 function(resultado) {
-
-                    // Acá es donde vamos a trabajar
 
                     let track = resultado;
                 
@@ -65,7 +63,7 @@ window.addEventListener("load", function() {
                         if (trackAlbum != trackAlbum.toUpperCase()){
                             console.log("es minis");
                             trackAlbum = truncateString(trackAlbum, 20, 19);
-                        } else if (trackAlbum == trackAlbum.toUpperCase()) {
+                        } else {
                             console.log("es mayus")
                             trackAlbum = truncateString(trackAlbum, 16, 15);
                         }                    
@@ -77,7 +75,7 @@ window.addEventListener("load", function() {
                         if (trackAlbum != trackAlbum.toUpperCase()){
                             console.log("es minis");
                             trackAlbum = truncateString(trackAlbum, 18, 17);
-                        } else if (trackAlbum == trackAlbum.toUpperCase()) {
+                        } else {
                             console.log("es mayus")
                             trackAlbum = truncateString(trackAlbum, 15, 14);
                         }   
@@ -85,7 +83,7 @@ window.addEventListener("load", function() {
                         if (trackTitle != trackTitle.toUpperCase()){
                             console.log("es minis");
                             trackTitle = truncateString(trackTitle, 23, 22);
-                        } else if (trackTitle == trackTitle.toUpperCase()) {
+                        } else {
                             console.log("es mayus")
                             trackTitle = truncateString(trackTitle, 20, 19);
                         } 
@@ -106,6 +104,7 @@ window.addEventListener("load", function() {
                         <li class="track-item">
                             <div class="img-container" data-trackid="` + trackId +`">
                                 <img class="track-img" src="` + trackImg + `" alt="track-image">
+                                <i class="fas fa-play-circle play" data-trackid="` + trackId +`"></i>
                             </div>
                             <i class="far fa-heart fav"></i>
                             <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
@@ -126,6 +125,7 @@ window.addEventListener("load", function() {
                         <li class="track-item">
                             <div class="img-container" data-trackid="` + trackId +`">
                                 <img class="track-img" src="` + trackImg + `" alt="track-image">
+                                <i class="fas fa-play-circle play" data-trackid="` + trackId +`"></i>
                             </div>
                             <i class="far fa-heart fav""></i>
                             <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
@@ -149,6 +149,7 @@ window.addEventListener("load", function() {
         }
 
     } else {    
-        alert("Ey! No hay favs!")
+        document.querySelector('.title').innerHTML = 'No tracks marked as favorite yet';
+        document.querySelector('.ul').style.display = 'none';
     }
 })
