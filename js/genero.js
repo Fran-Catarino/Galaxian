@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
 
     let queryString = location.search;
     let datos = new URLSearchParams(queryString);
-    let idGenero = datos.get('id');
+    let idGenero = datos.get('generoID');
 
     let proxy = 'https://cors-anywhere.herokuapp.com/';
     let url = proxy + "https://api.deezer.com/genre/" + idGenero + "/artists"
@@ -70,4 +70,10 @@ window.addEventListener("load", function() {
         }
  
     })
+    fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre')
+    .then(
+        function(response) {
+            return response.json();
+        }
+    )
 })
