@@ -20,7 +20,7 @@
 <body>
     <!-- HEADER INICIO -->
     <header class="header">
-        <a class="1" href="#charts"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
+        <a class="1" href="index.html"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
         <div class="buscador">
             <form action="search-results.html" method="GET">
                 <button type="submit" class="btn"><i class="fas fa-search"></i></button>
@@ -32,7 +32,7 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
             <ul class="navegacion">
-                <li><a class="home" href="#charts"></a></li>
+                <li><a class="home" href="index.html"></a></li>
                 <li><a class="account" href="micuenta.html"></a></li>
                 <li><a class="favo" href="favorites.html"></a></li>
                 <li class="genero"><a class="genre" href="genders.html"></a></li>
@@ -44,7 +44,7 @@
     <!-- nav pc -->
     <nav class="bigscreen">
         <ul class= "bigscreen">
-            <li class="titulo"><a href="#charts"><h4 class="titulo home"></h4></a></li>
+            <li class="titulo"><a href="index.html"><h4 class="titulo home"></h4></a></li>
             <li class="titulo"><a href="micuenta.html"><h4 class="titulo account"></h4></a></li>
             <li class="titulo"><a href="favorites.html"><h4 class="titulo favo"></h4></a></li>
             <li class="titulo"><a href="genders.html"><h4 class="titulo genre"></h4></a></li>
@@ -55,12 +55,10 @@
         
         <!-- slide de generos mas escuhados-->
 
-        <h1 class="generos">Los géneros que más escuchas</h1>
-
         <div class="slideshow-container">
             <div class="slides fade" style="display: block;">
                 <img src="../Galaxian/media/generos/electronica.gif">
-                <div class="text">Electronica</div>
+                <div id="elc" class="text"></div>
             </div>
             <div class="slides fade" style="display: none;">
                 <img src="../Galaxian/media/generos/rock.gif">
@@ -88,7 +86,7 @@
 
         <!-- todos los generos -->
         <div class="todos">
-            <h1 class="generos">Todos los géneros musicales</h1>
+            <h1 class="generos"></h1>
             <article class="todosLosGeneros">
                
                     

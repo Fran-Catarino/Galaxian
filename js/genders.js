@@ -12,6 +12,15 @@ window.addEventListener("load", function() {
         return str.slice(0, add) + '...'
     }
 
+    let idioma = sessionStorage.getItem("idioma");
+    if (idioma == 'EN') {
+        document.querySelector('.generos').innerHTML = 'All musical genres'
+        document.querySelector('#elc').innerHTML = 'Electronic'
+    } else {
+        document.querySelector('.generos').innerHTML = 'Todos los géneros musicales'
+        document.querySelector('#elc').innerHTML = 'Electrónica'
+    }
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre')
     .then(
         function(response) {
