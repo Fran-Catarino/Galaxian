@@ -142,12 +142,12 @@ window.addEventListener("load", function() {
                     this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
                 })
 
-                cancion.addEventListener('mouseout', function () {
-                    this.syle.backgroundColor = "rgb(12, 8, 7)" ;
+                cancion.addEventListener('mouseout', function() {
+                    this.style.backgroundColor = "rgb(12, 8, 7)" ;
                     
                 })
                 
-            })
+            }) 
 
             
         }

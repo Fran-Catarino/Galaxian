@@ -113,6 +113,7 @@ window.addEventListener("load", function() {
                 
                 
             }
+            
             let cadaCancion = document.querySelectorAll('.cancion')
 
             cadaCancion.forEach(function (cancion) {

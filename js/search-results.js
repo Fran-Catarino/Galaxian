@@ -328,6 +328,8 @@ window.addEventListener('load', function() {
 
                 }
 
+                // mouseover GASTON
+
                 let trackItems = document.querySelectorAll(".track-item");
                 
                 trackItems.forEach (function(cancion) {
@@ -459,6 +461,8 @@ window.addEventListener('load', function() {
                 
             }
     
+            // Más canciones
+
             let next = informacion.hasOwnProperty('next');
 
             let linkNext = informacion.next;
