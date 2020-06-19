@@ -86,12 +86,12 @@ body {
 
 .inicio-sesion {
 	position: absolute;
-	top: 80px;
+	top: 120px;
 	width: 60%;
 	left: 76px;
 	background-color: rgba(82, 82, 82, 0.548);
 	border-radius: 10px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 .inicio-sesion p{
@@ -106,20 +106,42 @@ body {
 	width: 80%;
 	margin-left: 20px;
     height: 15px;
-    font-size: 100%;
+	font-size: 100%;
+	color: ivory;
 	outline:none;
 	background: transparent;
-	border-bottom: 1px solid ivory;
+	border-bottom: 1px solid gray;
+	margin-top: 10px;
+	text-align: center;
 }
 
-::placeholder {
-	color: gray;
+.barra ::placeholder {
+	color: #2f9bc1;
 }
 
 .inicio-sesion p.label {
-	color: black;
+	color: gray;
 	text-align: center;
 }
+
+form div {
+	width: fit-content;
+	margin: 10px auto;
+	margin-bottom: 0;
+}
+
+form {
+	position: relative;
+}
+
+form div label {
+	color: #2f9bc1;
+}
+button {
+	margin: 0 auto;
+	color: #2f9bc1;
+}
+
 a.music {
 	text-decoration: none;
 }
@@ -290,6 +312,12 @@ a.aNomb{
 		width: 96%;
 	}
 
+	.inicio-sesion {
+		top: 156px;
+		width: 36%;
+		left: 325px;
+	}
+
 }
 
 @media (min-width: 1440px){
@@ -312,5 +340,11 @@ a.aNomb{
 	}
 	.artist-body-card span{
 		margin-left: 52px;
+	}
+
+	.inicio-sesion {
+		top: 190px;
+		width: 27%;
+		left: 540px;
 	}
 }

@@ -9,10 +9,10 @@ window.addEventListener("load", function() {
         function noScroll() {
             window.scrollTo(0, 0);
         }
-    
+        
         // add listener to disable scroll
         window.addEventListener('scroll', noScroll);
-    
+        /*
         document.querySelectorAll(".music").forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -25,7 +25,7 @@ window.addEventListener("load", function() {
                 window.removeEventListener('scroll', noScroll);
             });
         });
-        
+        */
         let bannerHeight = document.querySelector(".banner").scrollHeight;
         
         window.addEventListener('scroll', function() {
@@ -37,7 +37,7 @@ window.addEventListener("load", function() {
 
     }
 
-    let botonSubmit = document.querySelector('.music');
+    let botonSubmit = document.querySelector('.submit');
     
     console.log(botonSubmit);
     
@@ -46,10 +46,14 @@ window.addEventListener("load", function() {
         let queryString = new URLSearchParams(window.location.search)
 
         let user = queryString.get("user");
-        console.log(user)
+        let idioma = document.querySelector('input[name="idioma"]:checked').value;
+    
         sessionStorage.setItem("user-name", user);
+        sessionStorage.setItem("idioma", idioma)
     })
 
+    let idi = sessionStorage.getItem("idioma");
+    console.log(idi)
     fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
     .then(
         function(response) {
