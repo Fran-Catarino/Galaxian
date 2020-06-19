@@ -1,24 +1,53 @@
 window.addEventListener("load", function() { 
 
-    function noScroll() {
-        window.scrollTo(0, 0);
-    }
-      
-    // add listener to disable scroll
-    window.addEventListener('scroll', noScroll);
+    let iniciado = sessionStorage.getItem("user-name");
+    console.log(iniciado)
+    if ( iniciado != 'null') {
+        document.querySelector('.banner').style.display = 'none';
+    } else {
 
-    document.querySelectorAll(".music").forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+        function noScroll() {
+            window.scrollTo(0, 0);
+        }
     
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        // add listener to disable scroll
+        window.addEventListener('scroll', noScroll);
+    
+        document.querySelectorAll(".music").forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+        
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+    
+                // Remove listener to re-enable scroll
+                window.removeEventListener('scroll', noScroll);
             });
-
-            // Remove listener to re-enable scroll
-            window.removeEventListener('scroll', noScroll);
         });
-    }); 
+        
+    }
+    let bannerHeight = document.querySelector(".banner").scrollHeight;
+        
+    window.addEventListener('scroll', function() {
+        if (document.body.scrollTop > bannerHeight || document.documentElement.scrollTop > bannerHeight) {
+            //borrar banner
+            document.querySelector('.banner').style.display = 'none';
+        }
+    })
+
+    let botonSubmit = document.querySelector('.music');
+    
+    console.log(botonSubmit);
+    
+    botonSubmit.addEventListener('click', function() {
+    
+        let queryString = new URLSearchParams(window.location.search)
+
+        let user = queryString.get("user");
+        console.log(user)
+        sessionStorage.setItem("user-name", user);
+    })
 
     fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
     .then(
