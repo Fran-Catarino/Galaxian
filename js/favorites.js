@@ -223,7 +223,12 @@ window.addEventListener("load", function() {
         }
 
     } else {    
-        document.querySelector('.title').innerHTML = 'No tracks marked as favorite yet';
+        if (idioma == 'EN') {
+            document.querySelector('.title').innerHTML = 'No tracks marked as favorite yet';
+        } else {
+            document.querySelector('.title').innerHTML = 'No hay canciones marcadas como favoritas todavía';
+        }
+        
         document.querySelector('.ul').style.display = 'none';
     }
 })

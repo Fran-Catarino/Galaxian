@@ -29,6 +29,9 @@ window.addEventListener("load", function() {
             let artistName = informacion.artist.name
             document.querySelector('.Cantante').innerHTML = artistName;
 
+            let artistId = informacion.artist.id;
+            document.querySelector('#art').href = `artist.html?artistID=` + artistId;
+
             let albumPicture = informacion.cover_xl;
             document.querySelector('.imagen').src = albumPicture;
 

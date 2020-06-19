@@ -35,7 +35,7 @@ a{
 
 .favoritas {
     display: block;
-    font-size: 30px;
+    font-size: 23px;
     text-align: center;
     color: white;
     padding: 5px;
@@ -114,6 +114,9 @@ p{
         margin: 0px;
     }
 
+    .favoritas {
+        font-size: 30px;
+    }
     .presentacion{
         display: grid;
         grid-template-columns: 35% 65%;
@@ -206,6 +209,10 @@ p{
 
     .album{
         display: block;
+    }
+    
+    a h3 {
+        color: #2f9bc1;
     }
 }
 @media only screen and (min-width: 1200px){
