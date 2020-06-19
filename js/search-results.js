@@ -372,7 +372,7 @@ window.addEventListener('load', function() {
                     if (sessionStorage.getItem("likeTracks") != null) {
                         //divido el array con comas
                         arrayFavorites = sessionStorage.getItem("likeTracks").split(",")
-                        //
+                        //si ya esta incluida aparece en rojo
                         if (arrayFavorites.includes("" + corazones[i].dataset.trackid) == true) {
                             corazones[i].style.color = 'red';
                             corazones[i].classList.add('enFav');
@@ -387,7 +387,7 @@ window.addEventListener('load', function() {
                         if (sessionStorage.getItem("likeTracks") != null) {
                             //divido el array con comas
                             arrayFavorites = sessionStorage.getItem("likeTracks").split(",")
-                            //
+                            //si no esta incluida esta cancion en el array
                             if (arrayFavorites.includes("" + this.dataset.trackid) != true) {
                                 arrayFavorites.push(this.dataset.trackid)
                                 meGusta.style.color = 'red';
@@ -395,7 +395,7 @@ window.addEventListener('load', function() {
                             }
         
                         } else {
-                            //TENGO QUE CREAR UN ARRAY NUEVO CON EL CODIGO DEL GIF
+                            //creo el array y le agrego esa cancion
                             arrayFavorites = []
                             arrayFavorites.push(this.dataset.trackid)
                         }

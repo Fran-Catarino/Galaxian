@@ -1,7 +1,7 @@
 window.addEventListener("load", function() { 
 
     let iniciado = sessionStorage.getItem("user-name");
-    console.log(iniciado)
+    
     if ( iniciado != null) {
         document.querySelector('.banner').style.display = 'none';
     } else {
@@ -12,7 +12,8 @@ window.addEventListener("load", function() {
         
         // add listener to disable scroll
         window.addEventListener('scroll', noScroll);
-        
+
+        /* NO NECESARIO ahora que el boton submit lleva a charts directamente
         document.querySelectorAll(".music").forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -25,7 +26,9 @@ window.addEventListener("load", function() {
                 window.removeEventListener('scroll', noScroll);
             });
         });
-        
+        */
+
+        //idea obtenida de 'Stack Overflow'
         let bannerHeight = document.querySelector(".banner").scrollHeight;
         
         window.addEventListener('scroll', function() {
@@ -37,24 +40,24 @@ window.addEventListener("load", function() {
 
     }
 
-    let botonSubmit = document.querySelector('.music');
-    
-    console.log(botonSubmit);
+    let botonSubmit = document.querySelector('.submit');
         
     botonSubmit.addEventListener('click', function() {
-        
-        let queryString = new URLSearchParams(location.search)
-
-        let user = queryString.get("user");
-        sessionStorage.setItem("user-name", user);
-
+        //idea obtenida de 'Stack Overflow'
         let idioma = document.querySelector('input[name="idioma"]:checked').value;
         sessionStorage.setItem("idioma", idioma)
     })
+
+    let queryString = new URLSearchParams(location.search)
+
+    let user = queryString.get("user");
+    sessionStorage.setItem("user-name", user);
     
     console.log(sessionStorage.getItem("user-name"))
+
     let idi = sessionStorage.getItem("idioma");
     console.log(idi)
+
     fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
     .then(
         function(response) {
@@ -85,21 +88,6 @@ window.addEventListener("load", function() {
 
                 document.querySelector(".trackList").innerHTML += trackItem;
 
-                /* PREGUNTAR */
-
-                /*
-                document.querySelectorAll(".tNomb").forEach(item => {
-                    item.addEventListener('click', event => {
-
-                        event.preventDefault();
-            
-                        document.querySelector(".reprod").innerHTML = `
-                        <iframe scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + trackId + `&app_id=1" width="700" height="350"></iframe>
-                        `
-                    })
-                })
-
-                */
             }
 
             let albumList = information.albums.data;
@@ -180,33 +168,6 @@ window.addEventListener("load", function() {
 
                 document.querySelector(".albumList").innerHTML += albumItem;
 
-                /*
-                console.log(botonPlay)
-
-                botonPlay.addEventListener('click', function() {
-                    console.log("hola")
-                    document.querySelector('.reprod-container').innerHTML = `
-                    <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + albumId + `&app_id=1" width="700" height="350"></iframe>
-                    `
-                    document.querySelector(".reprod").style.display = "block";
-                })
-                
-
-                */
-                /*
-                for (let m = 0; m < botonesPlay.length; m++) {
-                
-                    console.log(this)
-                    this.addEventListener('click', function() {
-                        console.log("hola")
-                        document.querySelector('.reprod-container').innerHTML = `
-                        <iframe scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + albumId + `&app_id=1" width="700" height="350"></iframe>
-                        `
-                        document.querySelector(".reprod").style.display = "block";
-                    })
-                }
-
-               */
             }
 
             let botonesPlay = document.querySelectorAll(".play-album");
@@ -341,6 +302,5 @@ window.addEventListener("load", function() {
             })
         }
     )
-
-    
+  
 })
