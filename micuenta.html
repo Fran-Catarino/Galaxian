@@ -3,32 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxian</title>
-    <link rel="shortcut icon" href="media/icon/favicon-32x32.png">
-    <!-- Font & Icons -->
-    <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/css/uikit.min.css" />
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit-icons.min.js"></script>
-    <!-- Galaxian CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/micuenta.css">
     <link rel="stylesheet" href="css/fijo.css">
     <link rel="stylesheet" href="css/menuPC.css">
-    <!-- Galaxian JS -->
-    <script src="js/index.js"></script>
-    <script src="js/fijo.js"></script>
+    <script src="js/micuenta.js"></script>
+    <title>Document</title>
 </head>
-
 <body>
     <div class="container">
-        
         <!-- HEADER INICIO -->
         <header class="header">
-            <a class="1" href="#charts"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
+            <a class="1" href="index.html"><img src="media/icon/favicon-32x32.png" alt="Logo Galaxian" class="logo"></a>
             <div class="buscador">
                 <form action="search-results.html" method="GET">
                     <button type="submit" class="btn"><i class="fas fa-search"></i></button>
@@ -40,7 +25,7 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul class="navegacion">
-                    <li><a href="#charts">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="favorites.html">Favorites</a></li>
                     <li class="genero"><a href="genders.html">Géneros</a></li>
                     <li><a href="#">Mi cuenta</a></li>
@@ -48,38 +33,13 @@
             </nav>
         </header>
         <!-- HEADER FINAL -->
-
-        <!-- banner -->
-		<section class="banner">
-            <div class="inicio-sesion">
-                <p>WELCOME!</p>
-                <form action="index.html" method="GET">
-                    <p class="label">Please complete</p>
-                    <input type="text" name="user" class="barra" placeholder="Your name/Tu nombre">
-                    <p class="label">Language/Idioma</p>
-                    <div>
-                        <label for="idioma">EN</label>
-                        <input type="radio" name="idioma" value="EN">
-                        <label for="idioma">ES</label>
-                        <input type="radio" name="idioma" value="ES">
-                    </div>
-                    <div>
-                        <button type="submit" class="submit info">Continue</button>
-                    </div>
-                </form>
-            </div>
-            <div class="nombre">
-                <a href="#charts" class="music"><h1>GALAXIAN</h1></a>
-                <a href="#charts" class="music"><h2>music</h2></a>
-            </div>
-        </section>
-
-        <!-- nav pc -->
+ 
+        <!-- NAV PC INICIO -->
         <nav class="bigscreen">
             <ul class= "bigscreen">
-                <li class="titulo"><a href="#charts"><h4 class="titulo">Home</h4></a></li>
+                <li class="titulo"><a href="index.html"><h4 class="titulo">Home</h4></a></li>
                 <li class="titulo"><a href="micuenta.html"><h4 class="titulo">Mi cuenta</h4></a></li>
-                <li class="titulo"><a href="favorites.html"><h4 class="titulo">Favorites</h4></a></li>
+                <li class="titulo"><a href="playlist.html"><h4 class="titulo">Playlist</h4></a></li>
                 <li class="titulo"><a href="genders.html"><h4 class="titulo">Géneros</h4></a></li>
                 <li class="titulo">
                     </a><h4 class="titulo" id="desplegable">Cola de reproducción</h4>
@@ -198,99 +158,9 @@
                 </li>
             </ul>
         </nav>
-
-        <main>
-            <!-- distintos rankings -->
-            <section class="charts">
-
-                <!-- ranking de tracks -->
-                <h2 class="section-title" id="charts">Charts</h2>
-
-                <section class="ranking">
-                    <h2>Today's top tracks</h2>
-                    <div class="top-traks">
-                        <ol class="trackList">    
-                            
-                        </ol>
-                    </div>
-                </section>
-
-                <!-- ranking de albums -->
-
-                <section class="ranking">
-
-                    <h2>Most-streamed albums</h2>
-
-                    <div class="carrousel">
-                        <div uk-slider="center: true">
-
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                        
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid albumList">
-                        
-                                </ul>
-                        
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                            </div>
-                        
-                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-        
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ranking de artistas -->
-
-                <section class="ranking">
-                    <h2>Most-streamed artist</h2>
-
-                    <div class="carrousel artirstCar">
-                        <div uk-slider="center: true">
-
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                        
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid artistList">
-                                    
-                                </ul>
-                        
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                        
-                            </div>
-                        
-                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                        
-                        </div>
-                    </div>
-
-                </section>
-
-                <!-- ranking de generos -->
-                <section class="ranking">
-
-                    <h2>Most-streamed playlists</h2>
-                    <div class="carrousel">
-                        <div uk-slider="center: true">
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid playlistList">
-                                    
-                                </ul>
-                        
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                        
-                            </div>
-                        
-                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </main>
-
+        <!-- NAV PC FINAL -->
+        <h1 class="saludo">hola juan</h1>
         <!-- REPRODUCTOR INICIO -->
-        
         <article class="reprod">
 
             <div class="reprod-container">
@@ -336,4 +206,5 @@
         <!-- FOOTER FINAL -->
     </div>
 </body>
+
 </html>
