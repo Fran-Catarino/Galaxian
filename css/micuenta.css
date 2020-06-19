@@ -6,7 +6,7 @@ body{
 }
 @media only screen and (min-width: 1024px){
     .saludo{
-        font-size: 80px;
+        font-size: 30px;
         margin-top: 80px;
     }
     .container {
