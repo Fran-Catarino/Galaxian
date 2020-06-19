@@ -84,6 +84,42 @@ body {
 	margin-top: 0;
 }
 
+.inicio-sesion {
+	position: absolute;
+	top: 80px;
+	width: 60%;
+	left: 76px;
+	background-color: rgba(82, 82, 82, 0.548);
+	border-radius: 10px;
+	padding-bottom: 20px;
+}
+
+.inicio-sesion p{
+	color: ivory;
+	font-family: 'Spartan', sans-serif;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.barra {
+	border: none;
+	width: 80%;
+	margin-left: 20px;
+    height: 15px;
+    font-size: 100%;
+	outline:none;
+	background: transparent;
+	border-bottom: 1px solid ivory;
+}
+
+::placeholder {
+	color: gray;
+}
+
+.inicio-sesion p.label {
+	color: black;
+	text-align: center;
+}
 a.music {
 	text-decoration: none;
 }

@@ -82,7 +82,6 @@ window.addEventListener("load", function() {
             console.log(informacion); 
 
             let arrayGeneros = informacion.data
-            let idGenero = datos.get('generoID');
 
             for (let i = 1; i < arrayGeneros.length; i++) {
                 

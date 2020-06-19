@@ -8,6 +8,8 @@ window.addEventListener('load', function() {
     console.log(loBuscado)
     // result off..
     document.querySelector('.pri').innerHTML += "'" + loBuscado + "'"
+
+    document.querySelector('title').innerHTML += '"' + loBuscado + '"';
  
     function truncateString(str, num, add) {
         // If the length of str is less than or equal to num
@@ -19,6 +21,10 @@ window.addEventListener('load', function() {
         return str.slice(0, add) + '...'
     }
 
+    let user = sessionStorage.getItem("user-name");
+
+    document.querySelector('.usuario-mobile').innerHTML = 'Hi ' + user;
+    document.querySelector('.usuario-pc').innerHTML = 'Hi ' + user;
 
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=' + loBuscado)
     .then(
@@ -38,6 +44,7 @@ window.addEventListener('load', function() {
                 texto.innerHTML = "No results founded for artists";
                 texto.style.fontSixe = '26';
                 texto.style.color = 'gray'
+<<<<<<< HEAD
                 sessionStorage.setItem('resultadosArtistas', false);
             }
 
@@ -47,6 +54,9 @@ window.addEventListener('load', function() {
             //   document.querySelector('.title-artist').innerHTML = "No results founded for artists";
             //  sessionStorage.setItem('resultadosArtistas', false)
             //}
+=======
+            }
+>>>>>>> 9cdfa0bc81fabed60bf21fa26fb536e042c41632
 
             // y si hay...
             for (let i = 0; i < arrayArtist.length; i++) {
