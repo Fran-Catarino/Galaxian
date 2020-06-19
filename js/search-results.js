@@ -21,11 +21,6 @@ window.addEventListener('load', function() {
         return str.slice(0, add) + '...'
     }
 
-    let user = sessionStorage.getItem("user-name");
-
-    document.querySelector('.usuario-mobile').innerHTML = 'Hi ' + user;
-    document.querySelector('.usuario-pc').innerHTML = 'Hi ' + user;
-
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=' + loBuscado)
     .then(
         function(respuesta) {
