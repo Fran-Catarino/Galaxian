@@ -31,18 +31,54 @@ window.addEventListener("load", function() {
             document.querySelector('.creador').innerHTML = creator
 
             let cantidadDeCanciones = informacion.nb_tracks
-            document.querySelector('.ndc').innerHTML = cantidadDeCanciones + ' canciones';
 
             let segundos = informacion.duration
             let duracion = segundos/60
             duracion = Math.floor(duracion)
 
+            let seguidores = informacion.fans
+
+            let idioma = sessionStorage.getItem("idioma");
+
+            let nSeguidores;
+            if (idioma == 'EN') {
+                nSeguidores = seguidores + ' fans'
+            }else{
+                nSeguidores = seguidores + ' seguidores'
+            }
+            document.querySelector('.fans').innerHTML = nSeguidores
+            
+
+            let cantidad;
+            if (idioma == 'EN') {
+                cantidad = cantidadDeCanciones + ' songs';
+            }else{
+                cantidad = cantidadDeCanciones + ' canciones';
+            }
+            document.querySelector('.ndc').innerHTML = cantidad;
+
+            let tiempo;
+            if(idioma == 'EN'){
+                tiempo = duracion + ' minutes'
+            }else{
+                tiempo = duracion + ' minutos'
+            }
+            document.querySelector('.minutos').innerHTML = tiempo ;
+
+
+            let explicacion;
+            if(idioma == 'EN'){
+                explicacion = '<p class="title">Title</p><p class="tiempo"><i class="fab fa-algolia"></i></p><p class="artista">Artist</p><p class="info">Album</p>';
+            }else{
+                explicacion = '<p class="title">Titulo</p><p class="tiempo"><i class="fab fa-algolia"></i></p><p class="artista">Artista</p><p class="info">Album</p>';
+            }
+            document.querySelector('.explicacion').innerHTML = explicacion
+
                     
                                 
-            document.querySelector('.minutos').innerHTML = duracion + ' minutos' ;
 
-            let seguidores = informacion.fans
-            document.querySelector('.fans').innerHTML = seguidores + ' ' +'seguidores'
+            
+            
 
             let allSongs = informacion.tracks.data
             console.log(allSongs);

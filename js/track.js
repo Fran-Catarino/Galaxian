@@ -66,17 +66,44 @@ window.addEventListener("load", function() {
                 estado = true;
             }             
 
+            
+
+            let idioma = sessionStorage.getItem("idioma");
+
+            let fechaimp;
             let release = informacion.release_date;
             let year = release.slice(0, 4);
+            if (idioma == 'EN') {
+                fechaimp =  'Released: ' + release   
+            }else{
+                fechaimp = 'Lanzamiento: ' + release 
+            }
 
-            document.querySelector(".released h3").innerHTML = release;
+            document.querySelector(".released h3").innerHTML = fechaimp;
 
-            let infoTrack =
+            let infoTrack;
+
+            if (idioma == 'EN') {
+                 infoTrack =
             `
             <h1 class="title">` + titulo +`</h1>
             <h2 class="artistDk">by <a href="artist.html?artistID=` + artistId + `" class="artist-link">` + cantante + `</a></h2>
             <h2 class="details">by <a href="artist.html?artistID=` + artistId + `" class="artist-link2">` + cantante + `</a> • <span class="year">` + year + `</span></h2>
             `
+            }else { infoTrack =
+                `
+            <h1 class="title">` + titulo +`</h1>
+            <h2 class="artistDk">de <a href="artist.html?artistID=` + artistId + `" class="artist-link">` + cantante + `</a></h2>
+            <h2 class="details">by <a href="artist.html?artistID=` + artistId + `" class="artist-link2">` + cantante + `</a> • <span class="year">` + year + `</span></h2>
+            `
+            }
+            let explicacion;
+            if(idioma == 'EN'){
+                explicacion = '<p class="t">Title</p><p class="info">Album</p><p class="tiempo"><i class="fab fa-algolia"></i></p>'
+            }else{
+                explicacion = '<p class="t">Titulo</p><p class="info">Album</p><p class="tiempo"><i class="fab fa-algolia"></i></p>'
+            }
+            document.querySelector('.explicacion').innerHTML = explicacion
 
             document.querySelector(".track-info").innerHTML = infoTrack;
 
