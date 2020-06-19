@@ -55,8 +55,8 @@ window.addEventListener("load", function() {
     
     console.log(sessionStorage.getItem("user-name"))
 
-    let idi = sessionStorage.getItem("idioma");
-    console.log(idi)
+    let idioma = sessionStorage.getItem("idioma");
+    console.log(idioma)
 
     fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
     .then(
@@ -66,6 +66,12 @@ window.addEventListener("load", function() {
     )
     .then(
         function(information) {
+
+            if (idioma == 'EN') {
+                document.querySelector('#tracks-title').innerHTML = "Today's top tracks"
+            } else {
+                document.querySelector('#tracks-title').innerHTML = "Mejores canciones de hoy"
+            }
 
             let trackList = information.tracks.data;
 
@@ -79,15 +85,30 @@ window.addEventListener("load", function() {
 
                 let trackArtistId = trackList[i].artist.id;
 
-                let trackItem = `
-                <li class='track-item'>
-                    <a class='tNomb' href='track.html?trackID=` + trackId +`'>` + trackTitle + `</a>
-                    <span> by <a class='aNomb' href='artist.html?artistID=` + trackArtistId + `'>` + trackArtist + `</a></span>
-                </li>
-                `;
+                let trackItem;
 
+                if (idioma == 'EN') {
+                    trackItem = `
+                    <li class='track-item'>
+                        <a class='tNomb' href='track.html?trackID=` + trackId +`'>` + trackTitle + `</a>
+                        <span> by <a class='aNomb' href='artist.html?artistID=` + trackArtistId + `'>` + trackArtist + `</a></span>
+                    </li>`
+                } else {
+                    trackItem = `
+                    <li class='track-item'>
+                        <a class='tNomb' href='track.html?trackID=` + trackId +`'>` + trackTitle + `</a>
+                        <span> de <a class='aNomb' href='artist.html?artistID=` + trackArtistId + `'>` + trackArtist + `</a></span>
+                    </li>`
+                }
+                
                 document.querySelector(".trackList").innerHTML += trackItem;
 
+            }
+
+            if (idioma == 'EN') {
+                document.querySelector('#albums-title').innerHTML = "Most-streamed albums"
+            } else {
+                document.querySelector('#albums-title').innerHTML = "Álbumes más escuchados"
             }
 
             let albumList = information.albums.data;
@@ -151,7 +172,10 @@ window.addEventListener("load", function() {
                     albumTitle = truncateString(albumTitle, 25, 24);
                 }
 
-                let albumItem = `
+                let albumItem;
+
+                if (idioma == 'EN') {
+                    albumItem = `
                     <li>
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-media-top">
@@ -163,8 +187,22 @@ window.addEventListener("load", function() {
                                 <span>by </span><a href="artist.html?artistID=` + albumArtistId +`">` + albumArtist + `</a>
                             </div>
                         </div>
-                    </li>
-                `;
+                    </li>`;
+                } else {
+                    albumItem = `
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="` + albumCover + `" alt="album N°` + i + `">
+                                <i class="fas fa-play-circle play-album" data-albumid=` + albumId + `></i>
+                            </div>
+                            <div class="uk-card-body">
+                                <a href="album.html?albumID=` + albumId + `"><h3 class="uk-card-title">` + albumTitle + `</h3></a>
+                                <span>de </span><a href="artist.html?artistID=` + albumArtistId +`">` + albumArtist + `</a>
+                            </div>
+                        </div>
+                    </li>`;
+                }
 
                 document.querySelector(".albumList").innerHTML += albumItem;
 
@@ -186,6 +224,12 @@ window.addEventListener("load", function() {
 
             })
 
+            if (idioma == 'EN') {
+                document.querySelector('#artists-title').innerHTML = "Most-streamed artist"
+            } else {
+                document.querySelector('#artists-title').innerHTML = "Artistas más escuchados"
+            }
+
             let artistList = information.artists.data;
 
             for (let i = 0; i < artistList.length; i++) {
@@ -196,7 +240,7 @@ window.addEventListener("load", function() {
 
                 let artistPic = artistList[i].picture_xl;
             
-                let artistItem = `
+                let artistItem = `  
                 <li>
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
@@ -206,9 +250,8 @@ window.addEventListener("load", function() {
                             <a href="artist.html?artistID=` + artistId + `"><h3>` + artistName + `</h3></a>
                         </div>
                     </div>
-                </li>
-                `;
-
+                </li>`;
+ 
                 document.querySelector(".artistList").innerHTML += artistItem;
 
                 fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' + artistId)
@@ -224,14 +267,25 @@ window.addEventListener("load", function() {
 
                         // crea un nuevo span
                         var newSpan = document.createElement("p");
-                        // y añade contenido 
-                        var newContent = document.createTextNode(cantFans + ' fans'); 
+                        // y añade contenido
+                        var newContent;
+                        if (idioma == 'EN') {
+                            newContent = document.createTextNode(cantFans + ' fans');
+                        } else {
+                            newContent = document.createTextNode(cantFans + ' seguidores');
+                        } 
                         newSpan.appendChild(newContent); //añade texto al span creado. 
                         // añade el elemento creado y su contenido al DOM 
                         document.querySelectorAll(".artist-body-card")[i].appendChild(newSpan);
 
                     }
                 )
+            }
+
+            if (idioma == 'EN') {
+                document.querySelector('#playlists-title').innerHTML = "Most-streamed playlists"
+            } else {
+                document.querySelector('#playlists-title').innerHTML = "Listas más escuchadas"
             }
 
             let playlistArray = information.playlists.data;
@@ -266,20 +320,39 @@ window.addEventListener("load", function() {
 
                 }
 
-                let playlistItem = `
-                <li>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-media-top">
-                            <img src="` + playlistPic + `" alt="` + playlistName + `">
-                            <i class="fas fa-play-circle play-playlist" data-playlistid=` + playlistId + `></i>
-                        </div> 
-                        <div class="uk-card-body">
-                            <a href="playlist.html?playlistID=` + playlistId + `"><h3 class="uk-card-title">` + playlistName + `</h3></a>
-                            <span>` + playlistNumTracks + ` tracks</span>
+                let playlistItem;
+
+                if (idioma == 'EN') {
+                    playlistItem = `
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="` + playlistPic + `" alt="` + playlistName + `">
+                                <i class="fas fa-play-circle play-playlist" data-playlistid=` + playlistId + `></i>
+                            </div> 
+                            <div class="uk-card-body">
+                                <a href="playlist.html?playlistID=` + playlistId + `"><h3 class="uk-card-title">` + playlistName + `</h3></a>
+                                <span>` + playlistNumTracks + ` tracks</span>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                `;
+                    </li>
+                    `;
+                } else {
+                    playlistItem = `
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="` + playlistPic + `" alt="` + playlistName + `">
+                                <i class="fas fa-play-circle play-playlist" data-playlistid=` + playlistId + `></i>
+                            </div> 
+                            <div class="uk-card-body">
+                                <a href="playlist.html?playlistID=` + playlistId + `"><h3 class="uk-card-title">` + playlistName + `</h3></a>
+                                <span>` + playlistNumTracks + ` canciones</span>
+                            </div>
+                        </div>
+                    </li>
+                    `;
+                }
 
                 document.querySelector(".playlistList").innerHTML += playlistItem;
 

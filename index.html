@@ -32,7 +32,7 @@
             <div class="buscador">
                 <form action="search-results.html" method="GET">
                     <button type="submit" class="btn"><i class="fas fa-search"></i></button>
-                    <input class="searcher" type="text" placeholder="Search" name="searcher" id="">
+                    <input class="searcher" type="text" placeholder="" name="searcher" id="">
                 </form>
             </div>
             <nav class="main-nav">
@@ -40,14 +40,24 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul class="navegacion">
-                    <li><a href="#charts">Home</a></li>
-                    <li><a href="favorites.html">Favorites</a></li>
-                    <li class="genero"><a href="genders.html">Géneros</a></li>
-                    <li><a href="micuenta.html">Mi cuenta</a></li>
+                    <li><a class="home" href="#charts"></a></li>
+                    <li><a class="account" href="micuenta.html"></a></li>
+                    <li><a class="favo" href="favorites.html"></a></li>
+                    <li class="genero"><a class="genre" href="genders.html"></a></li>
                 </ul>
             </nav>
         </header>
         <!-- HEADER FINAL -->
+
+        <!-- nav pc -->
+        <nav class="bigscreen">
+            <ul class= "bigscreen">
+                <li class="titulo"><a href="#charts"><h4 class="titulo home"></h4></a></li>
+                <li class="titulo"><a href="micuenta.html"><h4 class="titulo account"></h4></a></li>
+                <li class="titulo"><a href="favorites.html"><h4 class="titulo favo"></h4></a></li>
+                <li class="titulo"><a href="genders.html"><h4 class="titulo genre"></h4></a></li>
+            </ul>
+        </nav>
 
         <!-- banner -->
 		<section class="banner">
@@ -55,7 +65,9 @@
                 <p>WELCOME!</p>
                 <form action="index.html" method="GET">
                     <p class="label">Please complete</p>
-                    <input type="text" name="user" class="barra" placeholder="Your name/Tu nombre">
+                    <div>
+                        <input type="text" name="user" class="barra" placeholder="Your name/Tu nombre">
+                    </div>
                     <p class="label">Language/Idioma</p>
                     <div>
                         <label for="idioma">EN</label>
@@ -74,131 +86,6 @@
             </div>
         </section>
 
-        <!-- nav pc -->
-        <nav class="bigscreen">
-            <ul class= "bigscreen">
-                <li class="titulo"><a href="#charts"><h4 class="titulo">Home</h4></a></li>
-                <li class="titulo"><a href="micuenta.html"><h4 class="titulo">Mi cuenta</h4></a></li>
-                <li class="titulo"><a href="favorites.html"><h4 class="titulo">Favorites</h4></a></li>
-                <li class="titulo"><a href="genders.html"><h4 class="titulo">Géneros</h4></a></li>
-                <li class="titulo">
-                    </a><h4 class="titulo" id="desplegable">Cola de reproducción</h4>
-                    <ol class="rep">
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                        <li class="rep">
-                            <p class="i"><i class="far fa-pause-circle"></i></p>
-                            <div class="repA">
-                                <a href="track.html" class="repCancion">Nombre Canción</a>
-                                <div class= "repB">
-                                    <a href="artist.html" id="repArtista">Artista</a>
-                                    <p class="rep">00:00</p>
-                                </div>
-                            </div>
-    
-                        </li>
-                    </ol>
-                </li>
-            </ul>
-        </nav>
-
         <main>
             <!-- distintos rankings -->
             <section class="charts">
@@ -207,7 +94,7 @@
                 <h2 class="section-title" id="charts">Charts</h2>
 
                 <section class="ranking">
-                    <h2>Today's top tracks</h2>
+                    <h2 id="tracks-title"></h2>
                     <div class="top-traks">
                         <ol class="trackList">    
                             
@@ -219,7 +106,7 @@
 
                 <section class="ranking">
 
-                    <h2>Most-streamed albums</h2>
+                    <h2 id="albums-title"></h2>
 
                     <div class="carrousel">
                         <div uk-slider="center: true">
@@ -243,7 +130,7 @@
                 <!-- ranking de artistas -->
 
                 <section class="ranking">
-                    <h2>Most-streamed artist</h2>
+                    <h2 id="artists-title"></h2>
 
                     <div class="carrousel artirstCar">
                         <div uk-slider="center: true">
@@ -269,7 +156,7 @@
                 <!-- ranking de generos -->
                 <section class="ranking">
 
-                    <h2>Most-streamed playlists</h2>
+                    <h2 id="playlists-title"></h2>
                     <div class="carrousel">
                         <div uk-slider="center: true">
                             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -313,7 +200,7 @@
                 </div>
             </div>
             <div class="derecha">
-                <h4>Developers</h6>
+                <h4 class="devs"></h6>
                     <ul class="nombres">
                         <li class="item-dev">
                             <h5>Gaston Loza M.</h5>
@@ -330,7 +217,7 @@
                             </div>
                         </li>
                     </ul>
-                    <h6>Colaboration by Francisco Catarino</h6>
+                    <h6 class="colab"></h6>
             </div>
         </footer>
         <!-- FOOTER FINAL -->
