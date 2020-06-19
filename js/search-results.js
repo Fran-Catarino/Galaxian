@@ -1,12 +1,12 @@
 window.addEventListener('load', function() {
 
-
+    // traigo la info de url para poder trabajarla
     let queryString = new URLSearchParams(location.search)
-
+    // searcher es el "name" lo que hace es usar la info buscada
     let loBuscado = queryString.get("searcher");
 
     console.log(loBuscado)
-
+    // result off..
     document.querySelector('.pri').innerHTML += "'" + loBuscado + "'"
  
     function truncateString(str, num, add) {
@@ -25,12 +25,12 @@ window.addEventListener('load', function() {
         function(respuesta) {
             return respuesta.json();            
         }
-    )
+    )//formato navegable
     .then(
         function (informacion) {
 
             let arrayArtist = informacion.data;
-
+            // si no hay resultados
             if (arrayArtist.length == 0) {
                 console.log('no hay artistas')
                 document.querySelector('.artirstCar').style.display = 'none';
@@ -41,13 +41,14 @@ window.addEventListener('load', function() {
                 sessionStorage.setItem('resultadosArtistas', false);
             }
 
-            if (arrayArtist.length == 0) {
-                alert('no')
-                document.querySelector('.artirstCar').style.display = 'none';
-                document.querySelector('.title-artist').innerHTML = "No results founded for artists";
-                sessionStorage.setItem('resultadosArtistas', false)
-            }
+            // if (arrayArtist.length == 0) {
+            //    alert('no')
+            //    document.querySelector('.artirstCar').style.display = 'none';
+            //   document.querySelector('.title-artist').innerHTML = "No results founded for artists";
+            //  sessionStorage.setItem('resultadosArtistas', false)
+            //}
 
+            // y si hay...
             for (let i = 0; i < arrayArtist.length; i++) {
 
                 let artistName = arrayArtist[i].name;
@@ -75,7 +76,7 @@ window.addEventListener('load', function() {
             }  
         }
     )
-
+    //ahora vamos con album
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/album?q=' + loBuscado)
     .then(
         function(respuesta) {
@@ -87,17 +88,17 @@ window.addEventListener('load', function() {
             console.log(informacion)
 
             let arrayAlbum = informacion.data;
-
+            // si no hay
             if (arrayAlbum.length == 0) {
                 console.log('no hay albums')
                 document.querySelector('.albumsCar').style.display = 'none';
                 let texto = document.querySelector('.title-albums')
-                texto.innerHTML = "No results founded for artists";
+                texto.innerHTML = "No results founded for albums";
                 texto.style.fontSixe = '26';
                 texto.style.color = 'gray'
                 sessionStorage.setItem('resultadosAlbums', false);
             }
-
+            // si hay
             for (let i = 0; i < arrayAlbum.length; i++) {
 
                 let albumName = arrayAlbum[i].title;
@@ -110,6 +111,7 @@ window.addEventListener('load', function() {
 
                 let pictureAlbum = arrayAlbum[i].cover_xl;
 
+                //cortar strings
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
                     //*ver si es minuscula o mayuscula
@@ -161,10 +163,11 @@ window.addEventListener('load', function() {
                     </div>
                 </li>
                 `
+                // porque esta arriva de document.query...
                 document.querySelector('.albumList').innerHTML += albumItem;
                 
             }
-
+            // boton de albumes
             let botonesPlay = document.querySelectorAll(".playCar");
 
             botonesPlay.forEach(function(boton) {
@@ -176,13 +179,13 @@ window.addEventListener('load', function() {
                     <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=album&id=` + this.dataset.albumid + `&app_id=1" width="700" height="350"></iframe>
                     `
                     document.querySelector(".reprod").style.display = "block";
-                    document.querySelector('footer').style.paddingBottom = "85px";x
+                    document.querySelector('footer').style.paddingBottom = "85px";
                 })
 
             })
         }
     )
-
+        // ahora por ultimo vamos con track
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=' + loBuscado)
     .then(
         function(respuesta) {
@@ -193,7 +196,7 @@ window.addEventListener('load', function() {
         function (informacion) {
 
             let numberTracks = informacion.total;
-
+            // cantidad de tracks
             document.querySelector(".number-tracks").innerHTML = numberTracks + " tracks";
 
             arrayTracks = informacion.data;
@@ -202,7 +205,7 @@ window.addEventListener('load', function() {
                 console.log('no hay tracks')
                 document.querySelector('.ul').style.display = 'none';
                 let texto = document.querySelector('.number-tracks')
-                texto.innerHTML = "No results founded for artists";
+                texto.innerHTML = "No results founded for tracks";
                 texto.style.fontSixe = '26';
                 texto.style.color = 'gray'
                 sessionStorage.setItem('resultadosTracks', false);
@@ -223,6 +226,8 @@ window.addEventListener('load', function() {
                 let trackAlbum = arrayTracks[i].album.title;
 
                 let albumId = arrayTracks[i].album.id;
+
+                //minutos:segundos
 
                 let duration = arrayTracks[i].duration;
 
@@ -275,7 +280,7 @@ window.addEventListener('load', function() {
                 }
 
                 let trackImg = arrayTracks[i].album.cover_big;
-
+                // letra explisita 
                 if (trackExplicit == true) {
                     
                     let trackItem =
@@ -345,7 +350,7 @@ window.addEventListener('load', function() {
                 })
 
                 let botonesPlay = document.querySelectorAll('.play');
-
+                // al igual que el album pero solo un track
                 botonesPlay.forEach (function(boton) {
                     boton.addEventListener('click', function() {
                         document.querySelector('.reprod-container').innerHTML = `
