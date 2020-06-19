@@ -2,7 +2,7 @@ window.addEventListener("load", function() {
 
     let iniciado = sessionStorage.getItem("user-name");
     console.log(iniciado)
-    if ( iniciado != 'null') {
+    if ( iniciado != null) {
         document.querySelector('.banner').style.display = 'none';
     } else {
 
@@ -26,15 +26,16 @@ window.addEventListener("load", function() {
             });
         });
         
-    }
-    let bannerHeight = document.querySelector(".banner").scrollHeight;
+        let bannerHeight = document.querySelector(".banner").scrollHeight;
         
-    window.addEventListener('scroll', function() {
-        if (document.body.scrollTop > bannerHeight || document.documentElement.scrollTop > bannerHeight) {
-            //borrar banner
-            document.querySelector('.banner').style.display = 'none';
-        }
-    })
+        window.addEventListener('scroll', function() {
+            if (document.body.scrollTop > bannerHeight || document.documentElement.scrollTop > bannerHeight) {
+                //borrar banner
+                document.querySelector('.banner').style.display = 'none';
+            }
+        })
+
+    }
 
     let botonSubmit = document.querySelector('.music');
     
