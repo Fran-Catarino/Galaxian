@@ -105,7 +105,7 @@ nav.bigscreen {
     }
 
     h4.titulo:hover {
-        color: rgb(47, 0, 255);
+        color: #2f9bc1;
         transition: color .2s;
     }
 

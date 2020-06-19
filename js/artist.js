@@ -14,6 +14,8 @@ window.addEventListener("load", function() {
         return str.slice(0, add) + '...'
     }
 
+    let idioma = sessionStorage.getItem("idioma");
+
     fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' + artistId)
     .then(
         function(response) {
@@ -29,7 +31,18 @@ window.addEventListener("load", function() {
 
             let artistId = res.id;
 
-            document.querySelector(".text-container p").innerHTML = res.nb_fan + " fans";
+            if (idioma == 'EN') {
+                document.querySelector(".text-container p").innerHTML = res.nb_fan + " fans";
+                document.querySelector('.play-artist').innerHTML = 'Artist Mix';
+                document.querySelector('.similar').innerHTML = 'Similar Artists';
+                document.querySelector('.albu').innerHTML = 'Albums';
+            } else {
+                document.querySelector(".text-container p").innerHTML = res.nb_fan + " seguidores";
+                document.querySelector('.play-artist').innerHTML = 'Mezcla Artista';
+                document.querySelector('.play-artist').style.fontSize = '13px'
+                document.querySelector('.similar').innerHTML = 'Artistas Similares';
+                document.querySelector('.albu').innerHTML = 'Álbumes';
+            }
 
             document.querySelector(".infoArtist img").src = res.picture_xl;
 
@@ -170,20 +183,39 @@ window.addEventListener("load", function() {
 
                 let albumId = arrayAlbums[i].id;
 
-                let albumItem =`
-                <article class="album-item">
-                    <div class="photo-container">
-                        <img src="` + albumPic + `" alt="album N°` + i +`">
-                        <i class="fas fa-play-circle playAlbum" data-albumid=` + albumId + `></i>
-                    </div>
-                    <div class="info-album-body">
-                        <a href="album.html?albumID=` + albumId + `"><h3 class="nombAlbum">` + albumTitle + `</h3></a>
-                        <span>by</span>
-                        <a class="name" href="artist.html?artistID=` + artistId + `"></a>
-                        <p>Realesed on ` + lanzamiento + `</p>
-                    </div>
-                </article>
-                `
+                let albumItem;
+
+                if (idioma == 'EN') {
+                    albumItem =`
+                    <article class="album-item">
+                        <div class="photo-container">
+                            <img src="` + albumPic + `" alt="album N°` + i +`">
+                            <i class="fas fa-play-circle playAlbum" data-albumid=` + albumId + `></i>
+                        </div>
+                        <div class="info-album-body">
+                            <a href="album.html?albumID=` + albumId + `"><h3 class="nombAlbum">` + albumTitle + `</h3></a>
+                            <span>by</span>
+                            <a class="name" href="artist.html?artistID=` + artistId + `"></a>
+                            <p>Realesed on ` + lanzamiento + `</p>
+                        </div>
+                    </article>
+                    `
+                } else {
+                    albumItem =`
+                    <article class="album-item">
+                        <div class="photo-container">
+                            <img src="` + albumPic + `" alt="album N°` + i +`">
+                            <i class="fas fa-play-circle playAlbum" data-albumid=` + albumId + `></i>
+                        </div>
+                        <div class="info-album-body">
+                            <a href="album.html?albumID=` + albumId + `"><h3 class="nombAlbum">` + albumTitle + `</h3></a>
+                            <span>de</span>
+                            <a class="name" href="artist.html?artistID=` + artistId + `"></a>
+                            <p>Lanzado el ` + lanzamiento + `</p>
+                        </div>
+                    </article>
+                    `
+                }
 
                 document.querySelector('.grillaAlbums').innerHTML += albumItem;
                 
@@ -245,21 +277,41 @@ window.addEventListener("load", function() {
                 let aristsImg = relatedArtists[i].picture_xl;
                 let artistFans = relatedArtists[i].nb_fan;
 
-                let reletedArt =`
-                <li class="artist-item">
-                    <div class="photo-container">
-                        <img class="img-artist" src="` + aristsImg + `" alt="artist N°` + i +`">
-                    </div>
-                    <div class="similar-artist-info">
-                        <a href="artist.html?artistID=` + rId + `"><h3>` + artistName + `</h3></a>
-                        <span>` + artistFans + `</span>
-                        <a href="">fans</a>
-                    </div>
-                    <div class="boton-follow-similar-artist">
-                        <i class="far fa-play-circle playAritst" data-artistid=` + rId + `></i>
-                    </div>
-                </li>
-                `
+                let reletedArt;
+                if (idioma == 'EN') {
+                    reletedArt =`
+                    <li class="artist-item">
+                        <div class="photo-container">
+                            <img class="img-artist" src="` + aristsImg + `" alt="artist N°` + i +`">
+                        </div>
+                        <div class="similar-artist-info">
+                            <a href="artist.html?artistID=` + rId + `"><h3>` + artistName + `</h3></a>
+                            <span>` + artistFans + `</span>
+                            <a href="">fans</a>
+                        </div>
+                        <div class="boton-follow-similar-artist">
+                            <i class="far fa-play-circle playAritst" data-artistid=` + rId + `></i>
+                        </div>
+                    </li>
+                    `
+                } else {
+                    reletedArt =`
+                    <li class="artist-item">
+                        <div class="photo-container">
+                            <img class="img-artist" src="` + aristsImg + `" alt="artist N°` + i +`">
+                        </div>
+                        <div class="similar-artist-info">
+                            <a href="artist.html?artistID=` + rId + `"><h3>` + artistName + `</h3></a>
+                            <span>` + artistFans + `</span>
+                            <a href="">seguidores</a>
+                        </div>
+                        <div class="boton-follow-similar-artist">
+                            <i class="far fa-play-circle playAritst" data-artistid=` + rId + `></i>
+                        </div>
+                    </li>
+                    `
+                }
+                
                 document.querySelector('.list-related').innerHTML += reletedArt;
             }
 

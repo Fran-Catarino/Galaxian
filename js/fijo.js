@@ -41,7 +41,7 @@ window.addEventListener('load', function() {
             texto.innerHTML = 'Mi cuenta'
         })
         fav.forEach(function(texto) {
-            texto.innerHTML = 'Favoritos'
+            texto.innerHTML = 'Favoritas'
         })
         genre.forEach(function(texto) {
             texto.innerHTML = 'Géneros'

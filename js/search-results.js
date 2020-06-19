@@ -5,11 +5,15 @@ window.addEventListener('load', function() {
     // searcher es el "name" lo que hace es usar la info buscada
     let loBuscado = queryString.get("searcher");
 
-    console.log(loBuscado)
-    // result off..
-    document.querySelector('.pri').innerHTML += "'" + loBuscado + "'"
-
     document.querySelector('title').innerHTML += '"' + loBuscado + '"';
+
+    let idioma = sessionStorage.getItem("idioma");
+
+    if (idioma == 'EN') {
+        document.querySelector('.pri').innerHTML = "Results of '" + loBuscado + "'";
+    } else {
+        document.querySelector('.pri').innerHTML = "Resultados de '" + loBuscado + "'";
+    }
  
     function truncateString(str, num, add) {
         // If the length of str is less than or equal to num
@@ -30,24 +34,26 @@ window.addEventListener('load', function() {
     .then(
         function (informacion) {
 
+            if (idioma == 'EN') {
+                document.querySelector('.title-artist').innerHTML = 'Artists';
+            } else {
+                document.querySelector('.title-artist').innerHTML = 'Artistas';
+            }
+
             let arrayArtist = informacion.data;
             // si no hay resultados
             if (arrayArtist.length == 0) {
                 console.log('no hay artistas')
                 document.querySelector('.artirstCar').style.display = 'none';
                 let texto = document.querySelector('.title-artist')
-                texto.innerHTML = "No results founded for artists";
-                texto.style.fontSixe = '26';
+                if (idioma == 'EN') {
+                    texto.innerHTML = "No results founded for artists";
+                } else {
+                    texto.innerHTML = "No se encontraron resultados para artistas";
+                }
+                texto.style.fontSize = '26';
                 texto.style.color = 'gray'
-                sessionStorage.setItem('resultadosArtistas', false);
             }
-
-            // if (arrayArtist.length == 0) {
-            //    alert('no')
-            //    document.querySelector('.artirstCar').style.display = 'none';
-            //   document.querySelector('.title-artist').innerHTML = "No results founded for artists";
-            //  sessionStorage.setItem('resultadosArtistas', false)
-            //}
 
             // y si hay...
             for (let i = 0; i < arrayArtist.length; i++) {
@@ -60,19 +66,38 @@ window.addEventListener('load', function() {
 
                 let nbFans = arrayArtist[i].nb_fan;
 
-                let artistItem =`
-                <li>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-media-top">
-                            <img class="img-artist" src="` + artistPic + `" alt="artist N°` + i + `">
+                let artistItem;
+
+                if (idioma == 'EN') {
+                    artistItem =`
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img class="img-artist" src="` + artistPic + `" alt="artist N°` + i + `">
+                            </div>
+                            <div class="uk-card-body artist-body-card">
+                                <a href="artist.html?artistID=` + idArtist + `"><h3>` + artistName + `</h3></a>
+                                <p>` + nbFans + ` fans</p>
+                            </div>
                         </div>
-                        <div class="uk-card-body artist-body-card">
-                            <a href="artist.html?artistID=` + idArtist + `"><h3>` + artistName + `</h3></a>
-                            <p>` + nbFans + ` fans</p>
+                    </li>
+                    `
+                } else {
+                    artistItem =`
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img class="img-artist" src="` + artistPic + `" alt="artist N°` + i + `">
+                            </div>
+                            <div class="uk-card-body artist-body-card">
+                                <a href="artist.html?artistID=` + idArtist + `"><h3>` + artistName + `</h3></a>
+                                <p>` + nbFans + ` seguidores</p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                `
+                    </li>
+                    `
+                }
+                
                 document.querySelector('.artistList').innerHTML += artistItem;
             }  
         }
@@ -86,7 +111,12 @@ window.addEventListener('load', function() {
     )
     .then(
         function(informacion) {
-            console.log(informacion)
+            
+            if (idioma == 'EN') {
+                document.querySelector('.title-albums').innerHTML = 'Albums';
+            } else {
+                document.querySelector('.title-albums').innerHTML = 'Álbumes';
+            }
 
             let arrayAlbum = informacion.data;
             // si no hay
@@ -94,10 +124,13 @@ window.addEventListener('load', function() {
                 console.log('no hay albums')
                 document.querySelector('.albumsCar').style.display = 'none';
                 let texto = document.querySelector('.title-albums')
-                texto.innerHTML = "No results founded for albums";
-                texto.style.fontSixe = '26';
+                if (idioma == 'EN') {
+                    texto.innerHTML = "No results founded for albums";
+                } else {
+                    texto.innerHTML = "No se encontraron resultados para álbunes";
+                }
+                texto.style.fontSize = '26';
                 texto.style.color = 'gray'
-                sessionStorage.setItem('resultadosAlbums', false);
             }
             // si hay
             for (let i = 0; i < arrayAlbum.length; i++) {
@@ -119,7 +152,7 @@ window.addEventListener('load', function() {
                     if (albumName != albumName.toUpperCase()){
                         //*minuscula
                         albumName = truncateString(albumName, 18, 17);
-                    } else if (albumName == albumName.toUpperCase()) {
+                    } else {
                         //*mayuscula
                         albumName = truncateString(albumName, 16, 15);
                     }                    
@@ -129,8 +162,8 @@ window.addEventListener('load', function() {
                     //*ver si es minuscula o mayuscula
                     if (albumName != albumName.toUpperCase()){
                         //*minuscula
-                        albumName = truncateString(albumName, 14, 11);
-                    } else if (albumName == albumName.toUpperCase()) {
+                        albumName = truncateString(albumName, 13, 10);
+                    } else {
                         //*mayuscula
                         albumName = truncateString(albumName, 11, 10);
                     } 
@@ -139,7 +172,7 @@ window.addEventListener('load', function() {
                     if (artistAlbum != artistAlbum.toUpperCase()){
                         //*minuscula
                         artistAlbum = truncateString(artistAlbum, 13, 11);
-                    } else if (artistAlbum == artistAlbum.toUpperCase()) {
+                    } else {
                         //*mayuscula
                         artistAlbum = truncateString(artistAlbum, 11, 10);
                     }
@@ -149,22 +182,42 @@ window.addEventListener('load', function() {
                     albumName = truncateString(albumName, 25, 24);
                 }
 
-                let albumItem =`
-                <li>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-media-top">
-                            <img src="` + pictureAlbum + `" alt="album N°` + i + `">
-                            <i class="fas fa-play-circle playCar" data-albumid=` + idAlbum + `></i>
+                let albumItem;
+
+                if (idioma == 'EN') {
+                    albumItem =`
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="` + pictureAlbum + `" alt="album N°` + i + `">
+                                <i class="fas fa-play-circle playCar" data-albumid=` + idAlbum + `></i>
+                            </div>
+                            <div class="uk-card-body">
+                                <a href="album.html?albumID=` + idAlbum + `"><h3 class="uk-card-title">` + albumName + `</h3></a>
+                                <span>by</span>
+                                <a href="artist.html?artistID=` + artistAlbumId + `">` + artistAlbum + `</a>
+                            </div>
                         </div>
-                        <div class="uk-card-body">
-                            <a href="album.html?albumID=` + idAlbum + `"><h3 class="uk-card-title">` + albumName + `</h3></a>
-                            <span>by</span>
-                            <a href="artist.html?artistID=` + artistAlbumId + `">` + artistAlbum + `</a>
+                    </li>
+                    `
+                } else {
+                    albumItem =`
+                    <li>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="` + pictureAlbum + `" alt="album N°` + i + `">
+                                <i class="fas fa-play-circle playCar" data-albumid=` + idAlbum + `></i>
+                            </div>
+                            <div class="uk-card-body">
+                                <a href="album.html?albumID=` + idAlbum + `"><h3 class="uk-card-title">` + albumName + `</h3></a>
+                                <span>de</span>
+                                <a href="artist.html?artistID=` + artistAlbumId + `">` + artistAlbum + `</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                `
-                // porque esta arriva de document.query...
+                    </li>
+                    `
+                }
+                
                 document.querySelector('.albumList').innerHTML += albumItem;
                 
             }
@@ -198,7 +251,17 @@ window.addEventListener('load', function() {
 
             let numberTracks = informacion.total;
             // cantidad de tracks
-            document.querySelector(".number-tracks").innerHTML = numberTracks + " tracks";
+            if (idioma == 'EN') {
+                document.querySelector(".number-tracks").innerHTML = numberTracks + " tracks";
+                document.querySelector('#track').innerHTML = 'TRACK';
+                document.querySelector('#artist').innerHTML = 'ARTIST';
+                document.querySelector('#album').innerHTML = 'ALBUM';
+            } else {
+                document.querySelector(".number-tracks").innerHTML = numberTracks + " canciones";
+                document.querySelector('#track').innerHTML = 'CANCIÓN';
+                document.querySelector('#artist').innerHTML = 'ARTISTA';
+                document.querySelector('#album').innerHTML = 'ALBUM';
+            }
 
             arrayTracks = informacion.data;
 
@@ -206,8 +269,12 @@ window.addEventListener('load', function() {
                 console.log('no hay tracks')
                 document.querySelector('.ul').style.display = 'none';
                 let texto = document.querySelector('.number-tracks')
-                texto.innerHTML = "No results founded for tracks";
-                texto.style.fontSixe = '26';
+                if (idioma == 'EN') {
+                    texto.innerHTML = "No results founded for tracks";
+                } else {
+                    texto.innerHTML = "No se encontraron resultados para canciones";
+                }
+                texto.style.fontSize = '26';
                 texto.style.color = 'gray'
                 sessionStorage.setItem('resultadosTracks', false);
             }
@@ -327,8 +394,6 @@ window.addEventListener('load', function() {
                     document.querySelector(".ul").innerHTML += trackItem;
 
                 }
-
-                // mouseover GASTON
 
                 let trackItems = document.querySelectorAll(".track-item");
                 
@@ -463,13 +528,18 @@ window.addEventListener('load', function() {
     
             // Más canciones
 
+
             let next = informacion.hasOwnProperty('next');
 
             let linkNext = informacion.next;
 
             if (next == true) {
 
-                document.querySelector('.botones').innerHTML += '<a class="more" href="">More</a>';
+                if (idioma == 'EN') {
+                    document.querySelector('.botones').innerHTML += '<a class="more" href="">More</a>';
+                } else {
+                    document.querySelector('.botones').innerHTML += '<a class="more" href="">Más</a>';
+                }
 
                 document.querySelector('.more').addEventListener('click', function(e) {
                     e.preventDefault();

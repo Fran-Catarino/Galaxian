@@ -9,10 +9,26 @@ window.addEventListener("load", function() {
         // Return str truncated with '...' concatenated to the end of str.
         return str.slice(0, add) + '...'
     }
+    
+    let userName = sessionStorage.getItem("user-name");
+    let user = userName.charAt(0).toUpperCase() + userName.slice(1)
+    let idioma = sessionStorage.getItem("idioma");
 
     // Paso 1: Chequeo si hay tracks favoritos
 
     if(sessionStorage.getItem("likeTracks") != null) {
+
+        if (idioma == 'EN') {
+            document.querySelector('.title').innerHTML = user + "'s favorite tracks";
+            document.querySelector('#track').innerHTML = 'TRACK';
+            document.querySelector('#artist').innerHTML = 'ARTIST';
+            document.querySelector('#album').innerHTML = 'ALBUM';
+        } else {
+            document.querySelector('.title').innerHTML = 'Las canciones favoritas de ' + user;
+            document.querySelector('#track').innerHTML = 'CANCIÓN';
+            document.querySelector('#artist').innerHTML = 'ARTISTA';
+            document.querySelector('#album').innerHTML = 'ALBUM';
+        }
 
         // Paso 2: Leemos los favoritos
 
@@ -106,7 +122,7 @@ window.addEventListener("load", function() {
                                 <img class="track-img" src="` + trackImg + `" alt="track-image">
                                 <i class="fas fa-play-circle play" data-trackid="` + trackId +`"></i>
                             </div>
-                            <i class="far fa-heart fav"></i>
+                            <i class="far fa-trash-alt" data-trackid="` + trackId +`"></i>
                             <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                             <div class="info-mobile">
                                 <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
@@ -127,7 +143,7 @@ window.addEventListener("load", function() {
                                 <img class="track-img" src="` + trackImg + `" alt="track-image">
                                 <i class="fas fa-play-circle play" data-trackid="` + trackId +`"></i>
                             </div>
-                            <i class="far fa-heart fav""></i>
+                            <i class="far fa-trash-alt" data-trackid="` + trackId +`"></i>
                             <a href="track.html?trackID=` + trackId + `" class="track-title">` + trackTitle + `</a>
                             <div class="info-mobile">
                                 <a href="track.html?trackID=` + trackId + `" class="track">` + trackTitle + `</a>
@@ -143,6 +159,64 @@ window.addEventListener("load", function() {
 
                     }
 
+                    let trackItems = document.querySelectorAll(".track-item");
+                
+                    trackItems.forEach (function(cancion) {
+
+                        cancion.addEventListener('mouseover', function() {
+                            this.style.backgroundColor = "rgba(53, 47, 68, 0.692)";
+                            //*children 0 = img
+                            this.children[0].children[0].style.display = "none";
+                            //*children 1 = play
+                            this.children[0].children[1].style.display = "block";
+                                                
+                        })
+                        cancion.addEventListener('mouseout', function() {
+                            this.style.backgroundColor = "";
+                            //*children 1 = play
+                            this.children[0].children[1].style.display = "none";
+                            //*children 0 = img
+                            this.children[0].children[0].style.display = "block";
+                        })
+    
+                    })
+
+                    let botonesPlay = document.querySelectorAll('.play');
+                    // al igual que el album pero solo un track
+                    botonesPlay.forEach (function(boton) {
+                        boton.addEventListener('click', function() {
+                            document.querySelector('.reprod-container').innerHTML = `
+                            <iframe class="reprod" scrolling="no" frameborder="0" allowTransparency="true" src="https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=700&height=350&color=2f9bc1&layout=dark&size=medium&type=tracks&id=` + this.dataset.trackid +`&app_id=1" width="700" height="350"></iframe>
+                            `
+                            document.querySelector(".reprod").style.display = "block";
+                            document.querySelector('footer').style.paddingBottom = "85px"
+                        })
+                    })
+
+                    let arrayFavorites = sessionStorage.getItem("likeTracks");
+                    arrayFavorites = sessionStorage.getItem("likeTracks").split(",")
+
+                    let basura = document.querySelectorAll('.fa-trash-alt');
+
+                    basura.forEach (function(borrar) {
+
+                        borrar.addEventListener('click', function(e) {
+                        
+                            e.preventDefault();
+        
+                            console.log(this.dataset.trackid)
+                            for (let i = 0; i < arrayFavorites.length; i++) {
+
+                                if(arrayFavorites[i] == this.dataset.trackid) {
+                                    arrayFavorites.splice(i, 1);
+                                }
+                            }
+        
+                            borrar.parentElement.style.display = 'none'
+                            console.log(arrayFavorites);
+                            sessionStorage.setItem("likeTracks", arrayFavorites);
+                        })
+                    })
                 }
             )
 

@@ -1,11 +1,12 @@
 window.addEventListener("load", function() { 
 
-    let iniciado = sessionStorage.getItem("user-name");
+    let queryString = new URLSearchParams(location.search);
     
-    if ( iniciado != null) {
-        document.querySelector('.banner').style.display = 'none';
-    } else {
+    console.log(sessionStorage.getItem("user-name"))
+    console.log(queryString.get("user"))
+    let user;
 
+    if ((queryString.get("user") == null) && ((sessionStorage.getItem("user-name") == null) || (sessionStorage.getItem("user-name") == 'null'))) {
         function noScroll() {
             window.scrollTo(0, 0);
         }
@@ -38,22 +39,32 @@ window.addEventListener("load", function() {
             }
         })
 
-    }
-
-    let botonSubmit = document.querySelector('.submit');
+        let formulario = document.querySelector('#inicio');
+        let campoNombre = document.querySelector('.barra');
+        let inputEs = document.querySelector('#Es');
+        let inputEn = document.querySelector('#En');
         
-    botonSubmit.addEventListener('click', function() {
-        //idea obtenida de 'Stack Overflow'
-        let idioma = document.querySelector('input[name="idioma"]:checked').value;
-        sessionStorage.setItem("idioma", idioma)
-    })
+        formulario.addEventListener('submit', function(e) {
+            if (campoNombre.value == '') {
+                e.preventDefault();
+                campoNombre.classList.add('error1')
+            } else if ((inputEs.checked == false) && (inputEn.checked == false)) {
+                e.preventDefault();
+                document.querySelector('.lang').style.color = 'red';
+            }
+            //idea obtenida de 'Stack Overflow'
+            let idioma = document.querySelector('input[name="idioma"]:checked').value;
+            sessionStorage.setItem("idioma", idioma)
+        })
 
-    let queryString = new URLSearchParams(location.search)
-
-    let user = queryString.get("user");
-    sessionStorage.setItem("user-name", user);
-    
-    console.log(sessionStorage.getItem("user-name"))
+    } else if ((sessionStorage.getItem("user-name") == null) || (sessionStorage.getItem("user-name") == 'null')){
+        document.querySelector('.banner').style.display = 'none';
+        user = queryString.get("user");
+        console.log(user)
+        sessionStorage.setItem("user-name", user);
+    } else {
+        document.querySelector('.banner').style.display = 'none';
+    } 
 
     let idioma = sessionStorage.getItem("idioma");
     console.log(idioma)
@@ -138,34 +149,24 @@ window.addEventListener("load", function() {
                 if (window.matchMedia("(min-width: 1440px)").matches) {
                     
                     if (albumTitle != albumTitle.toUpperCase()){
-                        console.log("es minis");
                         albumTitle = truncateString(albumTitle, 18, 17);
                     } else if (albumTitle == albumTitle.toUpperCase()) {
-                        console.log("es mayus")
                         albumTitle = truncateString(albumTitle, 16, 15);
                     }                    
-
-                    console.log(albumTitle);
 
                 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 
                     if (albumTitle != albumTitle.toUpperCase()){
-                        console.log("es minis");
                         albumTitle = truncateString(albumTitle, 14, 11);
                     } else if (albumTitle == albumTitle.toUpperCase()) {
-                        console.log("es mayus")
                         albumTitle = truncateString(albumTitle, 11, 10);
                     } 
 
                     if (albumArtist != albumArtist.toUpperCase()){
-                        console.log("es minis");
                         albumArtist = truncateString(albumArtist, 14, 12);
                     } else if (albumArtist == albumArtist.toUpperCase()) {
-                        console.log("es mayus")
                         albumArtist = truncateString(albumArtist, 11, 10);
                     } 
-
-                    console.log(albumTitle);
 
                 } else {
 
@@ -304,19 +305,13 @@ window.addEventListener("load", function() {
                     
                     playlistName = truncateString(playlistName, 19, 18);
 
-                    console.log(playlistName);
-
                 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 
                     playlistName = truncateString(playlistName, 11, 10);
 
-                    console.log(playlistName);
-
                 } else {
 
                     playlistName = truncateString(playlistName, 30, 29);
-
-                    console.log(playlistName);
 
                 }
 

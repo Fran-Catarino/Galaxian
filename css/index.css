@@ -115,8 +115,12 @@ body {
 	text-align: center;
 }
 
-.barra ::placeholder {
+.barra::placeholder {
 	color: #2f9bc1;
+}
+
+.error1::placeholder {
+	color: red;
 }
 
 .inicio-sesion p.label {
