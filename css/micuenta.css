@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+}
+.saludo{
+    color: cornflowerblue;
+}
+@media only screen and (min-width: 1024px){
+    .saludo{
+        font-size: 80px;
+        margin-top: 40px;
+    }
+    .container {
+        width: 76%;
+        margin-left: 23%;
+    }
+}
