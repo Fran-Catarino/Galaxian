@@ -109,7 +109,14 @@ p{
         margin-left: 21%;
         margin-top: 85px;
     }
-
+    .minutos{
+        font-size: 22px;
+        color: thistle;
+    }
+    .fecha{
+        font-size: 22px;
+        color: thistle;
+    }
     .Container{
         margin: 0px;
     }

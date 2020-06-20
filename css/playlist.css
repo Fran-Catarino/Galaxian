@@ -109,6 +109,14 @@ p{
         margin-left: 21%;
         margin-top: 67px;
     }
+    .minutos{
+        font-size: 22px;
+        color: thistle;
+    }
+    .fans{
+        color: thistle;
+        font-size: 17px;
+    }
     .container{
         margin: 0px;
     }
